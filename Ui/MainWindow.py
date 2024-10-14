@@ -384,10 +384,10 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jest mniejsza od d"
                         "\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (podstawieniowy):", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (Podstawieniowy):", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
         self.Vigener_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfrowanie transpozycyjne (Przestawieniowe):", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfr Kolumnowy (Przestawieniowy):", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))

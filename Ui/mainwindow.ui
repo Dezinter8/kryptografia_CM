@@ -644,7 +644,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </font>
              </property>
              <property name="text">
-              <string>Szyfr Vigenere'a (podstawieniowy):</string>
+              <string>Szyfr Vigenere'a (Podstawieniowy):</string>
              </property>
              <property name="textInteractionFlags">
               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
@@ -717,7 +717,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </font>
              </property>
              <property name="text">
-              <string>Szyfrowanie transpozycyjne (Przestawieniowe):</string>
+              <string>Szyfr Kolumnowy (Przestawieniowy):</string>
              </property>
             </widget>
            </item>
