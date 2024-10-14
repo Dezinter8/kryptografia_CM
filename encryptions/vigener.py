@@ -1,5 +1,6 @@
 class Vigener:
     def __init__(self):
+        # self.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"   # Definicja alfabetu
         self.alphabet = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ"   # Definicja polskiego alfabetu
         self.alphabet_lower = self.alphabet.lower()
         self.alphabet_length = len(self.alphabet)
@@ -28,7 +29,7 @@ class Vigener:
                 current_alphabet = self.alphabet if is_upper else self.alphabet_lower
 
                 # Wyliczenie indeksów
-                text_index = current_alphabet.index(znak)
+                text_index = current_alphabet.index(znak) + 1
                 key_index = self.alphabet_lower.index(klucz[klucz_index % len(klucz)].lower())
 
                 # Szyfrowanie
