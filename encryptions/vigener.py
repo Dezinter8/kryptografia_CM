@@ -24,7 +24,7 @@ class Vigener:
 
         for znak in tekst:
             if znak.lower() in self.alphabet_lower:
-                # Określenie alfabetu (duże/małe)
+                # Określenie alfabetu
                 is_upper = znak.isupper()
                 current_alphabet = self.alphabet if is_upper else self.alphabet_lower
 
@@ -49,7 +49,7 @@ class Vigener:
 
         for znak in zaszyfrowany_tekst:
             if znak.lower() in self.alphabet_lower:
-                # Określenie alfabetu (duże/małe)
+                # Określenie alfabetu
                 is_upper = znak.isupper()
                 current_alphabet = self.alphabet if is_upper else self.alphabet_lower
 
