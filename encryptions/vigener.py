@@ -55,7 +55,7 @@ class Vigener:
 
                 # Wyliczenie indeksów
                 text_index = current_alphabet.index(znak)
-                key_index = self.alphabet_lower.index(klucz[klucz_index % len(klucz)].lower())
+                key_index = self.alphabet_lower.index(klucz[klucz_index % len(klucz)].lower()) + 1
 
                 # Deszyfrowanie
                 odszyfrowany_znak = current_alphabet[(text_index - key_index) % self.alphabet_length]
