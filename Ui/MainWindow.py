@@ -161,13 +161,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.Vigener_button, 7, 0, 1, 3)
 
-        self.Vigener_output = QTextEdit(self.podstawieniowy_page)
-        self.Vigener_output.setObjectName(u"Vigener_output")
-        self.Vigener_output.setMaximumSize(QSize(16777215, 70))
-        self.Vigener_output.setReadOnly(True)
-
-        self.gridLayout_2.addWidget(self.Vigener_output, 8, 0, 1, 3)
-
         self.textEdit = QTextEdit(self.podstawieniowy_page)
         self.textEdit.setObjectName(u"textEdit")
         self.textEdit.setMinimumSize(QSize(0, 0))
@@ -209,13 +202,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_2.addWidget(self.Vigener_decode_button, 12, 0, 1, 3)
 
-        self.Vigener_decode_output = QTextEdit(self.podstawieniowy_page)
-        self.Vigener_decode_output.setObjectName(u"Vigener_decode_output")
-        self.Vigener_decode_output.setMaximumSize(QSize(16777215, 70))
-        self.Vigener_decode_output.setReadOnly(True)
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_output, 13, 0, 1, 3)
-
         self.Vigener_decode_input_text = QLineEdit(self.podstawieniowy_page)
         self.Vigener_decode_input_text.setObjectName(u"Vigener_decode_input_text")
 
@@ -225,6 +211,30 @@ class Ui_MainWindow(object):
         self.Vigener_decode_input_file.setObjectName(u"Vigener_decode_input_file")
 
         self.gridLayout_2.addWidget(self.Vigener_decode_input_file, 10, 2, 1, 1)
+
+        self.Vigener_decode_output = QTextEdit(self.podstawieniowy_page)
+        self.Vigener_decode_output.setObjectName(u"Vigener_decode_output")
+        self.Vigener_decode_output.setMaximumSize(QSize(16777215, 70))
+        self.Vigener_decode_output.setReadOnly(True)
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_output, 13, 0, 1, 2)
+
+        self.Vigener_decode_output_save = QPushButton(self.podstawieniowy_page)
+        self.Vigener_decode_output_save.setObjectName(u"Vigener_decode_output_save")
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_output_save, 13, 2, 1, 1)
+
+        self.Vigener_output = QTextEdit(self.podstawieniowy_page)
+        self.Vigener_output.setObjectName(u"Vigener_output")
+        self.Vigener_output.setMaximumSize(QSize(16777215, 70))
+        self.Vigener_output.setReadOnly(True)
+
+        self.gridLayout_2.addWidget(self.Vigener_output, 8, 0, 1, 2)
+
+        self.Vigener_output_save = QPushButton(self.podstawieniowy_page)
+        self.Vigener_output_save.setObjectName(u"Vigener_output_save")
+
+        self.gridLayout_2.addWidget(self.Vigener_output_save, 8, 2, 1, 1)
 
         self.stackedWidget.addWidget(self.podstawieniowy_page)
         self.transpozycyjny_page = QWidget()
@@ -288,20 +298,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.transposition_decode_button, 12, 0, 1, 3)
 
-        self.transposition_decode_output = QTextEdit(self.transpozycyjny_page)
-        self.transposition_decode_output.setObjectName(u"transposition_decode_output")
-        self.transposition_decode_output.setMaximumSize(QSize(16777215, 70))
-        self.transposition_decode_output.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.transposition_decode_output, 13, 0, 1, 3)
-
-        self.transposition_output = QTextEdit(self.transpozycyjny_page)
-        self.transposition_output.setObjectName(u"transposition_output")
-        self.transposition_output.setMaximumSize(QSize(16777215, 70))
-        self.transposition_output.setReadOnly(True)
-
-        self.gridLayout_3.addWidget(self.transposition_output, 7, 0, 1, 3)
-
         self.label_12 = QLabel(self.transpozycyjny_page)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setFont(font)
@@ -343,6 +339,30 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
 
         self.gridLayout_3.addWidget(self.label_2, 0, 0, 1, 3)
+
+        self.transposition_output = QTextEdit(self.transpozycyjny_page)
+        self.transposition_output.setObjectName(u"transposition_output")
+        self.transposition_output.setMaximumSize(QSize(16777215, 70))
+        self.transposition_output.setReadOnly(True)
+
+        self.gridLayout_3.addWidget(self.transposition_output, 7, 0, 1, 2)
+
+        self.transposition_output_save = QPushButton(self.transpozycyjny_page)
+        self.transposition_output_save.setObjectName(u"transposition_output_save")
+
+        self.gridLayout_3.addWidget(self.transposition_output_save, 7, 2, 1, 1)
+
+        self.transposition_decode_output = QTextEdit(self.transpozycyjny_page)
+        self.transposition_decode_output.setObjectName(u"transposition_decode_output")
+        self.transposition_decode_output.setMaximumSize(QSize(16777215, 70))
+        self.transposition_decode_output.setReadOnly(True)
+
+        self.gridLayout_3.addWidget(self.transposition_decode_output, 13, 0, 1, 2)
+
+        self.transposition_decode_output_save = QPushButton(self.transpozycyjny_page)
+        self.transposition_decode_output_save.setObjectName(u"transposition_decode_output_save")
+
+        self.gridLayout_3.addWidget(self.transposition_decode_output_save, 13, 2, 1, 1)
 
         self.stackedWidget.addWidget(self.transpozycyjny_page)
 
@@ -430,6 +450,8 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
         self.Vigener_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
         self.Vigener_decode_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
+        self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.Vigener_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
@@ -451,6 +473,8 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">W implementacji kolumnowej, tekst jest dzielony na kolumny na podstawie d\u0142ugo\u015bci klucza, a nast\u0119pnie litery s\u0105 odczytywane w okre\u015blonej kolejno\u015bci wynikaj\u0105cej z posortowanego klucza. W ten spos\u00f3b litery zmieniaj\u0105 swoje pozycje, ale ich warto\u015bci pozostaj\u0105 takie same, co tworzy zaszyfrowany tekst.</span></p></body></"
                         "html>", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfr Kolumnowy (Przestawieniowy):", None))
+        self.transposition_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.transposition_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.podstawieniowy_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podstawieniowy", None))
         self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))

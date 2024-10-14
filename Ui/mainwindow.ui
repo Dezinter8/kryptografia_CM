@@ -585,19 +585,6 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0" colspan="3">
-            <widget class="QTextEdit" name="Vigener_output">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0" colspan="3">
             <widget class="QTextEdit" name="textEdit">
              <property name="minimumSize">
@@ -683,7 +670,17 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </property>
             </widget>
            </item>
-           <item row="13" column="0" colspan="3">
+           <item row="10" column="1">
+            <widget class="QLineEdit" name="Vigener_decode_input_text"/>
+           </item>
+           <item row="10" column="2">
+            <widget class="QPushButton" name="Vigener_decode_input_file">
+             <property name="text">
+              <string>Załaduj Plik</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="0" colspan="2">
             <widget class="QTextEdit" name="Vigener_decode_output">
              <property name="maximumSize">
               <size>
@@ -696,13 +693,30 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </property>
             </widget>
            </item>
-           <item row="10" column="1">
-            <widget class="QLineEdit" name="Vigener_decode_input_text"/>
-           </item>
-           <item row="10" column="2">
-            <widget class="QPushButton" name="Vigener_decode_input_file">
+           <item row="13" column="2">
+            <widget class="QPushButton" name="Vigener_decode_output_save">
              <property name="text">
-              <string>Załaduj Plik</string>
+              <string>Zapisz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="2">
+            <widget class="QTextEdit" name="Vigener_output">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="QPushButton" name="Vigener_output_save">
+             <property name="text">
+              <string>Zapisz</string>
              </property>
             </widget>
            </item>
@@ -788,32 +802,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <widget class="QPushButton" name="transposition_decode_button">
              <property name="text">
               <string>Zdekoduj</string>
-             </property>
-            </widget>
-           </item>
-           <item row="13" column="0" colspan="3">
-            <widget class="QTextEdit" name="transposition_decode_output">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0" colspan="3">
-            <widget class="QTextEdit" name="transposition_output">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>70</height>
-              </size>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -908,6 +896,46 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </property>
              <property name="text">
               <string>Szyfr Kolumnowy (Przestawieniowy):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="2">
+            <widget class="QTextEdit" name="transposition_output">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QPushButton" name="transposition_output_save">
+             <property name="text">
+              <string>Zapisz</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="0" colspan="2">
+            <widget class="QTextEdit" name="transposition_decode_output">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="2">
+            <widget class="QPushButton" name="transposition_decode_output_save">
+             <property name="text">
+              <string>Zapisz</string>
              </property>
             </widget>
            </item>
