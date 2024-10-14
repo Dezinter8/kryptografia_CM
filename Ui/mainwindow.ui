@@ -1005,22 +1005,31 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>podstawieniowy_pushButton</tabstop>
   <tabstop>transpozycyjny_pushButton</tabstop>
   <tabstop>textEdit</tabstop>
+  <tabstop>Vigener_input_text</tabstop>
+  <tabstop>Vigener_input_file</tabstop>
   <tabstop>Vigener_input_key</tabstop>
   <tabstop>Vigener_button</tabstop>
   <tabstop>Vigener_output</tabstop>
+  <tabstop>Vigener_output_save</tabstop>
   <tabstop>Vigener_decode_input_text</tabstop>
+  <tabstop>Vigener_decode_input_file</tabstop>
   <tabstop>Vigener_decode_input_key</tabstop>
   <tabstop>Vigener_decode_button</tabstop>
   <tabstop>Vigener_decode_output</tabstop>
+  <tabstop>Vigener_decode_output_save</tabstop>
   <tabstop>textEdit_2</tabstop>
   <tabstop>transposition_input_text</tabstop>
+  <tabstop>transposition_input_file</tabstop>
   <tabstop>transposition_input_key</tabstop>
   <tabstop>transposition_button</tabstop>
   <tabstop>transposition_output</tabstop>
+  <tabstop>transposition_output_save</tabstop>
   <tabstop>transposition_decode_input_text</tabstop>
+  <tabstop>transposition_decode_input_file</tabstop>
   <tabstop>transposition_decode_input_key</tabstop>
   <tabstop>transposition_decode_button</tabstop>
   <tabstop>transposition_decode_output</tabstop>
+  <tabstop>transposition_decode_output_save</tabstop>
  </tabstops>
  <resources/>
  <connections/>
