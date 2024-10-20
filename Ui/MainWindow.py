@@ -365,6 +365,65 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.transposition_decode_output_save, 13, 2, 1, 1)
 
         self.stackedWidget.addWidget(self.transpozycyjny_page)
+        self.DES_page = QWidget()
+        self.DES_page.setObjectName(u"DES_page")
+        self.gridLayout_4 = QGridLayout(self.DES_page)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_17 = QLabel(self.DES_page)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout_4.addWidget(self.label_17, 2, 0, 1, 1)
+
+        self.des_ecb_button = QPushButton(self.DES_page)
+        self.des_ecb_button.setObjectName(u"des_ecb_button")
+
+        self.gridLayout_4.addWidget(self.des_ecb_button, 2, 1, 1, 1)
+
+        self.des_cbc_button = QPushButton(self.DES_page)
+        self.des_cbc_button.setObjectName(u"des_cbc_button")
+
+        self.gridLayout_4.addWidget(self.des_cbc_button, 2, 2, 1, 1)
+
+        self.des_ofb_button = QPushButton(self.DES_page)
+        self.des_ofb_button.setObjectName(u"des_ofb_button")
+
+        self.gridLayout_4.addWidget(self.des_ofb_button, 2, 3, 1, 1)
+
+        self.des_cfb_button = QPushButton(self.DES_page)
+        self.des_cfb_button.setObjectName(u"des_cfb_button")
+
+        self.gridLayout_4.addWidget(self.des_cfb_button, 2, 4, 1, 1)
+
+        self.label_16 = QLabel(self.DES_page)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setFont(font)
+
+        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 5)
+
+        self.textEdit_3 = QTextEdit(self.DES_page)
+        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.textEdit_3.setMaximumSize(QSize(16777215, 75))
+
+        self.gridLayout_4.addWidget(self.textEdit_3, 1, 0, 1, 5)
+
+        self.stackedWidget_2 = QStackedWidget(self.DES_page)
+        self.stackedWidget_2.setObjectName(u"stackedWidget_2")
+        self.des_ecb_page = QWidget()
+        self.des_ecb_page.setObjectName(u"des_ecb_page")
+        self.stackedWidget_2.addWidget(self.des_ecb_page)
+        self.des_cbc_page = QWidget()
+        self.des_cbc_page.setObjectName(u"des_cbc_page")
+        self.stackedWidget_2.addWidget(self.des_cbc_page)
+        self.des_ofb_page = QWidget()
+        self.des_ofb_page.setObjectName(u"des_ofb_page")
+        self.stackedWidget_2.addWidget(self.des_ofb_page)
+        self.des_cfb_page = QWidget()
+        self.des_cfb_page.setObjectName(u"des_cfb_page")
+        self.stackedWidget_2.addWidget(self.des_cfb_page)
+
+        self.gridLayout_4.addWidget(self.stackedWidget_2, 3, 0, 1, 5)
+
+        self.stackedWidget.addWidget(self.DES_page)
 
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
@@ -385,6 +444,16 @@ class Ui_MainWindow(object):
         self.transpozycyjny_pushButton.setObjectName(u"transpozycyjny_pushButton")
 
         self.verticalLayout.addWidget(self.transpozycyjny_pushButton)
+
+        self.des_pushButton = QPushButton(self.widget)
+        self.des_pushButton.setObjectName(u"des_pushButton")
+
+        self.verticalLayout.addWidget(self.des_pushButton)
+
+        self.aes_pushButton = QPushButton(self.widget)
+        self.aes_pushButton.setObjectName(u"aes_pushButton")
+
+        self.verticalLayout.addWidget(self.aes_pushButton)
 
         self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -430,7 +499,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -450,10 +519,10 @@ class Ui_MainWindow(object):
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Przyk\u0142ad szyfru polialfabetycznego, symetrycznego, podstawieniowego.</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jest mniejsza od d"
-                        "\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI';\">Przyk\u0142ad szyfru polialfabetycznego, symetrycznego, podstawieniowego.</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI';\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jes"
+                        "t mniejsza od d\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (Podstawieniowy):", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
@@ -478,14 +547,30 @@ class Ui_MainWindow(object):
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">W implementacji kolumnowej, tekst jest dzielony na kolumny na podstawie d\u0142ugo\u015bci klucza, a nast\u0119pnie litery s\u0105 odczytywane w okre\u015blonej kolejno\u015bci wynikaj\u0105cej z posortowanego klucza. W ten spos\u00f3b litery zmieniaj\u0105 swoje pozycje, ale ich warto\u015bci pozostaj\u0105 takie same, co tworzy zaszyfrowany tekst.</span></p></body></"
-                        "html>", None))
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI';\">W implementacji kolumnowej, tekst jest dzielony na kolumny na podstawie d\u0142ugo\u015bci klucza, a nast\u0119pnie litery s\u0105 odczytywane w okre\u015blonej kolejno\u015bci wynikaj\u0105cej z posortowanego klucza. W ten spos\u00f3b litery zmieniaj\u0105 swoje pozycje, ale ich warto\u015bci pozostaj\u0105 takie same, co tworzy zaszyfrowany tekst.</span></p></"
+                        "body></html>", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfr Kolumnowy (Przestawieniowy):", None))
         self.transposition_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.transposition_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy:", None))
+        self.des_ecb_button.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
+        self.des_cbc_button.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
+        self.des_ofb_button.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
+        self.des_cfb_button.setText(QCoreApplication.translate("MainWindow", u"CFB", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
+        self.textEdit_3.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Test</p></body></html>", None))
         self.podstawieniowy_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podstawieniowy", None))
         self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
+        self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
+        self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
     # retranslateUi
 

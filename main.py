@@ -13,7 +13,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.podstawieniowy_pushButton.clicked.connect(self.switch_to_vigener_page)
         self.transpozycyjny_pushButton.clicked.connect(self.switch_to_transposition_page)
-        
+        self.des_pushButton.clicked.connect(self.switch_to_des_page)
+
         self.Vigener_button.clicked.connect(self.handle_vigenere)
         self.Vigener_decode_button.clicked.connect(self.handle_vigenere_decode)
         self.transposition_button.clicked.connect(self.handle_transposition)
@@ -37,6 +38,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def switch_to_transposition_page(self):
         self.stackedWidget.setCurrentIndex(1)
+
+    def switch_to_des_page(self):
+        self.stackedWidget.setCurrentIndex(2)
 
     def handle_vigenere(self):
         text = self.Vigener_input_text.text()

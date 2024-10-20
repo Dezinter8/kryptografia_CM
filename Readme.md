@@ -1,33 +1,47 @@
-# Run
+This project contains cipher algorithms such as vigenere, des, aes
+
+# Running the project
+
+Linux:
 
 ```
-Linux:
 virtualenv venv
 
-Windows:
-python -m venv .\venv
-```
-
-```
-Linux:
 source /venv/bin/activate
 
-Windows:
-venv\Scripts\Activate.ps1
-```
-
-```
 pip install PySide6
+
+python .\main.py
 ```
 
+Windows:
+
 ```
+python -m venv .\venv
+
+venv\Scripts\Activate.ps1
+
+pip install PySide6
+
 python .\main.py
 ```
 
 # Building UI
 
-You need to run the following command to generate the ui.py file
+After changing ui file, you need to run the following command to generate the ui file
 
-`pyside6-uic .\Ui\mainwindow.ui -o .\Ui\MainWindow.py`
+Linux:
 
-`pyside6-rcc resources.qrc -o resources_rc.py`
+```
+pyside6-uic ./Ui/mainwindow.ui -o ./Ui/MainWindow.py
+
+pyside6-rcc ./Ui/resources.qrc -o ./Ui/resources_rc.py
+```
+
+Windows:
+
+```
+pyside6-uic .\Ui\mainwindow.ui -o .\Ui\MainWindow.py
+
+pyside6-rcc .\Ui\resources.qrc -o .\Ui\resources_rc.py
+```
