@@ -3,6 +3,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from Ui.MainWindow import Ui_MainWindow
 from encryptions.vigener import Vigener
 from encryptions.transposition import Transposition
+from encryptions.des import Des
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -10,10 +11,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.vigener = Vigener()
         self.transposition = Transposition()
+        self.des = Des(self)
 
-        self.podstawieniowy_pushButton.clicked.connect(self.switch_to_vigener_page)
-        self.transpozycyjny_pushButton.clicked.connect(self.switch_to_transposition_page)
-        self.des_pushButton.clicked.connect(self.switch_to_des_page)
+        self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
+        self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
+        self.des_pushButton.clicked.connect(lambda: self.switch_main_page(2))
+        self.aes_pushButton.clicked.connect(lambda: self.switch_main_page(3))
 
         self.Vigener_button.clicked.connect(self.handle_vigenere)
         self.Vigener_decode_button.clicked.connect(self.handle_vigenere_decode)
@@ -33,14 +36,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.transposition_decode_output_save.clicked.connect(lambda: self.save_file(self.transposition_decode_output))
 
 
-    def switch_to_vigener_page(self):
-        self.stackedWidget.setCurrentIndex(0)
+    def switch_main_page(self, index):
+        self.stackedWidget.setCurrentIndex(index)
 
-    def switch_to_transposition_page(self):
-        self.stackedWidget.setCurrentIndex(1)
-
-    def switch_to_des_page(self):
-        self.stackedWidget.setCurrentIndex(2)
 
     def handle_vigenere(self):
         text = self.Vigener_input_text.text()
