@@ -1,19 +1,47 @@
+from PySide6.QtWidgets import QMessageBox
+
 class Vigener:
-    def __init__(self):
+    def __init__(self, main_window):
+        self.main_window = main_window
+
         # self.alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"   # Definicja alfabetu
         self.alphabet = "AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ"   # Definicja polskiego alfabetu
         self.alphabet_lower = self.alphabet.lower()
         self.alphabet_length = len(self.alphabet)
 
-    def vigenere_cipher(self, tekst, klucz):
-        if not tekst or not klucz:
-            return "Proszę wprowadzić zarówno tekst, jak i klucz."
-        return self.encrypt(tekst, klucz)
 
-    def decode_vigenere(self, zaszyfrowany_tekst, klucz):
-        if not zaszyfrowany_tekst or not klucz:
-            return "Proszę wprowadzić zarówno zaszyfrowany tekst, jak i klucz."
-        return self.decrypt(zaszyfrowany_tekst, klucz)
+        self.main_window.Vigener_button.clicked.connect(self.vigenere_cipher)
+        self.main_window.Vigener_decode_button.clicked.connect(self.decode_vigenere)
+
+
+
+    def vigenere_cipher(self):
+        plaintext = self.main_window.Vigener_input_text.text()
+        key = self.main_window.Vigener_input_key.text()
+
+        if not plaintext or not key:
+            QMessageBox.warning(self.main_window, "Błąd", "Proszę wprowadzić zarówno tekst, jak i klucz.")
+            return
+        # Sprawdzenie, czy klucz zawiera tylko dozwolone znaki
+        if any(znak not in self.alphabet and znak not in self.alphabet_lower for znak in key):
+            QMessageBox.warning(self.main_window, "Błąd", "Klucz zawiera niedozwolone znaki. Proszę użyć tylko liter polskiego alfabetu.")
+            return
+
+        self.encrypt(plaintext, key)
+
+    def decode_vigenere(self):
+        ciphertext = self.main_window.Vigener_decode_input_text.text()
+        key = self.main_window.Vigener_decode_input_key.text()
+
+        if not ciphertext or not key:
+            QMessageBox.warning(self.main_window, "Błąd", "Proszę wprowadzić zarówno zaszyfrowany tekst, jak i klucz.")
+            return
+        # Sprawdzenie, czy klucz zawiera tylko dozwolone znaki
+        if any(znak not in self.alphabet and znak not in self.alphabet_lower for znak in key):
+            QMessageBox.warning(self.main_window, "Błąd", "Klucz zawiera niedozwolone znaki. Proszę użyć tylko liter polskiego alfabetu.")
+            return
+        
+        self.decrypt(ciphertext, key)
 
 
 
@@ -39,7 +67,8 @@ class Vigener:
             else:
                 zaszyfrowany_tekst += znak
 
-        return zaszyfrowany_tekst
+        self.main_window.Vigener_output.setPlainText(zaszyfrowany_tekst)
+    
 
 
     def decrypt(self, zaszyfrowany_tekst, klucz):
@@ -64,4 +93,4 @@ class Vigener:
             else:
                 odszyfrowany_tekst += znak
 
-        return odszyfrowany_tekst
+        self.main_window.Vigener_decode_output.setPlainText(odszyfrowany_tekst)

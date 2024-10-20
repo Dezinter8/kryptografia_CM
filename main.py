@@ -9,8 +9,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.vigener = Vigener()
-        self.transposition = Transposition()
+        self.vigener = Vigener(self)
+        self.transposition = Transposition(self)
         self.des = Des(self)
 
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
@@ -18,10 +18,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.des_pushButton.clicked.connect(lambda: self.switch_main_page(2))
         self.aes_pushButton.clicked.connect(lambda: self.switch_main_page(3))
 
-        self.Vigener_button.clicked.connect(self.handle_vigenere)
-        self.Vigener_decode_button.clicked.connect(self.handle_vigenere_decode)
-        self.transposition_button.clicked.connect(self.handle_transposition)
-        self.transposition_decode_button.clicked.connect(self.handle_transposition_decode)
 
         # Obsługa przycisków do ładowania plików
         self.Vigener_input_file.clicked.connect(lambda: self.load_file(self.Vigener_input_text))
@@ -40,29 +36,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentIndex(index)
 
 
-    def handle_vigenere(self):
-        text = self.Vigener_input_text.text()
-        key = self.Vigener_input_key.text()
-        encrypted_text = self.vigener.vigenere_cipher(text, key)
-        self.Vigener_output.setPlainText(encrypted_text)
 
-    def handle_vigenere_decode(self):
-        encrypted_text = self.Vigener_decode_input_text.text()
-        key = self.Vigener_decode_input_key.text()
-        decrypted_text = self.vigener.decode_vigenere(encrypted_text, key)
-        self.Vigener_decode_output.setPlainText(decrypted_text)
 
-    def handle_transposition(self):
-        input_text = self.transposition_input_text.text()
-        key = self.transposition_input_key.text()
-        encrypted_text = self.transposition.transposition_cipher(input_text, key)
-        self.transposition_output.setPlainText(encrypted_text)
-
-    def handle_transposition_decode(self):
-        encoded_text = self.transposition_decode_input_text.text()
-        key = self.transposition_decode_input_key.text()
-        decrypted_text = self.transposition.decode_transposition(encoded_text, key)
-        self.transposition_decode_output.setPlainText(decrypted_text)
 
 
 

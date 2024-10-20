@@ -9,7 +9,7 @@ virtualenv venv
 
 source /venv/bin/activate
 
-pip install PySide6
+pip install PySide6 pycryptodome
 
 python .\main.py
 ```
@@ -21,7 +21,7 @@ python -m venv .\venv
 
 venv\Scripts\Activate.ps1
 
-pip install PySide6
+pip install PySide6 pycryptodome
 
 python .\main.py
 ```

@@ -1,16 +1,51 @@
+from PySide6.QtWidgets import QMessageBox
+
 class Transposition:
-    def __init__(self):
-        pass
+    def __init__(self, main_window):
+        self.main_window = main_window
 
-    def transposition_cipher(self, plaintext, key):
+        self.main_window.transposition_button.clicked.connect(self.transposition_cipher)
+        self.main_window.transposition_decode_button.clicked.connect(self.decode_transposition)
+
+
+    def transposition_cipher(self):
+        plaintext = self.main_window.transposition_input_text.text()
+        key = self.main_window.transposition_input_key.text()
         if not plaintext or not key:
-            return "Proszę wprowadzić zarówno tekst, jak i klucz."
-        return self.encrypt(plaintext, key)
+            QMessageBox.warning(self.main_window, "Błąd", "Proszę wprowadzić zarówno tekst, jak i klucz.")
+            return
+        if not self.is_valid_key(key):
+            QMessageBox.warning(self.main_window, "Błąd", "Klucz musi składać się z cyfr od 1 do {}.".format(len(key)))
+            return
 
-    def decode_transposition(self, ciphertext, key):
+        self.encrypt(plaintext, key)
+
+    def decode_transposition(self):
+        ciphertext = self.main_window.transposition_decode_input_text.text()
+        key = self.main_window.transposition_decode_input_key.text()
+
         if not ciphertext or not key:
-            return "Proszę wprowadzić zarówno zaszyfrowany tekst, jak i klucz."
-        return self.decrypt(ciphertext, key)
+            QMessageBox.warning(self.main_window, "Błąd", "Proszę wprowadzić zarówno zaszyfrowany tekst, jak i klucz.")
+            return
+        if not self.is_valid_key(key):
+            QMessageBox.warning(self.main_window, "Błąd", "Klucz musi składać się z cyfr od 1 do {}.".format(len(key)))
+            return
+        self.decrypt(ciphertext, key)
+
+
+    def is_valid_key(self, key):
+        # Sprawdzenie, czy klucz składa się tylko z cyfr
+        if not key.isdigit():
+            return False
+        
+        key_digits = list(map(int, key))
+        n = len(key)
+
+        # Sprawdzenie, czy cyfry są w zakresie od 1 do n oraz czy są unikalne
+        return (all(1 <= digit <= n for digit in key_digits) and 
+                len(set(key_digits)) == len(key_digits))  # Unikalność cyfr
+
+
 
 
     def encrypt(self, plaintext, key):
@@ -40,7 +75,7 @@ class Transposition:
             for row in range(num_rows):
                 ciphertext += grid[row][col]
         
-        return ciphertext
+        self.main_window.transposition_output.setPlainText(ciphertext)
 
 
     def decrypt(self, ciphertext, key):
@@ -70,4 +105,4 @@ class Transposition:
                 if grid[r][c] != 'X':                   # Pomijamy znaki 'X' użyte jako dopełnienie
                     plaintext += grid[r][c]
         
-        return plaintext
+        self.main_window.transposition_decode_output.setPlainText(plaintext)
