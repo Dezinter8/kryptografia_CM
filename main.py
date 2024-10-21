@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from Ui.MainWindow import Ui_MainWindow
 from encryptions.vigener import Vigener
 from encryptions.transposition import Transposition
-from encryptions.des import Des, Des_ecb
+from encryptions.des import Des
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -13,7 +13,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.vigener = Vigener(self)
         self.transposition = Transposition(self)
         self.des = Des(self)
-        self.des_ecb = Des_ecb(self, self.des)
 
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
         self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
@@ -26,13 +25,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.Vigener_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Vigener_decode_input_text, 0))
         self.transposition_input_file.clicked.connect(lambda: self.load_file_content(1, self.transposition_input_text, 0))
         self.transposition_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.transposition_decode_input_text, 0))
-        self.Des_ecb_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_ecb_input_text, 0))
-        self.Des_ecb_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_ecb_decode_input_text, 0))
+        self.Des_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_input_text, 0))
+        self.Des_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_decode_input_text, 0))
+
+        self.Vigener_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Vigener_decode_file_path, self.vigener))
+        self.Des_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Des_decode_file_path, self.des))
 
         # Obsługa przyciskow do ladowania dowolnych pliow (base64)
         self.Vigener_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Vigener_file_path, self.vigener))
-        self.Des_ecb_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Des_ecb_file_path, self.des_ecb))
-
+        self.Des_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Des_file_path, self.des))
 
 
         # Obsługa przycisków do zapisywania zawartości do plików tekstowych
@@ -40,20 +41,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.Vigener_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Vigener_decode_output))
         self.transposition_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.transposition_output))
         self.transposition_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.transposition_decode_output))
-        self.Des_ecb_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_ecb_output))
-        self.Des_ecb_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_ecb_decode_output))
-
-        # Obsługa przyciskow do zapisywania jako dowolny plik (base64)
-        self.Vigener_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Vigener_decode_file_path, self.vigener))
-        self.Des_ecb_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Des_ecb_decode_file_path, self.des_ecb))
+        self.Des_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_output))
+        self.Des_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_decode_output))
 
 
 
     def switch_main_page(self, index):
         self.stackedWidget.setCurrentIndex(index)
-
-
-
 
 
 
