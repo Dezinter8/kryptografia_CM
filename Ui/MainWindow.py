@@ -106,6 +106,43 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.widget = QWidget(self.centralwidget)
+        self.widget.setObjectName(u"widget")
+        self.verticalLayout = QVBoxLayout(self.widget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.podstawieniowy_pushButton = QPushButton(self.widget)
+        self.podstawieniowy_pushButton.setObjectName(u"podstawieniowy_pushButton")
+
+        self.verticalLayout.addWidget(self.podstawieniowy_pushButton)
+
+        self.transpozycyjny_pushButton = QPushButton(self.widget)
+        self.transpozycyjny_pushButton.setObjectName(u"transpozycyjny_pushButton")
+
+        self.verticalLayout.addWidget(self.transpozycyjny_pushButton)
+
+        self.des_pushButton = QPushButton(self.widget)
+        self.des_pushButton.setObjectName(u"des_pushButton")
+
+        self.verticalLayout.addWidget(self.des_pushButton)
+
+        self.aes_pushButton = QPushButton(self.widget)
+        self.aes_pushButton.setObjectName(u"aes_pushButton")
+
+        self.verticalLayout.addWidget(self.aes_pushButton)
+
+        self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.label_15 = QLabel(self.widget)
+        self.label_15.setObjectName(u"label_15")
+
+        self.verticalLayout.addWidget(self.label_15)
+
+
+        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+
         self.widget_2 = QWidget(self.centralwidget)
         self.widget_2.setObjectName(u"widget_2")
         self.verticalLayout_2 = QVBoxLayout(self.widget_2)
@@ -115,46 +152,27 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.podstawieniowy_page = QWidget()
         self.podstawieniowy_page.setObjectName(u"podstawieniowy_page")
-        self.gridLayout_2 = QGridLayout(self.podstawieniowy_page)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.label_4 = QLabel(self.podstawieniowy_page)
-        self.label_4.setObjectName(u"label_4")
+        self.gridLayout_9 = QGridLayout(self.podstawieniowy_page)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.vigener_allfilesmode_button = QPushButton(self.podstawieniowy_page)
+        self.vigener_allfilesmode_button.setObjectName(u"vigener_allfilesmode_button")
 
-        self.gridLayout_2.addWidget(self.label_4, 6, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.vigener_allfilesmode_button, 2, 2, 1, 1)
 
-        self.label_3 = QLabel(self.podstawieniowy_page)
-        self.label_3.setObjectName(u"label_3")
+        self.vigener_textMode_button = QPushButton(self.podstawieniowy_page)
+        self.vigener_textMode_button.setObjectName(u"vigener_textMode_button")
 
-        self.gridLayout_2.addWidget(self.label_3, 3, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.vigener_textMode_button, 2, 1, 1, 1)
 
-        self.label_7 = QLabel(self.podstawieniowy_page)
-        self.label_7.setObjectName(u"label_7")
+        self.label_18 = QLabel(self.podstawieniowy_page)
+        self.label_18.setObjectName(u"label_18")
 
-        self.gridLayout_2.addWidget(self.label_7, 10, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.label_18, 2, 0, 1, 1)
 
-        self.label_8 = QLabel(self.podstawieniowy_page)
-        self.label_8.setObjectName(u"label_8")
+        self.vigener_networkmode_button = QPushButton(self.podstawieniowy_page)
+        self.vigener_networkmode_button.setObjectName(u"vigener_networkmode_button")
 
-        self.gridLayout_2.addWidget(self.label_8, 11, 0, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout_2.addItem(self.verticalSpacer_2, 14, 0, 1, 1)
-
-        self.Vigener_input_text = QLineEdit(self.podstawieniowy_page)
-        self.Vigener_input_text.setObjectName(u"Vigener_input_text")
-
-        self.gridLayout_2.addWidget(self.Vigener_input_text, 3, 1, 1, 1)
-
-        self.Vigener_input_file = QPushButton(self.podstawieniowy_page)
-        self.Vigener_input_file.setObjectName(u"Vigener_input_file")
-
-        self.gridLayout_2.addWidget(self.Vigener_input_file, 3, 2, 1, 1)
-
-        self.Vigener_input_key = QLineEdit(self.podstawieniowy_page)
-        self.Vigener_input_key.setObjectName(u"Vigener_input_key")
-
-        self.gridLayout_2.addWidget(self.Vigener_input_key, 6, 1, 1, 2)
+        self.gridLayout_9.addWidget(self.vigener_networkmode_button, 2, 3, 1, 1)
 
         self.textEdit = QTextEdit(self.podstawieniowy_page)
         self.textEdit.setObjectName(u"textEdit")
@@ -164,77 +182,228 @@ class Ui_MainWindow(object):
         self.textEdit.setLineWidth(0)
         self.textEdit.setReadOnly(True)
 
-        self.gridLayout_2.addWidget(self.textEdit, 1, 0, 1, 3)
-
-        self.label_5 = QLabel(self.podstawieniowy_page)
-        self.label_5.setObjectName(u"label_5")
-        font = QFont()
-        font.setPointSize(16)
-        self.label_5.setFont(font)
-
-        self.gridLayout_2.addWidget(self.label_5, 2, 0, 1, 3)
+        self.gridLayout_9.addWidget(self.textEdit, 1, 0, 1, 4)
 
         self.label = QLabel(self.podstawieniowy_page)
         self.label.setObjectName(u"label")
+        font = QFont()
+        font.setPointSize(16)
         self.label.setFont(font)
         self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 3)
+        self.gridLayout_9.addWidget(self.label, 0, 0, 1, 4)
 
-        self.label_6 = QLabel(self.podstawieniowy_page)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font)
-
-        self.gridLayout_2.addWidget(self.label_6, 9, 0, 1, 3)
-
-        self.Vigener_decode_input_key = QLineEdit(self.podstawieniowy_page)
-        self.Vigener_decode_input_key.setObjectName(u"Vigener_decode_input_key")
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_input_key, 11, 1, 1, 2)
-
-        self.Vigener_decode_button = QPushButton(self.podstawieniowy_page)
-        self.Vigener_decode_button.setObjectName(u"Vigener_decode_button")
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_button, 12, 0, 1, 3)
-
-        self.Vigener_decode_input_text = QLineEdit(self.podstawieniowy_page)
-        self.Vigener_decode_input_text.setObjectName(u"Vigener_decode_input_text")
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_input_text, 10, 1, 1, 1)
-
-        self.Vigener_decode_input_file = QPushButton(self.podstawieniowy_page)
-        self.Vigener_decode_input_file.setObjectName(u"Vigener_decode_input_file")
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_input_file, 10, 2, 1, 1)
-
-        self.Vigener_decode_output = QTextEdit(self.podstawieniowy_page)
-        self.Vigener_decode_output.setObjectName(u"Vigener_decode_output")
-        self.Vigener_decode_output.setMaximumSize(QSize(16777215, 70))
-        self.Vigener_decode_output.setReadOnly(True)
-
-        self.gridLayout_2.addWidget(self.Vigener_decode_output, 13, 0, 1, 2)
-
-        self.Vigener_decode_output_save = QPushButton(self.podstawieniowy_page)
+        self.Vigener_stackedWidget = QStackedWidget(self.podstawieniowy_page)
+        self.Vigener_stackedWidget.setObjectName(u"Vigener_stackedWidget")
+        self.podstawieniowy_normal = QWidget()
+        self.podstawieniowy_normal.setObjectName(u"podstawieniowy_normal")
+        self.gridLayout_2 = QGridLayout(self.podstawieniowy_normal)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.Vigener_decode_output_save = QPushButton(self.podstawieniowy_normal)
         self.Vigener_decode_output_save.setObjectName(u"Vigener_decode_output_save")
 
-        self.gridLayout_2.addWidget(self.Vigener_decode_output_save, 13, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.Vigener_decode_output_save, 9, 2, 1, 1)
 
-        self.Vigener_output = QTextEdit(self.podstawieniowy_page)
+        self.Vigener_input_file = QPushButton(self.podstawieniowy_normal)
+        self.Vigener_input_file.setObjectName(u"Vigener_input_file")
+
+        self.gridLayout_2.addWidget(self.Vigener_input_file, 1, 2, 1, 1)
+
+        self.Vigener_output = QTextEdit(self.podstawieniowy_normal)
         self.Vigener_output.setObjectName(u"Vigener_output")
         self.Vigener_output.setMaximumSize(QSize(16777215, 70))
         self.Vigener_output.setReadOnly(True)
 
-        self.gridLayout_2.addWidget(self.Vigener_output, 8, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.Vigener_output, 4, 0, 1, 2)
 
-        self.Vigener_output_save = QPushButton(self.podstawieniowy_page)
+        self.Vigener_output_save = QPushButton(self.podstawieniowy_normal)
         self.Vigener_output_save.setObjectName(u"Vigener_output_save")
 
-        self.gridLayout_2.addWidget(self.Vigener_output_save, 8, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.Vigener_output_save, 4, 2, 1, 1)
 
-        self.Vigener_button = QPushButton(self.podstawieniowy_page)
+        self.Vigener_decode_input_file = QPushButton(self.podstawieniowy_normal)
+        self.Vigener_decode_input_file.setObjectName(u"Vigener_decode_input_file")
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_input_file, 6, 2, 1, 1)
+
+        self.label_6 = QLabel(self.podstawieniowy_normal)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font)
+
+        self.gridLayout_2.addWidget(self.label_6, 5, 0, 1, 3)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer_2, 10, 0, 1, 1)
+
+        self.Vigener_decode_input_text = QLineEdit(self.podstawieniowy_normal)
+        self.Vigener_decode_input_text.setObjectName(u"Vigener_decode_input_text")
+        self.Vigener_decode_input_text.setMaxLength(999999999)
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_input_text, 6, 1, 1, 1)
+
+        self.Vigener_decode_button = QPushButton(self.podstawieniowy_normal)
+        self.Vigener_decode_button.setObjectName(u"Vigener_decode_button")
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_button, 8, 0, 1, 3)
+
+        self.label_5 = QLabel(self.podstawieniowy_normal)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font)
+
+        self.gridLayout_2.addWidget(self.label_5, 0, 0, 1, 3)
+
+        self.label_3 = QLabel(self.podstawieniowy_normal)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_2.addWidget(self.label_3, 1, 0, 1, 1)
+
+        self.label_7 = QLabel(self.podstawieniowy_normal)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_2.addWidget(self.label_7, 6, 0, 1, 1)
+
+        self.Vigener_input_text = QLineEdit(self.podstawieniowy_normal)
+        self.Vigener_input_text.setObjectName(u"Vigener_input_text")
+        self.Vigener_input_text.setMaxLength(999999999)
+
+        self.gridLayout_2.addWidget(self.Vigener_input_text, 1, 1, 1, 1)
+
+        self.label_8 = QLabel(self.podstawieniowy_normal)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout_2.addWidget(self.label_8, 7, 0, 1, 1)
+
+        self.Vigener_button = QPushButton(self.podstawieniowy_normal)
         self.Vigener_button.setObjectName(u"Vigener_button")
 
-        self.gridLayout_2.addWidget(self.Vigener_button, 7, 0, 1, 3)
+        self.gridLayout_2.addWidget(self.Vigener_button, 3, 0, 1, 3)
+
+        self.Vigener_decode_output = QTextEdit(self.podstawieniowy_normal)
+        self.Vigener_decode_output.setObjectName(u"Vigener_decode_output")
+        self.Vigener_decode_output.setMaximumSize(QSize(16777215, 70))
+        self.Vigener_decode_output.setReadOnly(True)
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_output, 9, 0, 1, 2)
+
+        self.Vigener_input_key = QLineEdit(self.podstawieniowy_normal)
+        self.Vigener_input_key.setObjectName(u"Vigener_input_key")
+        self.Vigener_input_key.setMaxLength(999999999)
+
+        self.gridLayout_2.addWidget(self.Vigener_input_key, 2, 1, 1, 2)
+
+        self.label_4 = QLabel(self.podstawieniowy_normal)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_2.addWidget(self.label_4, 2, 0, 1, 1)
+
+        self.Vigener_decode_input_key = QLineEdit(self.podstawieniowy_normal)
+        self.Vigener_decode_input_key.setObjectName(u"Vigener_decode_input_key")
+        self.Vigener_decode_input_key.setMaxLength(999999999)
+
+        self.gridLayout_2.addWidget(self.Vigener_decode_input_key, 7, 1, 1, 2)
+
+        self.Vigener_stackedWidget.addWidget(self.podstawieniowy_normal)
+        self.podstawieniowy_all_files = QWidget()
+        self.podstawieniowy_all_files.setObjectName(u"podstawieniowy_all_files")
+        self.gridLayout_10 = QGridLayout(self.podstawieniowy_all_files)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.Vigener_decode_button_2 = QPushButton(self.podstawieniowy_all_files)
+        self.Vigener_decode_button_2.setObjectName(u"Vigener_decode_button_2")
+
+        self.gridLayout_10.addWidget(self.Vigener_decode_button_2, 7, 0, 1, 3)
+
+        self.Vigener_decode_input_file_2 = QPushButton(self.podstawieniowy_all_files)
+        self.Vigener_decode_input_file_2.setObjectName(u"Vigener_decode_input_file_2")
+
+        self.gridLayout_10.addWidget(self.Vigener_decode_input_file_2, 5, 2, 1, 1)
+
+        self.label_20 = QLabel(self.podstawieniowy_all_files)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setFont(font)
+
+        self.gridLayout_10.addWidget(self.label_20, 0, 0, 1, 3)
+
+        self.label_24 = QLabel(self.podstawieniowy_all_files)
+        self.label_24.setObjectName(u"label_24")
+
+        self.gridLayout_10.addWidget(self.label_24, 1, 0, 1, 1)
+
+        self.label_21 = QLabel(self.podstawieniowy_all_files)
+        self.label_21.setObjectName(u"label_21")
+
+        self.gridLayout_10.addWidget(self.label_21, 5, 0, 1, 1)
+
+        self.label_19 = QLabel(self.podstawieniowy_all_files)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout_10.addWidget(self.label_19, 6, 0, 1, 1)
+
+        self.Vigener_decode_input_key_2 = QLineEdit(self.podstawieniowy_all_files)
+        self.Vigener_decode_input_key_2.setObjectName(u"Vigener_decode_input_key_2")
+        self.Vigener_decode_input_key_2.setMaxLength(999999999)
+
+        self.gridLayout_10.addWidget(self.Vigener_decode_input_key_2, 6, 1, 1, 2)
+
+        self.label_22 = QLabel(self.podstawieniowy_all_files)
+        self.label_22.setObjectName(u"label_22")
+
+        self.gridLayout_10.addWidget(self.label_22, 2, 0, 1, 1)
+
+        self.Vigener_button_2 = QPushButton(self.podstawieniowy_all_files)
+        self.Vigener_button_2.setObjectName(u"Vigener_button_2")
+
+        self.gridLayout_10.addWidget(self.Vigener_button_2, 3, 0, 1, 3)
+
+        self.Vigener_file_path = QLineEdit(self.podstawieniowy_all_files)
+        self.Vigener_file_path.setObjectName(u"Vigener_file_path")
+        self.Vigener_file_path.setMaxLength(999999999)
+        self.Vigener_file_path.setReadOnly(True)
+
+        self.gridLayout_10.addWidget(self.Vigener_file_path, 1, 1, 1, 1)
+
+        self.label_23 = QLabel(self.podstawieniowy_all_files)
+        self.label_23.setObjectName(u"label_23")
+        self.label_23.setFont(font)
+
+        self.gridLayout_10.addWidget(self.label_23, 4, 0, 1, 3)
+
+        self.Vigener_decode_file_path = QLineEdit(self.podstawieniowy_all_files)
+        self.Vigener_decode_file_path.setObjectName(u"Vigener_decode_file_path")
+        self.Vigener_decode_file_path.setMaxLength(999999999)
+        self.Vigener_decode_file_path.setReadOnly(True)
+
+        self.gridLayout_10.addWidget(self.Vigener_decode_file_path, 5, 1, 1, 1)
+
+        self.Vigener_input_file_2 = QPushButton(self.podstawieniowy_all_files)
+        self.Vigener_input_file_2.setObjectName(u"Vigener_input_file_2")
+
+        self.gridLayout_10.addWidget(self.Vigener_input_file_2, 1, 2, 1, 1)
+
+        self.Vigener_input_key_2 = QLineEdit(self.podstawieniowy_all_files)
+        self.Vigener_input_key_2.setObjectName(u"Vigener_input_key_2")
+        self.Vigener_input_key_2.setMaxLength(999999999)
+
+        self.gridLayout_10.addWidget(self.Vigener_input_key_2, 2, 1, 1, 2)
+
+        self.verticalSpacer_4 = QSpacerItem(86, 213, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_10.addItem(self.verticalSpacer_4, 8, 0, 1, 1)
+
+        self.Vigener_stackedWidget.addWidget(self.podstawieniowy_all_files)
+        self.podstawieniowy_network = QWidget()
+        self.podstawieniowy_network.setObjectName(u"podstawieniowy_network")
+        self.label_25 = QLabel(self.podstawieniowy_network)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setGeometry(QRect(330, 50, 161, 61))
+        font1 = QFont()
+        font1.setPointSize(18)
+        self.label_25.setFont(font1)
+        self.Vigener_stackedWidget.addWidget(self.podstawieniowy_network)
+
+        self.gridLayout_9.addWidget(self.Vigener_stackedWidget, 3, 0, 1, 4)
 
         self.stackedWidget.addWidget(self.podstawieniowy_page)
         self.transpozycyjny_page = QWidget()
@@ -388,18 +557,6 @@ class Ui_MainWindow(object):
         self.des_ecb_button.setObjectName(u"des_ecb_button")
 
         self.gridLayout_4.addWidget(self.des_ecb_button, 2, 1, 1, 1)
-
-        self.textEdit_3 = QTextEdit(self.DES_page)
-        self.textEdit_3.setObjectName(u"textEdit_3")
-        self.textEdit_3.setMaximumSize(QSize(16777215, 75))
-
-        self.gridLayout_4.addWidget(self.textEdit_3, 1, 0, 1, 5)
-
-        self.label_16 = QLabel(self.DES_page)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setFont(font)
-
-        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 5)
 
         self.des_cbc_button = QPushButton(self.DES_page)
         self.des_cbc_button.setObjectName(u"des_cbc_button")
@@ -819,13 +976,26 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.Des_cfb_decode_output_save, 9, 2, 1, 1)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 52, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_6 = QSpacerItem(20, 61, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout_7.addItem(self.verticalSpacer_6, 10, 0, 1, 1)
 
         self.stackedWidget_des.addWidget(self.des_cfb_page)
 
         self.gridLayout_4.addWidget(self.stackedWidget_des, 3, 0, 1, 5)
+
+        self.label_16 = QLabel(self.DES_page)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setFont(font)
+
+        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 5)
+
+        self.textEdit_3 = QTextEdit(self.DES_page)
+        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.textEdit_3.setMaximumSize(QSize(16777215, 75))
+        self.textEdit_3.setFrameShape(QFrame.Shape.NoFrame)
+
+        self.gridLayout_4.addWidget(self.textEdit_3, 1, 0, 1, 5)
 
         self.stackedWidget.addWidget(self.DES_page)
         self.AES_page = QWidget()
@@ -840,60 +1010,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.widget_2, 0, 1, 1, 1)
 
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.verticalLayout = QVBoxLayout(self.widget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.podstawieniowy_pushButton = QPushButton(self.widget)
-        self.podstawieniowy_pushButton.setObjectName(u"podstawieniowy_pushButton")
-
-        self.verticalLayout.addWidget(self.podstawieniowy_pushButton)
-
-        self.transpozycyjny_pushButton = QPushButton(self.widget)
-        self.transpozycyjny_pushButton.setObjectName(u"transpozycyjny_pushButton")
-
-        self.verticalLayout.addWidget(self.transpozycyjny_pushButton)
-
-        self.des_pushButton = QPushButton(self.widget)
-        self.des_pushButton.setObjectName(u"des_pushButton")
-
-        self.verticalLayout.addWidget(self.des_pushButton)
-
-        self.aes_pushButton = QPushButton(self.widget)
-        self.aes_pushButton.setObjectName(u"aes_pushButton")
-
-        self.verticalLayout.addWidget(self.aes_pushButton)
-
-        self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
-
-        self.label_15 = QLabel(self.widget)
-        self.label_15.setObjectName(u"label_15")
-
-        self.verticalLayout.addWidget(self.label_15)
-
-
-        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
-
         self.gridLayout.setColumnStretch(1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.podstawieniowy_pushButton, self.transpozycyjny_pushButton)
         QWidget.setTabOrder(self.transpozycyjny_pushButton, self.textEdit)
-        QWidget.setTabOrder(self.textEdit, self.Vigener_input_text)
-        QWidget.setTabOrder(self.Vigener_input_text, self.Vigener_input_file)
-        QWidget.setTabOrder(self.Vigener_input_file, self.Vigener_input_key)
-        QWidget.setTabOrder(self.Vigener_input_key, self.Vigener_button)
-        QWidget.setTabOrder(self.Vigener_button, self.Vigener_output)
-        QWidget.setTabOrder(self.Vigener_output, self.Vigener_output_save)
-        QWidget.setTabOrder(self.Vigener_output_save, self.Vigener_decode_input_text)
-        QWidget.setTabOrder(self.Vigener_decode_input_text, self.Vigener_decode_input_file)
-        QWidget.setTabOrder(self.Vigener_decode_input_file, self.Vigener_decode_input_key)
-        QWidget.setTabOrder(self.Vigener_decode_input_key, self.Vigener_decode_button)
-        QWidget.setTabOrder(self.Vigener_decode_button, self.Vigener_decode_output)
-        QWidget.setTabOrder(self.Vigener_decode_output, self.Vigener_decode_output_save)
-        QWidget.setTabOrder(self.Vigener_decode_output_save, self.textEdit_2)
+        QWidget.setTabOrder(self.textEdit, self.textEdit_2)
         QWidget.setTabOrder(self.textEdit_2, self.transposition_input_text)
         QWidget.setTabOrder(self.transposition_input_text, self.transposition_input_file)
         QWidget.setTabOrder(self.transposition_input_file, self.transposition_input_key)
@@ -909,7 +1030,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -917,11 +1038,15 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Kryptografia i teoria kod\u00f3w - Micha\u0142 Chru\u015blicki", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
-        self.Vigener_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
+        self.podstawieniowy_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podstawieniowy", None))
+        self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
+        self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
+        self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
+        self.vigener_allfilesmode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
+        self.vigener_textMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Tryb Pracy:", None))
+        self.vigener_networkmode_button.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -932,14 +1057,30 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Przyk\u0142ad szyfru polialfabetycznego, symetrycznego, podstawieniowego.</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jest mniejsza od d"
                         "\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (Podstawieniowy):", None))
+        self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.Vigener_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
+        self.Vigener_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.Vigener_decode_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
         self.Vigener_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
-        self.Vigener_decode_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
-        self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
-        self.Vigener_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.Vigener_button.setText(QCoreApplication.translate("MainWindow", u"Zakoduj", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.Vigener_decode_button_2.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj i zapisz do dowolnego pliku", None))
+        self.Vigener_decode_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj z pliku tekstowego", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_21.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.Vigener_button_2.setText(QCoreApplication.translate("MainWindow", u"Zakoduj i zapisz do pliku tekstowego", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
+        self.Vigener_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj dowolny Plik", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Not ready yet", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
@@ -967,15 +1108,6 @@ class Ui_MainWindow(object):
         self.des_ofb_button.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy:", None))
         self.des_ecb_button.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
-        self.textEdit_3.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Ubuntu'; font-size:10pt;\">Test</span></p></body></html>", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.des_cbc_button.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
         self.label_48.setText(QCoreApplication.translate("MainWindow", u"Kodowanie (ECB):", None))
         self.label_47.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
@@ -1025,11 +1157,15 @@ class Ui_MainWindow(object):
         self.label_35.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.Des_cfb_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
         self.Des_cfb_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
+        self.textEdit_3.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Ubuntu'; font-size:10pt;\">Des obs\u0142uguj\u0105cy 4 tryby pracy</span></p></body></html>", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"AES", None))
-        self.podstawieniowy_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podstawieniowy", None))
-        self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
-        self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
-        self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
     # retranslateUi
 
