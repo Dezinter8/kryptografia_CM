@@ -538,135 +538,232 @@ class Ui_MainWindow(object):
         self.DES_page.setObjectName(u"DES_page")
         self.gridLayout_4 = QGridLayout(self.DES_page)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.des_cfb_button = QPushButton(self.DES_page)
-        self.des_cfb_button.setObjectName(u"des_cfb_button")
-
-        self.gridLayout_4.addWidget(self.des_cfb_button, 2, 4, 1, 1)
-
-        self.des_ofb_button = QPushButton(self.DES_page)
-        self.des_ofb_button.setObjectName(u"des_ofb_button")
-
-        self.gridLayout_4.addWidget(self.des_ofb_button, 2, 3, 1, 1)
-
-        self.label_17 = QLabel(self.DES_page)
-        self.label_17.setObjectName(u"label_17")
-
-        self.gridLayout_4.addWidget(self.label_17, 2, 0, 1, 1)
-
-        self.des_ecb_button = QPushButton(self.DES_page)
-        self.des_ecb_button.setObjectName(u"des_ecb_button")
-
-        self.gridLayout_4.addWidget(self.des_ecb_button, 2, 1, 1, 1)
-
-        self.des_cbc_button = QPushButton(self.DES_page)
-        self.des_cbc_button.setObjectName(u"des_cbc_button")
-
-        self.gridLayout_4.addWidget(self.des_cbc_button, 2, 2, 1, 1)
-
         self.stackedWidget_des = QStackedWidget(self.DES_page)
         self.stackedWidget_des.setObjectName(u"stackedWidget_des")
         self.des_ecb_page = QWidget()
         self.des_ecb_page.setObjectName(u"des_ecb_page")
-        self.gridLayout_5 = QGridLayout(self.des_ecb_page)
+        self.gridLayout_11 = QGridLayout(self.des_ecb_page)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.gridLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.des_ecb_allFileMode_button = QPushButton(self.des_ecb_page)
+        self.des_ecb_allFileMode_button.setObjectName(u"des_ecb_allFileMode_button")
+
+        self.gridLayout_11.addWidget(self.des_ecb_allFileMode_button, 0, 2, 1, 1)
+
+        self.des_ecb_normalMode_button = QPushButton(self.des_ecb_page)
+        self.des_ecb_normalMode_button.setObjectName(u"des_ecb_normalMode_button")
+
+        self.gridLayout_11.addWidget(self.des_ecb_normalMode_button, 0, 1, 1, 1)
+
+        self.label_26 = QLabel(self.des_ecb_page)
+        self.label_26.setObjectName(u"label_26")
+
+        self.gridLayout_11.addWidget(self.label_26, 0, 0, 1, 1)
+
+        self.des_ecb_networkMode_button = QPushButton(self.des_ecb_page)
+        self.des_ecb_networkMode_button.setObjectName(u"des_ecb_networkMode_button")
+
+        self.gridLayout_11.addWidget(self.des_ecb_networkMode_button, 0, 3, 1, 1)
+
+        self.stackedWidget_des_ecb = QStackedWidget(self.des_ecb_page)
+        self.stackedWidget_des_ecb.setObjectName(u"stackedWidget_des_ecb")
+        self.des_ecb_normalMode_page = QWidget()
+        self.des_ecb_normalMode_page.setObjectName(u"des_ecb_normalMode_page")
+        self.gridLayout_5 = QGridLayout(self.des_ecb_normalMode_page)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.label_48 = QLabel(self.des_ecb_page)
+        self.label_48 = QLabel(self.des_ecb_normalMode_page)
         self.label_48.setObjectName(u"label_48")
         self.label_48.setFont(font)
 
         self.gridLayout_5.addWidget(self.label_48, 0, 0, 1, 3)
 
-        self.label_47 = QLabel(self.des_ecb_page)
+        self.label_47 = QLabel(self.des_ecb_normalMode_page)
         self.label_47.setObjectName(u"label_47")
 
         self.gridLayout_5.addWidget(self.label_47, 1, 0, 1, 1)
 
-        self.Des_ecb_input_text = QLineEdit(self.des_ecb_page)
+        self.Des_ecb_input_text = QLineEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_input_text.setObjectName(u"Des_ecb_input_text")
 
         self.gridLayout_5.addWidget(self.Des_ecb_input_text, 1, 1, 1, 1)
 
-        self.Des_ecb_input_file = QPushButton(self.des_ecb_page)
+        self.Des_ecb_input_file = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_input_file.setObjectName(u"Des_ecb_input_file")
 
         self.gridLayout_5.addWidget(self.Des_ecb_input_file, 1, 2, 1, 1)
 
-        self.label_46 = QLabel(self.des_ecb_page)
+        self.label_46 = QLabel(self.des_ecb_normalMode_page)
         self.label_46.setObjectName(u"label_46")
 
         self.gridLayout_5.addWidget(self.label_46, 2, 0, 1, 1)
 
-        self.Des_ecb_input_key = QLineEdit(self.des_ecb_page)
+        self.Des_ecb_input_key = QLineEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_input_key.setObjectName(u"Des_ecb_input_key")
 
         self.gridLayout_5.addWidget(self.Des_ecb_input_key, 2, 1, 1, 2)
 
-        self.Des_ecb_button = QPushButton(self.des_ecb_page)
+        self.Des_ecb_button = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_button.setObjectName(u"Des_ecb_button")
 
         self.gridLayout_5.addWidget(self.Des_ecb_button, 3, 0, 1, 3)
 
-        self.Des_ecb_output = QTextEdit(self.des_ecb_page)
+        self.Des_ecb_output = QTextEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_output.setObjectName(u"Des_ecb_output")
         self.Des_ecb_output.setMaximumSize(QSize(16777215, 70))
 
         self.gridLayout_5.addWidget(self.Des_ecb_output, 4, 0, 1, 2)
 
-        self.Des_ecb_output_save = QPushButton(self.des_ecb_page)
+        self.Des_ecb_output_save = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_output_save.setObjectName(u"Des_ecb_output_save")
 
         self.gridLayout_5.addWidget(self.Des_ecb_output_save, 4, 2, 1, 1)
 
-        self.label_44 = QLabel(self.des_ecb_page)
+        self.label_44 = QLabel(self.des_ecb_normalMode_page)
         self.label_44.setObjectName(u"label_44")
         self.label_44.setFont(font)
 
         self.gridLayout_5.addWidget(self.label_44, 5, 0, 1, 3)
 
-        self.label_45 = QLabel(self.des_ecb_page)
+        self.label_45 = QLabel(self.des_ecb_normalMode_page)
         self.label_45.setObjectName(u"label_45")
 
         self.gridLayout_5.addWidget(self.label_45, 6, 0, 1, 1)
 
-        self.Des_ecb_decode_input_text = QLineEdit(self.des_ecb_page)
+        self.Des_ecb_decode_input_text = QLineEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_input_text.setObjectName(u"Des_ecb_decode_input_text")
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_input_text, 6, 1, 1, 1)
 
-        self.Des_ecb_decode_input_file = QPushButton(self.des_ecb_page)
+        self.Des_ecb_decode_input_file = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_input_file.setObjectName(u"Des_ecb_decode_input_file")
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_input_file, 6, 2, 1, 1)
 
-        self.label_43 = QLabel(self.des_ecb_page)
+        self.label_43 = QLabel(self.des_ecb_normalMode_page)
         self.label_43.setObjectName(u"label_43")
 
         self.gridLayout_5.addWidget(self.label_43, 7, 0, 1, 1)
 
-        self.Des_ecb_decode_input_key = QLineEdit(self.des_ecb_page)
+        self.Des_ecb_decode_input_key = QLineEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_input_key.setObjectName(u"Des_ecb_decode_input_key")
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_input_key, 7, 1, 1, 2)
 
-        self.Des_ecb_decode_button = QPushButton(self.des_ecb_page)
+        self.Des_ecb_decode_button = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_button.setObjectName(u"Des_ecb_decode_button")
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_button, 8, 0, 1, 3)
 
-        self.Des_ecb_decode_output = QTextEdit(self.des_ecb_page)
+        self.Des_ecb_decode_output = QTextEdit(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_output.setObjectName(u"Des_ecb_decode_output")
         self.Des_ecb_decode_output.setMaximumSize(QSize(16777215, 70))
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_output, 9, 0, 1, 2)
 
-        self.Des_ecb_decode_output_save = QPushButton(self.des_ecb_page)
+        self.Des_ecb_decode_output_save = QPushButton(self.des_ecb_normalMode_page)
         self.Des_ecb_decode_output_save.setObjectName(u"Des_ecb_decode_output_save")
 
         self.gridLayout_5.addWidget(self.Des_ecb_decode_output_save, 9, 2, 1, 1)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 61, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_8 = QSpacerItem(677, 38, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout_5.addItem(self.verticalSpacer_8, 10, 0, 1, 1)
+        self.gridLayout_5.addItem(self.verticalSpacer_8, 10, 1, 1, 1)
+
+        self.stackedWidget_des_ecb.addWidget(self.des_ecb_normalMode_page)
+        self.des_ecb_allFileMode_page = QWidget()
+        self.des_ecb_allFileMode_page.setObjectName(u"des_ecb_allFileMode_page")
+        self.gridLayout_12 = QGridLayout(self.des_ecb_allFileMode_page)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.gridLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.Des_ecb_decode_input_key_2 = QLineEdit(self.des_ecb_allFileMode_page)
+        self.Des_ecb_decode_input_key_2.setObjectName(u"Des_ecb_decode_input_key_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_decode_input_key_2, 6, 1, 1, 2)
+
+        self.Des_ecb_input_file_2 = QPushButton(self.des_ecb_allFileMode_page)
+        self.Des_ecb_input_file_2.setObjectName(u"Des_ecb_input_file_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_input_file_2, 1, 2, 1, 1)
+
+        self.Des_ecb_decode_input_file_2 = QPushButton(self.des_ecb_allFileMode_page)
+        self.Des_ecb_decode_input_file_2.setObjectName(u"Des_ecb_decode_input_file_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_decode_input_file_2, 5, 2, 1, 1)
+
+        self.Des_ecb_decode_button_2 = QPushButton(self.des_ecb_allFileMode_page)
+        self.Des_ecb_decode_button_2.setObjectName(u"Des_ecb_decode_button_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_decode_button_2, 7, 0, 1, 3)
+
+        self.Des_ecb_decode_file_path = QLineEdit(self.des_ecb_allFileMode_page)
+        self.Des_ecb_decode_file_path.setObjectName(u"Des_ecb_decode_file_path")
+        self.Des_ecb_decode_file_path.setReadOnly(True)
+
+        self.gridLayout_12.addWidget(self.Des_ecb_decode_file_path, 5, 1, 1, 1)
+
+        self.label_60 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_60.setObjectName(u"label_60")
+        self.label_60.setFont(font)
+
+        self.gridLayout_12.addWidget(self.label_60, 0, 0, 1, 3)
+
+        self.label_56 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_56.setObjectName(u"label_56")
+
+        self.gridLayout_12.addWidget(self.label_56, 6, 0, 1, 1)
+
+        self.label_58 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_58.setObjectName(u"label_58")
+
+        self.gridLayout_12.addWidget(self.label_58, 1, 0, 1, 1)
+
+        self.Des_ecb_input_key_2 = QLineEdit(self.des_ecb_allFileMode_page)
+        self.Des_ecb_input_key_2.setObjectName(u"Des_ecb_input_key_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_input_key_2, 2, 1, 1, 2)
+
+        self.label_59 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_59.setObjectName(u"label_59")
+
+        self.gridLayout_12.addWidget(self.label_59, 2, 0, 1, 1)
+
+        self.label_55 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_55.setObjectName(u"label_55")
+        self.label_55.setFont(font)
+
+        self.gridLayout_12.addWidget(self.label_55, 4, 0, 1, 3)
+
+        self.Des_ecb_button_2 = QPushButton(self.des_ecb_allFileMode_page)
+        self.Des_ecb_button_2.setObjectName(u"Des_ecb_button_2")
+
+        self.gridLayout_12.addWidget(self.Des_ecb_button_2, 3, 0, 1, 3)
+
+        self.Des_ecb_file_path = QLineEdit(self.des_ecb_allFileMode_page)
+        self.Des_ecb_file_path.setObjectName(u"Des_ecb_file_path")
+        self.Des_ecb_file_path.setReadOnly(True)
+
+        self.gridLayout_12.addWidget(self.Des_ecb_file_path, 1, 1, 1, 1)
+
+        self.label_57 = QLabel(self.des_ecb_allFileMode_page)
+        self.label_57.setObjectName(u"label_57")
+
+        self.gridLayout_12.addWidget(self.label_57, 5, 0, 1, 1)
+
+        self.verticalSpacer_10 = QSpacerItem(86, 190, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_10, 8, 0, 1, 1)
+
+        self.stackedWidget_des_ecb.addWidget(self.des_ecb_allFileMode_page)
+        self.des_ecb_networkMode_page = QWidget()
+        self.des_ecb_networkMode_page.setObjectName(u"des_ecb_networkMode_page")
+        self.label_27 = QLabel(self.des_ecb_networkMode_page)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setGeometry(QRect(350, 70, 161, 61))
+        self.label_27.setFont(font1)
+        self.stackedWidget_des_ecb.addWidget(self.des_ecb_networkMode_page)
+
+        self.gridLayout_11.addWidget(self.stackedWidget_des_ecb, 1, 0, 1, 4)
 
         self.stackedWidget_des.addWidget(self.des_ecb_page)
         self.des_cbc_page = QWidget()
@@ -984,11 +1081,31 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.stackedWidget_des, 3, 0, 1, 5)
 
+        self.label_17 = QLabel(self.DES_page)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout_4.addWidget(self.label_17, 2, 0, 1, 1)
+
+        self.des_cbc_button = QPushButton(self.DES_page)
+        self.des_cbc_button.setObjectName(u"des_cbc_button")
+
+        self.gridLayout_4.addWidget(self.des_cbc_button, 2, 2, 1, 1)
+
+        self.des_cfb_button = QPushButton(self.DES_page)
+        self.des_cfb_button.setObjectName(u"des_cfb_button")
+
+        self.gridLayout_4.addWidget(self.des_cfb_button, 2, 4, 1, 1)
+
         self.label_16 = QLabel(self.DES_page)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setFont(font)
 
-        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 5)
+        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 4)
+
+        self.des_ecb_button = QPushButton(self.DES_page)
+        self.des_ecb_button.setObjectName(u"des_ecb_button")
+
+        self.gridLayout_4.addWidget(self.des_ecb_button, 2, 1, 1, 1)
 
         self.textEdit_3 = QTextEdit(self.DES_page)
         self.textEdit_3.setObjectName(u"textEdit_3")
@@ -996,6 +1113,11 @@ class Ui_MainWindow(object):
         self.textEdit_3.setFrameShape(QFrame.Shape.NoFrame)
 
         self.gridLayout_4.addWidget(self.textEdit_3, 1, 0, 1, 5)
+
+        self.des_ofb_button = QPushButton(self.DES_page)
+        self.des_ofb_button.setObjectName(u"des_ofb_button")
+
+        self.gridLayout_4.addWidget(self.des_ofb_button, 2, 3, 1, 1)
 
         self.stackedWidget.addWidget(self.DES_page)
         self.AES_page = QWidget()
@@ -1030,7 +1152,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1104,11 +1226,10 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfr Kolumnowy (Przestawieniowy):", None))
         self.transposition_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.transposition_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
-        self.des_cfb_button.setText(QCoreApplication.translate("MainWindow", u"CFB", None))
-        self.des_ofb_button.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy:", None))
-        self.des_ecb_button.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
-        self.des_cbc_button.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
+        self.des_ecb_allFileMode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
+        self.des_ecb_normalMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy ecb:", None))
+        self.des_ecb_networkMode_button.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_48.setText(QCoreApplication.translate("MainWindow", u"Kodowanie (ECB):", None))
         self.label_47.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
         self.Des_ecb_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
@@ -1121,6 +1242,17 @@ class Ui_MainWindow(object):
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.Des_ecb_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
         self.Des_ecb_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.Des_ecb_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj dowolny Plik", None))
+        self.Des_ecb_decode_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj z pliku tekstowego", None))
+        self.Des_ecb_decode_button_2.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj i zapisz do dowolnego pliku", None))
+        self.label_60.setText(QCoreApplication.translate("MainWindow", u"Kodowanie (ECB):", None))
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.label_58.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_59.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.label_55.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie (ECB):", None))
+        self.Des_ecb_button_2.setText(QCoreApplication.translate("MainWindow", u"Zakoduj i zapisz do pliku tekstowego", None))
+        self.label_57.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Not ready yet", None))
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Kodowanie (CBC):", None))
         self.label_36.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
         self.Des_cbc_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
@@ -1157,7 +1289,11 @@ class Ui_MainWindow(object):
         self.label_35.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.Des_cfb_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
         self.Des_cfb_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy:", None))
+        self.des_cbc_button.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
+        self.des_cfb_button.setText(QCoreApplication.translate("MainWindow", u"CFB", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
+        self.des_ecb_button.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
         self.textEdit_3.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -1166,6 +1302,7 @@ class Ui_MainWindow(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Ubuntu'; font-size:10pt;\">Des obs\u0142uguj\u0105cy 4 tryby pracy</span></p></body></html>", None))
+        self.des_ofb_button.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"AES", None))
     # retranslateUi
 
