@@ -14,8 +14,6 @@ class Vigener:
 
         self.main_window.vigener_textMode_button.clicked.connect(lambda: self.switch_vigener_pages(0))
         self.main_window.vigener_allfilesmode_button.clicked.connect(lambda: self.switch_vigener_pages(1))
-        self.main_window.vigener_networkmode_button.clicked.connect(lambda: self.switch_vigener_pages(2))
-
 
         self.main_window.Vigener_button.clicked.connect(lambda: self.vigenere_cipher(1))
         self.main_window.Vigener_decode_button.clicked.connect(lambda: self.decode_vigenere(1))

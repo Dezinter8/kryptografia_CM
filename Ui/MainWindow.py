@@ -155,45 +155,6 @@ class Ui_MainWindow(object):
         self.podstawieniowy_page.setObjectName(u"podstawieniowy_page")
         self.gridLayout_9 = QGridLayout(self.podstawieniowy_page)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.vigener_allfilesmode_button = QPushButton(self.podstawieniowy_page)
-        self.vigener_allfilesmode_button.setObjectName(u"vigener_allfilesmode_button")
-
-        self.gridLayout_9.addWidget(self.vigener_allfilesmode_button, 2, 2, 1, 1)
-
-        self.vigener_textMode_button = QPushButton(self.podstawieniowy_page)
-        self.vigener_textMode_button.setObjectName(u"vigener_textMode_button")
-
-        self.gridLayout_9.addWidget(self.vigener_textMode_button, 2, 1, 1, 1)
-
-        self.label_18 = QLabel(self.podstawieniowy_page)
-        self.label_18.setObjectName(u"label_18")
-
-        self.gridLayout_9.addWidget(self.label_18, 2, 0, 1, 1)
-
-        self.vigener_networkmode_button = QPushButton(self.podstawieniowy_page)
-        self.vigener_networkmode_button.setObjectName(u"vigener_networkmode_button")
-
-        self.gridLayout_9.addWidget(self.vigener_networkmode_button, 2, 3, 1, 1)
-
-        self.textEdit = QTextEdit(self.podstawieniowy_page)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setMinimumSize(QSize(0, 0))
-        self.textEdit.setMaximumSize(QSize(16777215, 75))
-        self.textEdit.setFrameShape(QFrame.Shape.NoFrame)
-        self.textEdit.setLineWidth(0)
-        self.textEdit.setReadOnly(True)
-
-        self.gridLayout_9.addWidget(self.textEdit, 1, 0, 1, 4)
-
-        self.label = QLabel(self.podstawieniowy_page)
-        self.label.setObjectName(u"label")
-        font = QFont()
-        font.setPointSize(16)
-        self.label.setFont(font)
-        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
-
-        self.gridLayout_9.addWidget(self.label, 0, 0, 1, 4)
-
         self.Vigener_stackedWidget = QStackedWidget(self.podstawieniowy_page)
         self.Vigener_stackedWidget.setObjectName(u"Vigener_stackedWidget")
         self.podstawieniowy_normal = QWidget()
@@ -230,6 +191,8 @@ class Ui_MainWindow(object):
 
         self.label_6 = QLabel(self.podstawieniowy_normal)
         self.label_6.setObjectName(u"label_6")
+        font = QFont()
+        font.setPointSize(16)
         self.label_6.setFont(font)
 
         self.gridLayout_2.addWidget(self.label_6, 5, 0, 1, 3)
@@ -389,22 +352,50 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addWidget(self.Vigener_input_key_2, 2, 1, 1, 2)
 
-        self.verticalSpacer_4 = QSpacerItem(86, 213, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_4 = QSpacerItem(86, 268, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout_10.addItem(self.verticalSpacer_4, 8, 0, 1, 1)
 
         self.Vigener_stackedWidget.addWidget(self.podstawieniowy_all_files)
-        self.podstawieniowy_network = QWidget()
-        self.podstawieniowy_network.setObjectName(u"podstawieniowy_network")
-        self.label_25 = QLabel(self.podstawieniowy_network)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setGeometry(QRect(330, 50, 161, 61))
-        font1 = QFont()
-        font1.setPointSize(18)
-        self.label_25.setFont(font1)
-        self.Vigener_stackedWidget.addWidget(self.podstawieniowy_network)
 
         self.gridLayout_9.addWidget(self.Vigener_stackedWidget, 3, 0, 1, 4)
+
+        self.textEdit = QTextEdit(self.podstawieniowy_page)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setMinimumSize(QSize(0, 0))
+        self.textEdit.setMaximumSize(QSize(16777215, 75))
+        self.textEdit.setFrameShape(QFrame.Shape.NoFrame)
+        self.textEdit.setLineWidth(0)
+        self.textEdit.setReadOnly(True)
+
+        self.gridLayout_9.addWidget(self.textEdit, 1, 0, 1, 4)
+
+        self.label = QLabel(self.podstawieniowy_page)
+        self.label.setObjectName(u"label")
+        self.label.setFont(font)
+        self.label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+
+        self.gridLayout_9.addWidget(self.label, 0, 0, 1, 4)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_18 = QLabel(self.podstawieniowy_page)
+        self.label_18.setObjectName(u"label_18")
+
+        self.horizontalLayout_3.addWidget(self.label_18)
+
+        self.vigener_textMode_button = QPushButton(self.podstawieniowy_page)
+        self.vigener_textMode_button.setObjectName(u"vigener_textMode_button")
+
+        self.horizontalLayout_3.addWidget(self.vigener_textMode_button)
+
+        self.vigener_allfilesmode_button = QPushButton(self.podstawieniowy_page)
+        self.vigener_allfilesmode_button.setObjectName(u"vigener_allfilesmode_button")
+
+        self.horizontalLayout_3.addWidget(self.vigener_allfilesmode_button)
+
+
+        self.gridLayout_9.addLayout(self.horizontalLayout_3, 2, 0, 1, 2)
 
         self.stackedWidget.addWidget(self.podstawieniowy_page)
         self.transpozycyjny_page = QWidget()
@@ -774,6 +765,8 @@ class Ui_MainWindow(object):
         self.label_27 = QLabel(self.des_networkMode_page)
         self.label_27.setObjectName(u"label_27")
         self.label_27.setGeometry(QRect(350, 70, 161, 61))
+        font1 = QFont()
+        font1.setPointSize(18)
         self.label_27.setFont(font1)
         self.stackedWidget_des.addWidget(self.des_networkMode_page)
 
@@ -828,7 +821,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -841,21 +834,6 @@ class Ui_MainWindow(object):
         self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
-        self.vigener_allfilesmode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
-        self.vigener_textMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Tryb Pracy:", None))
-        self.vigener_networkmode_button.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
-        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Przyk\u0142ad szyfru polialfabetycznego, symetrycznego, podstawieniowego.</span></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jest mniejsza od d"
-                        "\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (Podstawieniowy):", None))
         self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.Vigener_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
         self.Vigener_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
@@ -878,7 +856,20 @@ class Ui_MainWindow(object):
         self.Vigener_button_2.setText(QCoreApplication.translate("MainWindow", u"Zakoduj i zapisz do pliku tekstowego", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
         self.Vigener_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj dowolny Plik", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Not ready yet", None))
+        self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Przyk\u0142ad szyfru polialfabetycznego, symetrycznego, podstawieniowego.</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Kolejne znaki informacji szyfrowane s\u0105 przez kolejne znaki klucza. Gdy d\u0142ugo\u015b\u0107 klucza jest mniejsza od d"
+                        "\u0142ugo\u015bci wiadomo\u015bci, kolejne znaki klucza pobierane s\u0105 od pocz\u0105tku. </span></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Szyfr Vigenere'a (Podstawieniowy):", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Tryb Pracy:", None))
+        self.vigener_textMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.vigener_allfilesmode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
