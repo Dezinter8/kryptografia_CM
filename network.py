@@ -12,14 +12,12 @@ class Network:
         self.connected = False
         self.host_ip = self.get_host_ip()
         self.host_name = socket.gethostname()
-        self.port = 12345  # Port do komunikacji
+        self.port = 50000  # Port do komunikacji
+        self.discovery_port = 50001  # Osobny port dla komunikacji discovery
 
 
         self.main_window.automatic_connect_pushButton.clicked.connect(lambda: self.switch_network_page(0))
         self.main_window.manual_connect_pushButton.clicked.connect(lambda: self.switch_network_page(1))
-
-        # Inicjalizuj dynamiczne elementy interfejsu
-        # self.init_network_devices()
 
         # Połączenie przycisku do metody wyszukiwania
         self.main_window.network_search_button.clicked.connect(self.start_network_discovery)
@@ -27,18 +25,6 @@ class Network:
 
     def switch_network_page(self, index):
         self.main_window.network_mode_stackedWidget.setCurrentIndex(index)
-
-    def init_network_devices(self):
-        # Przykładowe dane urządzeń
-        device_data = [
-            {"name": "Device 1", "ip": "192.168.0.2", "status": "Dostępny"},
-            {"name": "Device 2", "ip": "192.168.0.3", "status": "Połączono"},
-            {"name": "Device 3", "ip": "192.168.0.4", "status": "Dostępny"}
-        ]
-
-        # Przez każde urządzenie dodaj widget do `automatic_page`
-        for device in device_data:
-            self.add_device_widget(device)
 
     def get_host_ip(self):
         """Pobiera lokalny adres IP hosta."""
@@ -58,7 +44,8 @@ class Network:
         self.update_host_info()
         # Startujemy wątki do wyszukiwania i nasłuchiwania
         threading.Thread(target=self.start_server, daemon=True).start()
-        threading.Thread(target=self.discover_devices, daemon=True).start()
+        threading.Thread(target=self.listen_for_discovery, daemon=True).start()
+        threading.Thread(target=self.send_discovery_message, daemon=True).start()
 
     def update_host_info(self):
         """Aktualizuje informacje o hoście w interfejsie."""
@@ -83,22 +70,47 @@ class Network:
             except Exception as e:
                 print(f"Błąd serwera: {e}")
 
-    def discover_devices(self):
-        """Wysyła broadcast w celu znalezienia innych urządzeń w sieci."""
+    def listen_for_discovery(self):
+        """Nasłuchuje na broadcast DISCOVER i odpowiada na niego."""
+        discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        discovery_socket.bind(("", self.discovery_port))
+
+        while not self.connected:
+            try:
+                data, address = discovery_socket.recvfrom(1024)
+                if data.startswith(b"DISCOVER"):
+                    print(f"Otrzymano DISCOVER od {address[0]}")
+                    if address[0] != self.host_ip:
+                        # Odpowiedz na DISCOVER, że jesteśmy tutaj
+                        response = f"RESPONSE:{self.host_ip}".encode()
+                        discovery_socket.sendto(response, address)
+            except Exception as e:
+                print(f"Błąd nasłuchiwania DISCOVER: {e}")
+
+
+    def send_discovery_message(self):
+        """Wysyła broadcast DISCOVER, aby znaleźć inne urządzenia w sieci."""
         discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         message = f"DISCOVER:{self.host_ip}".encode()
 
         while not self.connected:
-            discovery_socket.sendto(message, ("<broadcast>", self.port))
+            discovery_socket.sendto(message, ("<broadcast>", self.discovery_port))
+            print("Wysłano DISCOVER broadcast")
             try:
+                # Ustaw timeout, aby nie blokować
+                discovery_socket.settimeout(2)
                 data, address = discovery_socket.recvfrom(1024)
-                if data.startswith(b"DISCOVER"):
+                if data.startswith(b"RESPONSE"):
+                    print(f"Otrzymano odpowiedź od {address[0]}")
                     if address[0] != self.host_ip:
                         # Znaleziono inny host, spróbuj połączyć się jako klient
                         threading.Thread(target=self.connect_to_server, args=(address[0],), daemon=True).start()
+                        break
             except socket.timeout:
                 continue
+
 
     def connect_to_server(self, server_ip):
         """Próbuje połączyć się do znalezionego serwera."""
@@ -112,6 +124,8 @@ class Network:
             self.add_device_widget({"name": server_ip, "ip": server_ip, "status": "Połączono"})
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
+
+
 
     def add_device_widget(self, device_info):
         """Dodaje widget z informacjami o urządzeniu do UI."""
