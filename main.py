@@ -5,6 +5,7 @@ from Ui.MainWindow import Ui_MainWindow
 from encryptions.vigener import Vigener
 from encryptions.transposition import Transposition
 from encryptions.des import Des
+from network import Network
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -13,11 +14,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.vigener = Vigener(self)
         self.transposition = Transposition(self)
         self.des = Des(self)
-
+        self.network = Network(self)
+        
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
         self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
         self.des_pushButton.clicked.connect(lambda: self.switch_main_page(2))
         self.aes_pushButton.clicked.connect(lambda: self.switch_main_page(3))
+        self.siec_pushButton.clicked.connect(lambda: self.switch_main_page(4))
 
 
         # Obsługa przycisków do ładowania zawartości plików

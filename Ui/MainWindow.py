@@ -136,6 +136,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
+        self.siec_pushButton = QPushButton(self.widget)
+        self.siec_pushButton.setObjectName(u"siec_pushButton")
+
+        self.verticalLayout.addWidget(self.siec_pushButton)
+
         self.label_15 = QLabel(self.widget)
         self.label_15.setObjectName(u"label_15")
 
@@ -795,6 +800,89 @@ class Ui_MainWindow(object):
         self.label_42.setObjectName(u"label_42")
         self.label_42.setGeometry(QRect(130, 230, 49, 16))
         self.stackedWidget.addWidget(self.AES_page)
+        self.Network_page = QWidget()
+        self.Network_page.setObjectName(u"Network_page")
+        self.gridLayout_6 = QGridLayout(self.Network_page)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.label_17 = QLabel(self.Network_page)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout_6.addWidget(self.label_17, 0, 0, 1, 1)
+
+        self.host_user_name = QLabel(self.Network_page)
+        self.host_user_name.setObjectName(u"host_user_name")
+
+        self.gridLayout_6.addWidget(self.host_user_name, 0, 1, 1, 2)
+
+        self.label_25 = QLabel(self.Network_page)
+        self.label_25.setObjectName(u"label_25")
+
+        self.gridLayout_6.addWidget(self.label_25, 1, 0, 1, 1)
+
+        self.host_user_ip = QLabel(self.Network_page)
+        self.host_user_ip.setObjectName(u"host_user_ip")
+
+        self.gridLayout_6.addWidget(self.host_user_ip, 1, 1, 1, 2)
+
+        self.label_28 = QLabel(self.Network_page)
+        self.label_28.setObjectName(u"label_28")
+
+        self.gridLayout_6.addWidget(self.label_28, 2, 0, 1, 1)
+
+        self.automatic_connect_pushButton = QPushButton(self.Network_page)
+        self.automatic_connect_pushButton.setObjectName(u"automatic_connect_pushButton")
+
+        self.gridLayout_6.addWidget(self.automatic_connect_pushButton, 2, 1, 1, 1)
+
+        self.manual_connect_pushButton = QPushButton(self.Network_page)
+        self.manual_connect_pushButton.setObjectName(u"manual_connect_pushButton")
+
+        self.gridLayout_6.addWidget(self.manual_connect_pushButton, 2, 2, 1, 1)
+
+        self.network_mode_stackedWidget = QStackedWidget(self.Network_page)
+        self.network_mode_stackedWidget.setObjectName(u"network_mode_stackedWidget")
+        self.automatic_page = QWidget()
+        self.automatic_page.setObjectName(u"automatic_page")
+        self.verticalLayout_4 = QVBoxLayout(self.automatic_page)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.network_search_button = QPushButton(self.automatic_page)
+        self.network_search_button.setObjectName(u"network_search_button")
+
+        self.verticalLayout_4.addWidget(self.network_search_button)
+
+        self.devicesList_widget = QWidget(self.automatic_page)
+        self.devicesList_widget.setObjectName(u"devicesList_widget")
+        self.verticalLayout_8 = QVBoxLayout(self.devicesList_widget)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+
+        self.verticalLayout_8.addLayout(self.verticalLayout_5)
+
+
+        self.verticalLayout_4.addWidget(self.devicesList_widget)
+
+        self.verticalSpacer_7 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_4.addItem(self.verticalSpacer_7)
+
+        self.network_mode_stackedWidget.addWidget(self.automatic_page)
+        self.manual_page = QWidget()
+        self.manual_page.setObjectName(u"manual_page")
+        self.verticalLayout_7 = QVBoxLayout(self.manual_page)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+
+        self.verticalLayout_7.addLayout(self.verticalLayout_6)
+
+        self.network_mode_stackedWidget.addWidget(self.manual_page)
+
+        self.gridLayout_6.addWidget(self.network_mode_stackedWidget, 3, 0, 1, 3)
+
+        self.stackedWidget.addWidget(self.Network_page)
 
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
@@ -821,7 +909,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -833,6 +921,7 @@ class Ui_MainWindow(object):
         self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
         self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.siec_pushButton.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
         self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.Vigener_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
@@ -926,5 +1015,13 @@ class Ui_MainWindow(object):
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy des:", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Nazwa urz\u0105dzenia:", None))
+        self.host_user_name.setText(QCoreApplication.translate("MainWindow", u"Urz\u0105dzenie 1", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Adres IP:", None))
+        self.host_user_ip.setText(QCoreApplication.translate("MainWindow", u"127.0.0.1", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Tryb po\u0142\u0105czenia:", None))
+        self.automatic_connect_pushButton.setText(QCoreApplication.translate("MainWindow", u"Automatyczny", None))
+        self.manual_connect_pushButton.setText(QCoreApplication.translate("MainWindow", u"R\u0119czny", None))
+        self.network_search_button.setText(QCoreApplication.translate("MainWindow", u"Wyszukaj urz\u0105dzenia", None))
     # retranslateUi
 

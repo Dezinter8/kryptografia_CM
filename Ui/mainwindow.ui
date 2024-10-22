@@ -559,6 +559,13 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="siec_pushButton">
+         <property name="text">
+          <string>Sieć</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_15">
          <property name="text">
           <string>Chruślicki Michał</string>
@@ -586,7 +593,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="podstawieniowy_page">
           <layout class="QGridLayout" name="gridLayout_9">
@@ -1620,6 +1627,127 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <string>AES</string>
            </property>
           </widget>
+         </widget>
+         <widget class="QWidget" name="Network_page">
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Nazwa urządzenia:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QLabel" name="host_user_name">
+             <property name="text">
+              <string>Urządzenie 1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_25">
+             <property name="text">
+              <string>Adres IP:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1" colspan="2">
+            <widget class="QLabel" name="host_user_ip">
+             <property name="text">
+              <string>127.0.0.1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>Tryb połączenia:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="automatic_connect_pushButton">
+             <property name="text">
+              <string>Automatyczny</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="manual_connect_pushButton">
+             <property name="text">
+              <string>Ręczny</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="3">
+            <widget class="QStackedWidget" name="network_mode_stackedWidget">
+             <widget class="QWidget" name="automatic_page">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="network_search_button">
+                 <property name="text">
+                  <string>Wyszukaj urządzenia</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="devicesList_widget" native="true">
+                 <layout class="QVBoxLayout" name="verticalLayout_8">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_5"/>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_7">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="manual_page">
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_6"/>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
        </item>
