@@ -1,9 +1,13 @@
 import socket
 import threading
+from PySide6.QtCore import Signal, QObject
 from PySide6.QtWidgets import QWidget
 from Ui.networkDevicesForm import Ui_Form
 
 class Network:
+    # Definiujemy sygnał, który przekazuje informacje o znalezionym urządzeniu
+    device_found_signal = Signal(dict)
+
     def __init__(self, main_window):
         self.main_window = main_window
         self.server_socket = None
@@ -21,6 +25,9 @@ class Network:
 
         # Połączenie przycisku do metody wyszukiwania
         self.main_window.network_search_button.clicked.connect(self.start_network_discovery)
+
+        # Podłączamy sygnał do metody dodającej widget urządzenia
+        self.device_found_signal.connect(self.add_device_widget)
 
 
     def switch_network_page(self, index):
@@ -66,7 +73,8 @@ class Network:
                 self.client_socket = client_socket
                 self.is_server = True
                 self.connected = True
-                self.add_device_widget({"name": client_address[0], "ip": client_address[0], "status": "Połączono"})
+                # Emitujemy sygnał zamiast bezpośrednio dodawać widget
+                self.device_found_signal.emit({"name": client_address[0], "ip": client_address[0], "status": "Połączono"})
             except Exception as e:
                 print(f"Błąd serwera: {e}")
 
@@ -121,7 +129,8 @@ class Network:
             self.client_socket = client_socket
             self.connected = True
             self.is_server = False
-            self.add_device_widget({"name": server_ip, "ip": server_ip, "status": "Połączono"})
+            # Emitujemy sygnał zamiast bezpośrednio dodawać widget
+            self.device_found_signal.emit({"name": server_ip, "ip": server_ip, "status": "Połączono"})
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
 
