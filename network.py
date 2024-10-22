@@ -5,7 +5,6 @@ from PySide6.QtWidgets import QWidget
 from Ui.networkDevicesForm import Ui_Form
 
 class Network(QObject):
-    # Definicja sygnału na poziomie klasy
     device_found_signal = Signal(dict)
 
     def __init__(self, main_window):
@@ -74,8 +73,20 @@ class Network(QObject):
                 self.client_socket = client_socket
                 self.is_server = True
                 self.connected = True
-                # Emitujemy sygnał zamiast bezpośrednio dodawać widget
-                self.device_found_signal.emit({"name": client_address[0], "ip": client_address[0], "status": "Połączono"})
+                
+                # Pobranie nazwy hosta na podstawie adresu IP
+                try:
+                    client_name = socket.gethostbyaddr(client_address[0])[0]
+                except socket.herror:
+                    # Jeśli nie uda się pobrać nazwy hosta, użyj adresu IP jako nazwy
+                    client_name = client_address[0]
+
+                # Emitujemy sygnał z nazwą hosta i adresem IP
+                self.device_found_signal.emit({
+                    "name": client_name,
+                    "ip": client_address[0],
+                    "status": "Połączono"
+                })
             except Exception as e:
                 print(f"Błąd serwera: {e}")
 
@@ -130,10 +141,23 @@ class Network(QObject):
             self.client_socket = client_socket
             self.connected = True
             self.is_server = False
-            # Emitujemy sygnał zamiast bezpośrednio dodawać widget
-            self.device_found_signal.emit({"name": server_ip, "ip": server_ip, "status": "Połączono"})
+
+            # Pobranie nazwy hosta na podstawie adresu IP
+            try:
+                server_name = socket.gethostbyaddr(server_ip)[0]
+            except socket.herror:
+                # Jeśli nie uda się pobrać nazwy hosta, użyj adresu IP jako nazwy
+                server_name = server_ip
+
+            # Emitujemy sygnał z nazwą hosta i adresem IP
+            self.device_found_signal.emit({
+                "name": server_name,
+                "ip": server_ip,
+                "status": "Połączono"
+            })
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
+
 
 
 
