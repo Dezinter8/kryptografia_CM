@@ -4,11 +4,12 @@ from PySide6.QtCore import Signal, QObject
 from PySide6.QtWidgets import QWidget
 from Ui.networkDevicesForm import Ui_Form
 
-class Network:
-    # Definiujemy sygnał, który przekazuje informacje o znalezionym urządzeniu
+class Network(QObject):
+    # Definicja sygnału na poziomie klasy
     device_found_signal = Signal(dict)
 
     def __init__(self, main_window):
+        super().__init__()
         self.main_window = main_window
         self.server_socket = None
         self.client_socket = None
