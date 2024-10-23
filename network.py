@@ -128,6 +128,10 @@ class Network(QObject):
             except Exception as e:
                 print(f"Błąd nasłuchiwania DISCOVER: {e}")
 
+            # Ograniczenie nasłuchiwania do raz na sekundę
+            time.sleep(1)
+
+
 
     def send_discovery_message(self):
         """Wysyła broadcast DISCOVER, aby znaleźć inne urządzenia w sieci."""
@@ -139,7 +143,7 @@ class Network(QObject):
             discovery_socket.sendto(message, ("<broadcast>", self.discovery_port))
             print("Wysłano DISCOVER broadcast")
             try:
-                discovery_socket.settimeout(2)
+                discovery_socket.settimeout(2)  # Ustawienie timeoutu na 2 sekundy
                 data, address = discovery_socket.recvfrom(1024)
                 if data.startswith(b"RESPONSE"):
                     print(f"Otrzymano odpowiedź od {address[0]}")
@@ -152,6 +156,10 @@ class Network(QObject):
                         })
             except socket.timeout:
                 continue
+
+            # Ograniczenie wysyłania broadcastów do raz na sekundę
+            time.sleep(1)
+
 
 
 
