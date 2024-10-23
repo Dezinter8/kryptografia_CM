@@ -36,6 +36,7 @@ class Network(QObject):
 
 
     def switch_network_page(self, index):
+        """Zmiana strony w trybie połączenia sieciowego."""
         self.main_window.network_mode_stackedWidget.setCurrentIndex(index)
 
     def get_host_ip(self):
@@ -178,16 +179,6 @@ class Network(QObject):
             })
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
-
-    def update_device_status(self, ip, status):
-        """Aktualizuje status urządzenia w UI na podstawie adresu IP."""
-        for i in range(self.main_window.devicesList_widget.layout().count()):
-            device_widget = self.main_window.devicesList_widget.layout().itemAt(i).widget()
-            device_ui = device_widget.findChild(Ui_Form)
-            if device_ui.Client_ip_label.text() == ip:
-                device_ui.Client_status_label.setText(status)
-                device_ui.Client_connect_pushButton.setText("Rozłącz" if status == "Połączono" else "Połącz")
-                break
 
 
 
