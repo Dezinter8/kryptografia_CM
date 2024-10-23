@@ -18,6 +18,7 @@ class Network(QObject):
         self.host_name = socket.gethostname()
         self.port = 50000  # Port do komunikacji
         self.discovery_port = 50001  # Osobny port dla komunikacji discovery
+        self.device_widgets = {}  # Przechowujemy referencje do widgetów na podstawie IP
 
 
         self.main_window.automatic_connect_pushButton.clicked.connect(lambda: self.switch_network_page(0))
@@ -119,17 +120,20 @@ class Network(QObject):
             discovery_socket.sendto(message, ("<broadcast>", self.discovery_port))
             print("Wysłano DISCOVER broadcast")
             try:
-                # Ustaw timeout, aby nie blokować
                 discovery_socket.settimeout(2)
                 data, address = discovery_socket.recvfrom(1024)
                 if data.startswith(b"RESPONSE"):
                     print(f"Otrzymano odpowiedź od {address[0]}")
                     if address[0] != self.host_ip:
-                        # Znaleziono inny host, spróbuj połączyć się jako klient
-                        threading.Thread(target=self.connect_to_server, args=(address[0],), daemon=True).start()
-                        break
+                        # Emitujemy sygnał znalezionego urządzenia, aby je wyświetlić w GUI
+                        self.device_found_signal.emit({
+                            "name": address[0],
+                            "ip": address[0],
+                            "status": "Dostępny"
+                        })
             except socket.timeout:
                 continue
+
 
 
     def connect_to_server(self, server_ip):
@@ -180,19 +184,27 @@ class Network(QObject):
         device_ui.Client_status_label.setText(device_info["status"])
         device_ui.Client_connect_pushButton.setText("Połącz")
 
+        # Przechowujemy widget w słowniku na podstawie adresu IP
+        self.device_widgets[device_info["ip"]] = device_ui
+
         # Przypisujemy akcję do przycisku "Połącz"
         device_ui.Client_connect_pushButton.clicked.connect(
-            lambda: self.initiate_connection(device_info, device_ui)
+            lambda: self.initiate_connection(device_info["ip"])
         )
 
         # Dodajemy widget do listy urządzeń
         self.main_window.devicesList_widget.layout().addWidget(device_widget)
 
-    def initiate_connection(self, device_info, device_ui):
+    def initiate_connection(self, server_ip):
         """Rozpoczyna proces łączenia się z wybranym urządzeniem po kliknięciu przycisku."""
-        server_ip = device_info["ip"]
         threading.Thread(target=self.connect_to_server, args=(server_ip,), daemon=True).start()
 
-        # Po nawiązaniu połączenia, zmieniamy status w UI
-        device_ui.Client_status_label.setText("Łączenie...")
-        device_ui.Client_connect_pushButton.setText("Rozłącz")
+        # Po nawiązaniu połączenia, zmieniamy status w UI na "Łączenie..."
+        self.update_device_status(server_ip, "Łączenie...")
+
+    def update_device_status(self, ip, status):
+        """Aktualizuje status urządzenia w UI na podstawie adresu IP."""
+        device_ui = self.device_widgets.get(ip)
+        if device_ui:
+            device_ui.Client_status_label.setText(status)
+            device_ui.Client_connect_pushButton.setText("Rozłącz" if status == "Połączono" else "Połącz")
