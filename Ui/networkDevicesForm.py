@@ -53,11 +53,11 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.label_5, 2, 0, 1, 1)
 
-        self.User_ip_label = QLabel(Form)
-        self.User_ip_label.setObjectName(u"User_ip_label")
-        self.User_ip_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.Client_ip_label = QLabel(Form)
+        self.Client_ip_label.setObjectName(u"Client_ip_label")
+        self.Client_ip_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
-        self.gridLayout.addWidget(self.User_ip_label, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.Client_ip_label, 1, 1, 1, 1)
 
         self.label = QLabel(Form)
         self.label.setObjectName(u"label")
@@ -65,22 +65,22 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
 
-        self.User_name_label = QLabel(Form)
-        self.User_name_label.setObjectName(u"User_name_label")
-        self.User_name_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.Client_name_label = QLabel(Form)
+        self.Client_name_label.setObjectName(u"Client_name_label")
+        self.Client_name_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
-        self.gridLayout.addWidget(self.User_name_label, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.Client_name_label, 0, 1, 1, 1)
 
-        self.User_status_label = QLabel(Form)
-        self.User_status_label.setObjectName(u"User_status_label")
-        self.User_status_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
+        self.Client_status_label = QLabel(Form)
+        self.Client_status_label.setObjectName(u"Client_status_label")
+        self.Client_status_label.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse|Qt.TextInteractionFlag.TextSelectableByMouse)
 
-        self.gridLayout.addWidget(self.User_status_label, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.Client_status_label, 2, 1, 1, 1)
 
-        self.User_label_pushButton = QPushButton(Form)
-        self.User_label_pushButton.setObjectName(u"User_label_pushButton")
+        self.Client_connect_pushButton = QPushButton(Form)
+        self.Client_connect_pushButton.setObjectName(u"Client_connect_pushButton")
 
-        self.gridLayout.addWidget(self.User_label_pushButton, 1, 2, 1, 1)
+        self.gridLayout.addWidget(self.Client_connect_pushButton, 1, 2, 1, 1)
 
 
         self.retranslateUi(Form)
@@ -92,10 +92,10 @@ class Ui_Form(object):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.label_3.setText(QCoreApplication.translate("Form", u"Adres IP:", None))
         self.label_5.setText(QCoreApplication.translate("Form", u"Stan Po\u0142\u0105czenia:", None))
-        self.User_ip_label.setText(QCoreApplication.translate("Form", u"127.0.0.1", None))
+        self.Client_ip_label.setText(QCoreApplication.translate("Form", u"127.0.0.1", None))
         self.label.setText(QCoreApplication.translate("Form", u"Nazwa u\u017cytkownika:", None))
-        self.User_name_label.setText(QCoreApplication.translate("Form", u"U\u017cytkownik X", None))
-        self.User_status_label.setText(QCoreApplication.translate("Form", u"Dost\u0119pny", None))
-        self.User_label_pushButton.setText(QCoreApplication.translate("Form", u"Po\u0142\u0105cz", None))
+        self.Client_name_label.setText(QCoreApplication.translate("Form", u"U\u017cytkownik X", None))
+        self.Client_status_label.setText(QCoreApplication.translate("Form", u"Dost\u0119pny", None))
+        self.Client_connect_pushButton.setText(QCoreApplication.translate("Form", u"Po\u0142\u0105cz", None))
     # retranslateUi
 

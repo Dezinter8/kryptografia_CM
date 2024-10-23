@@ -114,7 +114,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLabel" name="User_ip_label">
+    <widget class="QLabel" name="Client_ip_label">
      <property name="text">
       <string>127.0.0.1</string>
      </property>
@@ -137,7 +137,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLabel" name="User_name_label">
+    <widget class="QLabel" name="Client_name_label">
      <property name="text">
       <string>Użytkownik X</string>
      </property>
@@ -147,7 +147,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QLabel" name="User_status_label">
+    <widget class="QLabel" name="Client_status_label">
      <property name="text">
       <string>Dostępny</string>
      </property>
@@ -157,7 +157,7 @@
     </widget>
    </item>
    <item row="1" column="2">
-    <widget class="QPushButton" name="User_label_pushButton">
+    <widget class="QPushButton" name="Client_connect_pushButton">
      <property name="text">
       <string>Połącz</string>
      </property>

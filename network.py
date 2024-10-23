@@ -146,17 +146,24 @@ class Network(QObject):
             try:
                 server_name = socket.gethostbyaddr(server_ip)[0]
             except socket.herror:
-                # Jeśli nie uda się pobrać nazwy hosta, użyj adresu IP jako nazwy
                 server_name = server_ip
 
-            # Emitujemy sygnał z nazwą hosta i adresem IP
-            self.device_found_signal.emit({
-                "name": server_name,
-                "ip": server_ip,
-                "status": "Połączono"
-            })
+            # Zmiana statusu w GUI
+            self.update_device_status(server_ip, "Połączono")
+
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
+
+    def update_device_status(self, ip, status):
+        """Aktualizuje status urządzenia w UI na podstawie adresu IP."""
+        for i in range(self.main_window.devicesList_widget.layout().count()):
+            device_widget = self.main_window.devicesList_widget.layout().itemAt(i).widget()
+            device_ui = device_widget.findChild(Ui_Form)
+            if device_ui.Client_ip_label.text() == ip:
+                device_ui.Client_status_label.setText(status)
+                device_ui.Client_connect_pushButton.setText("Rozłącz" if status == "Połączono" else "Połącz")
+                break
+
 
 
 
@@ -167,9 +174,25 @@ class Network(QObject):
         device_ui = Ui_Form()
         device_ui.setupUi(device_widget)
 
-        device_ui.User_name_label.setText(device_info["name"])
-        device_ui.User_ip_label.setText(device_info["ip"])
-        device_ui.User_status_label.setText(device_info["status"])
-        device_ui.User_label_pushButton.setText("Rozłącz" if device_info["status"] == "Połączono" else "Połącz")
+        # Ustawiamy informacje o urządzeniu
+        device_ui.Client_name_label.setText(device_info["name"])
+        device_ui.Client_ip_label.setText(device_info["ip"])
+        device_ui.Client_status_label.setText(device_info["status"])
+        device_ui.Client_connect_pushButton.setText("Połącz")
 
+        # Przypisujemy akcję do przycisku "Połącz"
+        device_ui.Client_connect_pushButton.clicked.connect(
+            lambda: self.initiate_connection(device_info, device_ui)
+        )
+
+        # Dodajemy widget do listy urządzeń
         self.main_window.devicesList_widget.layout().addWidget(device_widget)
+
+    def initiate_connection(self, device_info, device_ui):
+        """Rozpoczyna proces łączenia się z wybranym urządzeniem po kliknięciu przycisku."""
+        server_ip = device_info["ip"]
+        threading.Thread(target=self.connect_to_server, args=(server_ip,), daemon=True).start()
+
+        # Po nawiązaniu połączenia, zmieniamy status w UI
+        device_ui.Client_status_label.setText("Łączenie...")
+        device_ui.Client_connect_pushButton.setText("Rozłącz")
