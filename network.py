@@ -1,5 +1,6 @@
 import socket
 import threading
+import time
 from PySide6.QtCore import Signal, QObject
 from PySide6.QtWidgets import QWidget
 from Ui.networkDevicesForm import Ui_Form
@@ -18,7 +19,10 @@ class Network(QObject):
         self.host_name = socket.gethostname()
         self.port = 50000  # Port do komunikacji
         self.discovery_port = 50001  # Osobny port dla komunikacji discovery
+        
         self.device_widgets = {}  # Przechowujemy referencje do widgetów na podstawie IP
+        self.searching = False  # Flaga do kontrolowania wyszukiwania
+        self.cooldown_duration = 2  # Czas cooldownu w sekundach
 
 
         self.main_window.automatic_connect_pushButton.clicked.connect(lambda: self.switch_network_page(0))
@@ -49,11 +53,25 @@ class Network(QObject):
 
     def start_network_discovery(self):
         """Rozpoczyna proces wyszukiwania innych aplikacji w sieci."""
+        if self.searching:
+            print("Wyszukiwanie już w toku, czekam na cooldown...")
+            return  # Nie rozpoczynaj ponownie wyszukiwania, jeśli już trwa
+
+        self.searching = True  # Ustaw flagę na true
         self.update_host_info()
+
         # Startujemy wątki do wyszukiwania i nasłuchiwania
         threading.Thread(target=self.start_server, daemon=True).start()
         threading.Thread(target=self.listen_for_discovery, daemon=True).start()
         threading.Thread(target=self.send_discovery_message, daemon=True).start()
+
+        # Cooldown po zakończeniu wyszukiwania
+        threading.Thread(target=self.cooldown_search, daemon=True).start()
+
+    def cooldown_search(self):
+        """Czeka przez określony czas, aby nie wyszukiwać ponownie zbyt szybko."""
+        time.sleep(self.cooldown_duration)
+        self.searching = False  # Zwalnia flagę po upływie cooldownu
 
     def update_host_info(self):
         """Aktualizuje informacje o hoście w interfejsie."""
@@ -152,9 +170,12 @@ class Network(QObject):
             except socket.herror:
                 server_name = server_ip
 
-            # Zmiana statusu w GUI
-            self.update_device_status(server_ip, "Połączono")
-
+            # Emitujemy sygnał z nazwą hosta i adresem IP
+            self.device_found_signal.emit({
+                "name": server_name,
+                "ip": server_ip,
+                "status": "Połączono"
+            })
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
 
@@ -174,11 +195,14 @@ class Network(QObject):
 
     def add_device_widget(self, device_info):
         """Dodaje widget z informacjami o urządzeniu do UI."""
+        # Sprawdzenie, czy widget dla danego IP już istnieje
+        if device_info["ip"] in self.device_widgets:
+            return  # Już dodano widget, więc kończymy
+
         device_widget = QWidget()
         device_ui = Ui_Form()
         device_ui.setupUi(device_widget)
 
-        # Ustawiamy informacje o urządzeniu
         device_ui.Client_name_label.setText(device_info["name"])
         device_ui.Client_ip_label.setText(device_info["ip"])
         device_ui.Client_status_label.setText(device_info["status"])
