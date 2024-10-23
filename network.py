@@ -19,11 +19,12 @@ class Network(QObject):
         self.host_name = socket.gethostname()
         self.port = 50000  # Port do komunikacji
         self.discovery_port = 50001  # Osobny port dla komunikacji discovery
-        
+
         self.device_widgets = {}  # Przechowujemy referencje do widgetów na podstawie IP
         self.searching = False  # Flaga do kontrolowania wyszukiwania
         self.cooldown_duration = 2  # Czas cooldownu w sekundach
-
+        self.search_attempts = 10  # Maksymalna liczba prób wyszukiwania
+        self.lock = threading.Lock()  # Blokada do synchronizacji dostępu do shared resources
 
         self.main_window.automatic_connect_pushButton.clicked.connect(lambda: self.switch_network_page(0))
         self.main_window.manual_connect_pushButton.clicked.connect(lambda: self.switch_network_page(1))
@@ -33,7 +34,6 @@ class Network(QObject):
 
         # Podłączamy sygnał do metody dodającej widget urządzenia
         self.device_found_signal.connect(self.add_device_widget)
-
 
     def switch_network_page(self, index):
         """Zmiana strony w trybie połączenia sieciowego."""
@@ -54,11 +54,12 @@ class Network(QObject):
 
     def start_network_discovery(self):
         """Rozpoczyna proces wyszukiwania innych aplikacji w sieci."""
-        if self.searching:
-            print("Wyszukiwanie już w toku, czekam na cooldown...")
-            return  # Nie rozpoczynaj ponownie wyszukiwania, jeśli już trwa
+        with self.lock:
+            if self.searching:
+                print("Wyszukiwanie już w toku, czekam na cooldown...")
+                return  # Nie rozpoczynaj ponownie wyszukiwania, jeśli już trwa
 
-        self.searching = True  # Ustaw flagę na true
+            self.searching = True  # Ustaw flagę na true
         self.update_host_info()
 
         # Startujemy wątki do wyszukiwania i nasłuchiwania
@@ -72,7 +73,8 @@ class Network(QObject):
     def cooldown_search(self):
         """Czeka przez określony czas, aby nie wyszukiwać ponownie zbyt szybko."""
         time.sleep(self.cooldown_duration)
-        self.searching = False  # Zwalnia flagę po upływie cooldownu
+        with self.lock:
+            self.searching = False  # Zwalnia flagę po upływie cooldownu
 
     def update_host_info(self):
         """Aktualizuje informacje o hoście w interfejsie."""
@@ -83,25 +85,23 @@ class Network(QObject):
         """Uruchamia serwer, który nasłuchuje na połączenia."""
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.bind((self.host_ip, self.port))
-        self.server_socket.listen(1)
+        self.server_socket.listen(5)  # Obsługuje wiele połączeń
         print(f"Serwer nasłuchuje na {self.host_ip}:{self.port}")
 
         while not self.connected:
             try:
                 client_socket, client_address = self.server_socket.accept()
                 print(f"Połączono z {client_address}")
-                self.client_socket = client_socket
-                self.is_server = True
-                self.connected = True
-                
-                # Pobranie nazwy hosta na podstawie adresu IP
+                with self.lock:
+                    self.client_socket = client_socket
+                    self.is_server = True
+                    self.connected = True
+
                 try:
                     client_name = socket.gethostbyaddr(client_address[0])[0]
                 except socket.herror:
-                    # Jeśli nie uda się pobrać nazwy hosta, użyj adresu IP jako nazwy
                     client_name = client_address[0]
 
-                # Emitujemy sygnał z nazwą hosta i adresem IP
                 self.device_found_signal.emit({
                     "name": client_name,
                     "ip": client_address[0],
@@ -122,33 +122,33 @@ class Network(QObject):
                 if data.startswith(b"DISCOVER"):
                     print(f"Otrzymano DISCOVER od {address[0]}")
                     if address[0] != self.host_ip:
-                        # Odpowiedz na DISCOVER, że jesteśmy tutaj
                         response = f"RESPONSE:{self.host_ip}".encode()
                         discovery_socket.sendto(response, address)
             except Exception as e:
                 print(f"Błąd nasłuchiwania DISCOVER: {e}")
 
-            # Ograniczenie nasłuchiwania do raz na sekundę
             time.sleep(1)
 
-
+        discovery_socket.close()
 
     def send_discovery_message(self):
         """Wysyła broadcast DISCOVER, aby znaleźć inne urządzenia w sieci."""
         discovery_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         discovery_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         message = f"DISCOVER:{self.host_ip}".encode()
+        attempts = 0
 
-        while not self.connected:
+        while not self.connected and attempts < self.search_attempts:
             discovery_socket.sendto(message, ("<broadcast>", self.discovery_port))
             print("Wysłano DISCOVER broadcast")
             try:
-                discovery_socket.settimeout(2)  # Ustawienie timeoutu na 2 sekundy
+                discovery_socket.settimeout(2)
                 data, address = discovery_socket.recvfrom(1024)
                 if data.startswith(b"RESPONSE"):
                     print(f"Otrzymano odpowiedź od {address[0]}")
                     if address[0] != self.host_ip:
-                        # Emitujemy sygnał znalezionego urządzenia, aby je wyświetlić w GUI
+                        with self.lock:
+                            self.connected = True
                         self.device_found_signal.emit({
                             "name": address[0],
                             "ip": address[0],
@@ -157,11 +157,10 @@ class Network(QObject):
             except socket.timeout:
                 continue
 
-            # Ograniczenie wysyłania broadcastów do raz na sekundę
+            attempts += 1
             time.sleep(1)
 
-
-
+        discovery_socket.close()
 
     def connect_to_server(self, server_ip):
         """Próbuje połączyć się do znalezionego serwera."""
@@ -169,17 +168,16 @@ class Network(QObject):
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             client_socket.connect((server_ip, self.port))
             print(f"Połączono z serwerem {server_ip}")
-            self.client_socket = client_socket
-            self.connected = True
-            self.is_server = False
+            with self.lock:
+                self.client_socket = client_socket
+                self.connected = True
+                self.is_server = False
 
-            # Pobranie nazwy hosta na podstawie adresu IP
             try:
                 server_name = socket.gethostbyaddr(server_ip)[0]
             except socket.herror:
                 server_name = server_ip
 
-            # Emitujemy sygnał z nazwą hosta i adresem IP
             self.device_found_signal.emit({
                 "name": server_name,
                 "ip": server_ip,
@@ -188,15 +186,10 @@ class Network(QObject):
         except Exception as e:
             print(f"Błąd połączenia z serwerem: {e}")
 
-
-
-
-
     def add_device_widget(self, device_info):
         """Dodaje widget z informacjami o urządzeniu do UI."""
-        # Sprawdzenie, czy widget dla danego IP już istnieje
         if device_info["ip"] in self.device_widgets:
-            return  # Już dodano widget, więc kończymy
+            return  # Już dodano widget
 
         device_widget = QWidget()
         device_ui = Ui_Form()
@@ -207,22 +200,17 @@ class Network(QObject):
         device_ui.Client_status_label.setText(device_info["status"])
         device_ui.Client_connect_pushButton.setText("Połącz")
 
-        # Przechowujemy widget w słowniku na podstawie adresu IP
         self.device_widgets[device_info["ip"]] = device_ui
 
-        # Przypisujemy akcję do przycisku "Połącz"
         device_ui.Client_connect_pushButton.clicked.connect(
             lambda: self.initiate_connection(device_info["ip"])
         )
 
-        # Dodajemy widget do listy urządzeń
         self.main_window.devicesList_widget.layout().addWidget(device_widget)
 
     def initiate_connection(self, server_ip):
         """Rozpoczyna proces łączenia się z wybranym urządzeniem po kliknięciu przycisku."""
         threading.Thread(target=self.connect_to_server, args=(server_ip,), daemon=True).start()
-
-        # Po nawiązaniu połączenia, zmieniamy status w UI na "Łączenie..."
         self.update_device_status(server_ip, "Łączenie...")
 
     def update_device_status(self, ip, status):
@@ -231,3 +219,10 @@ class Network(QObject):
         if device_ui:
             device_ui.Client_status_label.setText(status)
             device_ui.Client_connect_pushButton.setText("Rozłącz" if status == "Połączono" else "Połącz")
+
+    def close_connection(self):
+        """Zamyka sockety po zakończeniu pracy."""
+        if self.client_socket:
+            self.client_socket.close()
+        if self.server_socket:
+            self.server_socket.close()
