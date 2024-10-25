@@ -118,7 +118,7 @@ class Network(QObject):
         device_name = device_info["device_name"]
 
         # Sprawdza, czy widget dla danego IP już istnieje
-        if ip_address in self.device_widgets:
+        if ip_address in self.device_widgets or ip_address == self.host_ip:
             return  # Już dodano widget
 
         # Tworzy nowy widget dla urządzenia
