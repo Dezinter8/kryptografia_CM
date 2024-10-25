@@ -132,9 +132,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def closeEvent(self, event):
-        self.network.stop()                         # Zamknięcie i czyszczenie klienta Network
-        for widget in self.findChildren(QWidget):
-            widget.deleteLater()
+        self.network.stop()                             # Zamknięcie i czyszczenie klienta Network
+        # for widget in self.findChildren(QWidget):
+        #     widget.deleteLater()
         super().closeEvent(event)                       # Wywołanie metody bazowej
 
 

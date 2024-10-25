@@ -21,6 +21,9 @@ class Network(QObject):
         self.host_name = socket.gethostname()
         self.host_ip = self.get_host_ip_address()
 
+        # Wprowadzenie danych hosta do pól tekstowych
+        self.update_host_info()
+
         # Połączenie przycisku do metody wyszukiwania
         self.main_window.network_search_button.clicked.connect(self.start_network_discovery)
 
@@ -43,6 +46,10 @@ class Network(QObject):
             # Dla innych systemów, np. Windows
             return socket.gethostbyname(socket.gethostname())
 
+    def update_host_info(self):
+        """Aktualizuje informacje o hoście w interfejsie."""
+        self.main_window.host_user_name.setText(self.host_name)
+        self.main_window.host_user_ip.setText(self.host_ip)
 
 
     def start_network_discovery(self):
@@ -50,7 +57,7 @@ class Network(QObject):
         # Start wątków broadcast i nasłuchiwania
         self.broadcast_thread = threading.Thread(target=self.broadcast_presence)
         self.listener_thread = threading.Thread(target=self.start_broadcast_listener)
-        
+
         self.broadcast_thread.start()
         self.listener_thread.start()
 
