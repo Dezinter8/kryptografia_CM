@@ -384,10 +384,15 @@ class Network(QObject):
 
 
     def stop(self):
-        """Zatrzymuje broadcast, nasłuchiwanie i zamyka sockety."""
+        """Zatrzymuje wszystkie wątki, zamyka połączenia i zamyka wszystkie gniazda."""
+        # Ustawienie flagi 'running' na False, co zakończy pętle wątków
         self.running = False
 
-        # Czekanie na zakończenie wątków, jeśli zostały uruchomione
+        # Czekanie na zakończenie wątku transferu pliku
+        if hasattr(self, 'file_transfer_thread') and self.file_transfer_thread.is_alive():
+            self.file_transfer_thread.join()
+
+        # Czekanie na zakończenie wątków broadcast, listener i connection listener
         if hasattr(self, 'broadcast_thread') and self.broadcast_thread.is_alive():
             self.broadcast_thread.join()
         if hasattr(self, 'listener_thread') and self.listener_thread.is_alive():
@@ -395,14 +400,28 @@ class Network(QObject):
         if hasattr(self, 'connection_listener_thread') and self.connection_listener_thread.is_alive():
             self.connection_listener_thread.join()
 
-        # Zamykanie socketów
+        # Zamykanie głównego gniazda serwera
         if hasattr(self, 'server_socket'):
-            self.server_socket.close()
+            try:
+                self.server_socket.close()
+                print("Server socket closed.")
+            except Exception as e:
+                print("Error closing server socket:", e)
+
+        # Zamykanie gniazda klienta, jeśli jest otwarte
         if hasattr(self, 'client_socket'):
-            self.client_socket.close()
+            try:
+                self.client_socket.close()
+                print("Client socket closed.")
+            except Exception as e:
+                print("Error closing client socket:", e)
+
+        # Zamykanie serwera plików
         if hasattr(self, 'file_server_socket'):
-            self.file_server_socket.close()
+            try:
+                self.file_server_socket.close()
+                print("File server socket closed.")
+            except Exception as e:
+                print("Error closing file server socket:", e)
 
         print("Wszystkie wątki i gniazda zostały zamknięte.")
-
-
