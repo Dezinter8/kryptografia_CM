@@ -1,6 +1,6 @@
 import sys
 import base64
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QFileDialog
 from Ui.MainWindow import Ui_MainWindow
 from encryptions.vigener import Vigener
 from encryptions.transposition import Transposition
@@ -129,6 +129,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             except Exception as e:
                 print(f"Nie udało się zapisać pliku: {e}")
 
+
+
+    def closeEvent(self, event):
+        self.network.stop()                             # Zamknięcie i czyszczenie klienta Network
+        # for widget in self.findChildren(QWidget):
+        #     widget.deleteLater()
+        super().closeEvent(event)                       # Wywołanie metody bazowej
 
 
 if __name__ == "__main__":

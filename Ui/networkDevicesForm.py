@@ -82,6 +82,12 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.Client_connect_pushButton, 1, 2, 1, 1)
 
+        self.send_file_pushButton = QPushButton(Form)
+        self.send_file_pushButton.setObjectName(u"send_file_pushButton")
+        self.send_file_pushButton.setEnabled(False)
+
+        self.gridLayout.addWidget(self.send_file_pushButton, 2, 2, 1, 1)
+
 
         self.retranslateUi(Form)
 
@@ -97,5 +103,6 @@ class Ui_Form(object):
         self.Client_name_label.setText(QCoreApplication.translate("Form", u"U\u017cytkownik X", None))
         self.Client_status_label.setText(QCoreApplication.translate("Form", u"Dost\u0119pny", None))
         self.Client_connect_pushButton.setText(QCoreApplication.translate("Form", u"Po\u0142\u0105cz", None))
+        self.send_file_pushButton.setText(QCoreApplication.translate("Form", u"Wy\u015blij Plik", None))
     # retranslateUi
 

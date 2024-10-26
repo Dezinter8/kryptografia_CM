@@ -35,6 +35,8 @@ Linux:
 ```
 pyside6-uic ./Ui/mainwindow.ui -o ./Ui/MainWindow.py
 
+pyside6-uic ./Ui/networkDevicesForm.ui -o ./Ui/networkDevicesForm.py
+
 pyside6-rcc ./Ui/resources.qrc -o ./Ui/resources_rc.py
 ```
 
@@ -42,6 +44,8 @@ Windows:
 
 ```
 pyside6-uic .\Ui\mainwindow.ui -o .\Ui\MainWindow.py
+
+pyside6-uic .\Ui\networkDevicesForm.ui -o .\Ui\networkDevicesForm.py
 
 pyside6-rcc .\Ui\resources.qrc -o .\Ui\resources_rc.py
 ```
