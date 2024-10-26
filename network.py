@@ -237,6 +237,7 @@ class Network(QObject):
     def connect_to_server(self, server_ip):
         """Klient łączy się z serwerem i wysyła wiadomość testową."""
         try:
+            time.sleep(3)  # Krótkie opóźnienie, aby upewnić się, że serwer jest gotowy
             self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.client_socket.connect((server_ip, self.server_port))
             print(f"Connected to server at {server_ip}")
