@@ -2,7 +2,7 @@ import socket
 import threading
 import time
 import os
-from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtWidgets import QWidget, QMessageBox, QFileDialog
 from PySide6.QtCore import Signal, QObject
 from Ui.networkDevicesForm import Ui_Form
 
@@ -16,6 +16,8 @@ class Network(QObject):
         self.port = 49152
         self.request_port = 49153
         self.server_port = 49154
+        self.file_transfer_port = 49155  # Nowy port dedykowany do transferu plików
+
         self.broadcast_interval = 2  # Czas między broadcastami w sekundach
         self.devices = {}  # Przechowuje dostępne urządzenia w formacie {IP: "Nazwa"}
         self.device_widgets = {}  # Słownik do przechowywania widgetów dla unikalnych IP
@@ -34,6 +36,9 @@ class Network(QObject):
         # Podłączamy sygnał do metody dodającej widget urządzenia
         self.device_found_signal.connect(self.add_device_widget)
         self.connection_request_signal.connect(self.show_connection_request)  # Nowy sygnał
+
+        # Uruchom serwer do odbierania plików na starcie
+        self.start_file_server()
 
 
 
@@ -138,6 +143,11 @@ class Network(QObject):
             lambda _, ip=ip_address: self.request_connection(ip)
         )
 
+        # Połącz przycisk "Wyślij plik" z funkcją `send_file`
+        device_ui.send_file_pushButton.clicked.connect(
+            lambda _, ip=ip_address: self.send_file(ip)
+        )
+
         # Dodaje widget do layoutu listy urządzeń w głównym oknie
         self.main_window.devicesList_widget.layout().addWidget(device_widget)
 
@@ -190,6 +200,7 @@ class Network(QObject):
 
             # Uruchomienie serwera do połączenia i przesyłania danych
             self.start_stream_as_server(sender_ip)
+            # self.start_file_server()
         except Exception as e:
             print("Error confirming connection:", e)
 
@@ -228,14 +239,26 @@ class Network(QObject):
                 device_ui.Client_status_label.setText("Połączono")
                 device_ui.send_file_pushButton.setEnabled(True)  # Włączenie przycisku
 
-            # Wysłanie wiadomości testowej do klienta
-            conn.send("Welcome! Connection established from server.".encode())
-            print("Sent message to client: 'Welcome! Connection established from server.'")
+            # Odbieranie rozmiaru pliku jako nagłówka (16 bajtów)
+            file_size_data = conn.recv(16).strip()
+            file_size = int(file_size_data.decode())
 
-            # Odbieranie wiadomości testowej od klienta
-            data = conn.recv(1024).decode()
-            print("Message from client:", data)
+            # Odbieranie danych pliku
+            file_data = b""
+            while len(file_data) < file_size:
+                packet = conn.recv(1024)
+                if not packet:
+                    break
+                file_data += packet
+
+            # Zapisz odebrany plik w katalogu projektu
+            save_path = os.path.join(os.getcwd(), "received_file.txt")
+            with open(save_path, "wb") as file:
+                file.write(file_data)
+            
+            print(f"Plik odebrany od {addr[0]} i zapisany jako '{save_path}'")
             conn.close()
+
         except Exception as e:
             print("Error handling client connection:", e)
         finally:
@@ -278,6 +301,69 @@ class Network(QObject):
             threading.Thread(target=self.connect_to_server, args=(target_ip,)).start()
         except Exception as e:
             print("Error requesting connection:", e)
+
+
+
+
+
+    def send_file(self, target_ip):
+        """Otwiera okno dialogowe wyboru pliku i wysyła plik do wybranego urządzenia."""
+        file_path, _ = QFileDialog.getOpenFileName(
+            self.main_window, "Wybierz plik", "", "Text Files (*.txt)"
+        )
+        
+        if file_path:
+            try:
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                    sock.connect((target_ip, self.file_transfer_port))  # Połączenie na dedykowanym porcie
+                    with open(file_path, "rb") as file:
+                        file_data = file.read()
+                        file_size = len(file_data)
+                        sock.sendall(f"{file_size}".encode().ljust(16))
+                        sock.sendall(file_data)
+                    print(f"Plik '{file_path}' został wysłany do {target_ip}")
+            except Exception as e:
+                print("Błąd podczas wysyłania pliku:", e)
+
+    def start_file_server(self):
+        """Inicjuje serwer nasłuchujący na dedykowanym porcie transferu plików."""
+        try:
+            self.file_server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.file_server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            self.file_server_socket.bind((self.host_ip, self.file_transfer_port))
+            self.file_server_socket.listen(1)
+            print("File server started, waiting for incoming file...")
+
+            threading.Thread(target=self.handle_file_transfer).start()
+        except Exception as e:
+            print("Error starting file server:", e)
+
+    def handle_file_transfer(self):
+        """Obsługuje odbiór pliku od klienta."""
+        try:
+            conn, addr = self.file_server_socket.accept()
+            print(f"Receiving file from {addr}")
+
+            file_size_data = conn.recv(16).strip()
+            file_size = int(file_size_data.decode())
+
+            file_data = b""
+            while len(file_data) < file_size:
+                packet = conn.recv(1024)
+                if not packet:
+                    break
+                file_data += packet
+
+            save_path = os.path.join(os.getcwd(), "received_file.txt")
+            with open(save_path, "wb") as file:
+                file.write(file_data)
+
+            print(f"Plik odebrany od {addr[0]} i zapisany jako '{save_path}'")
+            conn.close()
+        except Exception as e:
+            print("Error during file transfer:", e)
+        finally:
+            self.file_server_socket.close()
 
 
     def stop(self):
