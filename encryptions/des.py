@@ -13,7 +13,6 @@ class Des:
         # Obsługa przycisków zmieniających tryb pracy des
         self.main_window.des_normalMode_button.clicked.connect(lambda: self.switch_des_page(0))
         self.main_window.des_allFileMode_button.clicked.connect(lambda: self.switch_des_page(1))
-        self.main_window.des_networkMode_button.clicked.connect(lambda: self.switch_des_page(2))
 
         # Obsługa przycisków wywołujących szyfrowanie i deszyfrowanie
         self.main_window.Des_button.clicked.connect(lambda: self.encrypt_des(1, self.main_window.Des_input_text))

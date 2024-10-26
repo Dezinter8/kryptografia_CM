@@ -535,10 +535,26 @@ class Ui_MainWindow(object):
         self.DES_page.setObjectName(u"DES_page")
         self.gridLayout_4 = QGridLayout(self.DES_page)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.label_16 = QLabel(self.DES_page)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setFont(font)
+
+        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 1)
+
         self.des_allFileMode_button = QPushButton(self.DES_page)
         self.des_allFileMode_button.setObjectName(u"des_allFileMode_button")
 
         self.gridLayout_4.addWidget(self.des_allFileMode_button, 1, 2, 1, 1)
+
+        self.des_normalMode_button = QPushButton(self.DES_page)
+        self.des_normalMode_button.setObjectName(u"des_normalMode_button")
+
+        self.gridLayout_4.addWidget(self.des_normalMode_button, 1, 1, 1, 1)
+
+        self.label_26 = QLabel(self.DES_page)
+        self.label_26.setObjectName(u"label_26")
+
+        self.gridLayout_4.addWidget(self.label_26, 1, 0, 1, 1)
 
         self.widget_3 = QWidget(self.DES_page)
         self.widget_3.setObjectName(u"widget_3")
@@ -567,11 +583,6 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_4.addWidget(self.widget_3, 0, 1, 1, 2)
-
-        self.des_networkMode_button = QPushButton(self.DES_page)
-        self.des_networkMode_button.setObjectName(u"des_networkMode_button")
-
-        self.gridLayout_4.addWidget(self.des_networkMode_button, 1, 3, 1, 1)
 
         self.stackedWidget_des = QStackedWidget(self.DES_page)
         self.stackedWidget_des.setObjectName(u"stackedWidget_des")
@@ -765,33 +776,8 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addItem(self.verticalSpacer_5, 8, 0, 1, 1)
 
         self.stackedWidget_des.addWidget(self.des_allFileMode_page)
-        self.des_networkMode_page = QWidget()
-        self.des_networkMode_page.setObjectName(u"des_networkMode_page")
-        self.label_27 = QLabel(self.des_networkMode_page)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setGeometry(QRect(350, 70, 161, 61))
-        font1 = QFont()
-        font1.setPointSize(18)
-        self.label_27.setFont(font1)
-        self.stackedWidget_des.addWidget(self.des_networkMode_page)
 
-        self.gridLayout_4.addWidget(self.stackedWidget_des, 2, 0, 1, 5)
-
-        self.des_normalMode_button = QPushButton(self.DES_page)
-        self.des_normalMode_button.setObjectName(u"des_normalMode_button")
-
-        self.gridLayout_4.addWidget(self.des_normalMode_button, 1, 1, 1, 1)
-
-        self.label_16 = QLabel(self.DES_page)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setFont(font)
-
-        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 1)
-
-        self.label_26 = QLabel(self.DES_page)
-        self.label_26.setObjectName(u"label_26")
-
-        self.gridLayout_4.addWidget(self.label_26, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.stackedWidget_des, 2, 0, 1, 4)
 
         self.stackedWidget.addWidget(self.DES_page)
         self.AES_page = QWidget()
@@ -804,40 +790,10 @@ class Ui_MainWindow(object):
         self.Network_page.setObjectName(u"Network_page")
         self.gridLayout_6 = QGridLayout(self.Network_page)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.label_17 = QLabel(self.Network_page)
-        self.label_17.setObjectName(u"label_17")
-
-        self.gridLayout_6.addWidget(self.label_17, 0, 0, 1, 1)
-
         self.host_user_name = QLabel(self.Network_page)
         self.host_user_name.setObjectName(u"host_user_name")
 
         self.gridLayout_6.addWidget(self.host_user_name, 0, 1, 1, 2)
-
-        self.label_25 = QLabel(self.Network_page)
-        self.label_25.setObjectName(u"label_25")
-
-        self.gridLayout_6.addWidget(self.label_25, 1, 0, 1, 1)
-
-        self.host_user_ip = QLabel(self.Network_page)
-        self.host_user_ip.setObjectName(u"host_user_ip")
-
-        self.gridLayout_6.addWidget(self.host_user_ip, 1, 1, 1, 2)
-
-        self.label_28 = QLabel(self.Network_page)
-        self.label_28.setObjectName(u"label_28")
-
-        self.gridLayout_6.addWidget(self.label_28, 2, 0, 1, 1)
-
-        self.automatic_connect_pushButton = QPushButton(self.Network_page)
-        self.automatic_connect_pushButton.setObjectName(u"automatic_connect_pushButton")
-
-        self.gridLayout_6.addWidget(self.automatic_connect_pushButton, 2, 1, 1, 1)
-
-        self.manual_connect_pushButton = QPushButton(self.Network_page)
-        self.manual_connect_pushButton.setObjectName(u"manual_connect_pushButton")
-
-        self.gridLayout_6.addWidget(self.manual_connect_pushButton, 2, 2, 1, 1)
 
         self.network_mode_stackedWidget = QStackedWidget(self.Network_page)
         self.network_mode_stackedWidget.setObjectName(u"network_mode_stackedWidget")
@@ -880,7 +836,22 @@ class Ui_MainWindow(object):
 
         self.network_mode_stackedWidget.addWidget(self.manual_page)
 
-        self.gridLayout_6.addWidget(self.network_mode_stackedWidget, 3, 0, 1, 3)
+        self.gridLayout_6.addWidget(self.network_mode_stackedWidget, 2, 0, 1, 3)
+
+        self.label_17 = QLabel(self.Network_page)
+        self.label_17.setObjectName(u"label_17")
+
+        self.gridLayout_6.addWidget(self.label_17, 0, 0, 1, 1)
+
+        self.host_user_ip = QLabel(self.Network_page)
+        self.host_user_ip.setObjectName(u"host_user_ip")
+
+        self.gridLayout_6.addWidget(self.host_user_ip, 1, 1, 1, 2)
+
+        self.label_25 = QLabel(self.Network_page)
+        self.label_25.setObjectName(u"label_25")
+
+        self.gridLayout_6.addWidget(self.label_25, 1, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.Network_page)
 
@@ -909,7 +880,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -982,12 +953,14 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Szyfr Kolumnowy (Przestawieniowy):", None))
         self.transposition_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.transposition_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.des_allFileMode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
+        self.des_normalMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy des:", None))
         self.des_ecb_radioButton.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
         self.des_cbc_radioButton.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
         self.des_ofb_radioButton.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
         self.des_cfb_radioButton.setText(QCoreApplication.translate("MainWindow", u"CFB", None))
-        self.des_networkMode_button.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
         self.Des_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
         self.label_48.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
@@ -1010,18 +983,11 @@ class Ui_MainWindow(object):
         self.label_57.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
         self.label_58.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
         self.label_55.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Not ready yet", None))
-        self.des_normalMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"DES", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy des:", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"AES", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Nazwa urz\u0105dzenia:", None))
         self.host_user_name.setText(QCoreApplication.translate("MainWindow", u"Urz\u0105dzenie 1", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Adres IP:", None))
-        self.host_user_ip.setText(QCoreApplication.translate("MainWindow", u"127.0.0.1", None))
-        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Tryb po\u0142\u0105czenia:", None))
-        self.automatic_connect_pushButton.setText(QCoreApplication.translate("MainWindow", u"Automatyczny", None))
-        self.manual_connect_pushButton.setText(QCoreApplication.translate("MainWindow", u"R\u0119czny", None))
         self.network_search_button.setText(QCoreApplication.translate("MainWindow", u"Wyszukaj urz\u0105dzenia", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Nazwa urz\u0105dzenia:", None))
+        self.host_user_ip.setText(QCoreApplication.translate("MainWindow", u"127.0.0.1", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Adres IP:", None))
     # retranslateUi
 
