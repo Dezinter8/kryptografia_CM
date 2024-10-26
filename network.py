@@ -13,13 +13,15 @@ class Network(QObject):
     def __init__(self, main_window):
         super().__init__()
         self.main_window = main_window
-        self.port = 50001
-        self.request_port = 50002  # Port na żądania połączeń
+        self.port = 49152
+        self.request_port = 49153
+        self.server_port = 49154
         self.broadcast_interval = 2  # Czas między broadcastami w sekundach
         self.devices = {}  # Przechowuje dostępne urządzenia w formacie {IP: "Nazwa"}
         self.device_widgets = {}  # Słownik do przechowywania widgetów dla unikalnych IP
         self.running = True  # Flaga kontrolująca działanie wątków
-        
+        self.is_server = False  # Flaga do rozróżnienia roli (serwer/klient)
+
         self.host_name = socket.gethostname()
         self.host_ip = self.get_host_ip_address()
 
@@ -81,7 +83,7 @@ class Network(QObject):
                 try:
                     message = "Hello from {}".format(self.host_name)
                     sock.sendto(message.encode(), ('<broadcast>', self.port))
-                    print("Broadcast sent: ", message)
+                    # print("Broadcast sent: ", message)
                 except Exception as e:
                     print("Error broadcasting:", e)
                 time.sleep(self.broadcast_interval)
@@ -142,14 +144,6 @@ class Network(QObject):
         # Dodaje widget do słownika, aby nie dublować urządzeń o tym samym IP
         self.device_widgets[ip_address] = device_widget
 
-    def request_connection(self, target_ip):
-        """Inicjuje żądanie połączenia do wybranego urządzenia."""
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
-                sock.sendto(f"Connection request from {self.host_ip}".encode(), (target_ip, self.request_port))
-            print(f"Connection request sent to {target_ip}")
-        except Exception as e:
-            print("Error requesting connection:", e)
 
     def receive_connection_request(self):
         """Nasłuchuje żądań połączenia i emituje sygnał do wyświetlenia zapytania o akceptację połączenia."""
@@ -187,11 +181,14 @@ class Network(QObject):
             self.decline_connection(sender_ip)
 
     def confirm_connection(self, sender_ip):
-        """Potwierdza połączenie do urządzenia wysyłającego żądanie."""
+        """Potwierdza połączenie do urządzenia wysyłającego żądanie i inicjuje jako serwer."""
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
                 sock.sendto("Connection accepted".encode(), (sender_ip, self.request_port))
             print(f"Connection accepted with {sender_ip}")
+
+            # Uruchomienie serwera do połączenia i przesyłania danych
+            self.start_stream_as_server(sender_ip)
         except Exception as e:
             print("Error confirming connection:", e)
 
@@ -204,11 +201,83 @@ class Network(QObject):
         except Exception as e:
             print("Error declining connection:", e)
 
+    def start_stream_as_server(self, client_ip):
+        """Inicjuje urządzenie jako serwer po zaakceptowaniu połączenia i nasłuchuje na przychodzące dane."""
+        try:
+            self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Pozwala ponownie użyć adresu
+            self.server_socket.bind((self.host_ip, self.server_port))
+            self.server_socket.listen(1)
+            print("Server started, waiting for client to connect...")
+
+            # Wątek do akceptowania połączeń i odbierania danych
+            threading.Thread(target=self.handle_client_connection, args=(client_ip,)).start()
+        except Exception as e:
+            print("Error starting server:", e)
+
+    def handle_client_connection(self, client_ip):
+        """Obsługuje połączenie klienta, wysyła wiadomość testową i odbiera dane."""
+        try:
+            conn, addr = self.server_socket.accept()
+            print(f"Connected to client at {addr}")
+
+            # Wysłanie wiadomości testowej do klienta
+            conn.send("Welcome! Connection established from server.".encode())
+            print("Sent message to client: 'Welcome! Connection established from server.'")
+
+            # Odbieranie wiadomości testowej od klienta
+            data = conn.recv(1024).decode()
+            print("Message from client:", data)
+            conn.close()
+        except Exception as e:
+            print("Error handling client connection:", e)
+        finally:
+            self.server_socket.close()  # Upewnij się, że zamykasz gniazdo po zakończeniu
+
+    def connect_to_server(self, server_ip):
+        """Klient łączy się z serwerem i wysyła wiadomość testową."""
+        try:
+            self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.client_socket.connect((server_ip, self.server_port))
+            print(f"Connected to server at {server_ip}")
+
+            # Odbieranie wiadomości testowej od serwera
+            data = self.client_socket.recv(1024).decode()
+            print("Message from server:", data)
+
+            # Wysłanie wiadomości testowej do serwera
+            self.client_socket.send("Hello! Connection established from client.".encode())
+            print("Sent message to server: 'Hello! Connection established from client.'")
+
+            self.client_socket.close()
+        except Exception as e:
+            print("Error connecting to server:", e)
+
+    def request_connection(self, target_ip):
+        """Inicjuje żądanie połączenia do wybranego urządzenia."""
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+                sock.sendto(f"Connection request from {self.host_ip}".encode(), (target_ip, self.request_port))
+            print(f"Connection request sent to {target_ip}")
+
+            # Inicjacja jako klient po potwierdzeniu połączenia
+            threading.Thread(target=self.connect_to_server, args=(target_ip,)).start()
+        except Exception as e:
+            print("Error requesting connection:", e)
+
 
     def stop(self):
-        """Zatrzymuje broadcast i nasłuchiwanie."""
+        """Zatrzymuje broadcast, nasłuchiwanie i zamyka sockety."""
         self.running = False
+
+        # Czekanie na zakończenie wątków
         self.broadcast_thread.join()
         self.listener_thread.join()
         self.connection_listener_thread.join()
+
+        # Zamykanie socketów
+        if hasattr(self, 'server_socket'):
+            self.server_socket.close()
+        if hasattr(self, 'client_socket'):
+            self.client_socket.close()
 
