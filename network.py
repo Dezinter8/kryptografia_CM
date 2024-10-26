@@ -226,6 +226,7 @@ class Network(QObject):
             if addr[0] in self.device_widgets:
                 device_ui = self.device_widgets[addr[0]]["ui"]
                 device_ui.Client_status_label.setText("Połączono")
+                device_ui.send_file_pushButton.setEnabled(True)  # Włączenie przycisku
 
             # Wysłanie wiadomości testowej do klienta
             conn.send("Welcome! Connection established from server.".encode())
@@ -252,6 +253,7 @@ class Network(QObject):
             if server_ip in self.device_widgets:
                 device_ui = self.device_widgets[server_ip]["ui"]
                 device_ui.Client_status_label.setText("Połączono")
+                device_ui.send_file_pushButton.setEnabled(True)  # Włączenie przycisku
 
             # Odbieranie wiadomości testowej od serwera
             data = self.client_socket.recv(1024).decode()
