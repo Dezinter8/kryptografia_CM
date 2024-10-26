@@ -9,6 +9,7 @@ from Ui.networkDevicesForm import Ui_Form
 class Network(QObject):
     device_found_signal = Signal(dict)      # Definiujemy sygnał, który emituje słownik zawierający informacje o urządzeniu
     connection_request_signal = Signal(str) # Sygnał do przekazywania IP przychodzącego żądania połączenia
+    file_received_signal = Signal(bytes)  # Sygnał przekazujący dane odebranego pliku
 
     def __init__(self, main_window):
         super().__init__()
@@ -36,6 +37,7 @@ class Network(QObject):
         # Podłączamy sygnał do metody dodającej widget urządzenia
         self.device_found_signal.connect(self.add_device_widget)
         self.connection_request_signal.connect(self.show_connection_request)  # Nowy sygnał
+        self.file_received_signal.connect(self.save_received_file)
 
         # Uruchom serwer do odbierania plików na starcie
         self.start_file_server()
@@ -344,9 +346,11 @@ class Network(QObject):
             conn, addr = self.file_server_socket.accept()
             print(f"Receiving file from {addr}")
 
+            # Odbieranie rozmiaru pliku jako nagłówka (16 bajtów)
             file_size_data = conn.recv(16).strip()
             file_size = int(file_size_data.decode())
 
+            # Odbieranie danych pliku
             file_data = b""
             while len(file_data) < file_size:
                 packet = conn.recv(1024)
@@ -354,30 +358,51 @@ class Network(QObject):
                     break
                 file_data += packet
 
-            save_path = os.path.join(os.getcwd(), "received_file.txt")
-            with open(save_path, "wb") as file:
-                file.write(file_data)
+            # Emituj sygnał z danymi pliku, aby GUI mogło wywołać QFileDialog
+            self.file_received_signal.emit(file_data)
 
-            print(f"Plik odebrany od {addr[0]} i zapisany jako '{save_path}'")
             conn.close()
         except Exception as e:
             print("Error during file transfer:", e)
         finally:
             self.file_server_socket.close()
 
+    def save_received_file(self, file_data):
+        """Otwiera QFileDialog do zapisania odebranego pliku."""
+        save_path, _ = QFileDialog.getSaveFileName(
+            self.main_window, "Zapisz otrzymany plik", "", "Text Files (*.txt)"
+        )
+
+        # Zapisz plik, jeśli użytkownik wybrał lokalizację
+        if save_path:
+            try:
+                with open(save_path, "wb") as file:
+                    file.write(file_data)
+                print(f"Plik został zapisany w lokalizacji: {save_path}")
+            except Exception as e:
+                print("Błąd podczas zapisywania pliku:", e)
+
 
     def stop(self):
         """Zatrzymuje broadcast, nasłuchiwanie i zamyka sockety."""
         self.running = False
 
-        # Czekanie na zakończenie wątków
-        self.broadcast_thread.join()
-        self.listener_thread.join()
-        self.connection_listener_thread.join()
+        # Czekanie na zakończenie wątków, jeśli zostały uruchomione
+        if hasattr(self, 'broadcast_thread') and self.broadcast_thread.is_alive():
+            self.broadcast_thread.join()
+        if hasattr(self, 'listener_thread') and self.listener_thread.is_alive():
+            self.listener_thread.join()
+        if hasattr(self, 'connection_listener_thread') and self.connection_listener_thread.is_alive():
+            self.connection_listener_thread.join()
 
         # Zamykanie socketów
         if hasattr(self, 'server_socket'):
             self.server_socket.close()
         if hasattr(self, 'client_socket'):
             self.client_socket.close()
+        if hasattr(self, 'file_server_socket'):
+            self.file_server_socket.close()
+
+        print("Wszystkie wątki i gniazda zostały zamknięte.")
+
 
