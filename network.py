@@ -141,8 +141,9 @@ class Network(QObject):
         # Dodaje widget do layoutu listy urządzeń w głównym oknie
         self.main_window.devicesList_widget.layout().addWidget(device_widget)
 
-        # Dodaje widget do słownika, aby nie dublować urządzeń o tym samym IP
-        self.device_widgets[ip_address] = device_widget
+        # Dodaje widget i UI do słownika, aby mieć dostęp do UI w innych funkcjach
+        self.device_widgets[ip_address] = {"widget": device_widget, "ui": device_ui}
+
 
 
     def receive_connection_request(self):
@@ -221,6 +222,11 @@ class Network(QObject):
             conn, addr = self.server_socket.accept()
             print(f"Connected to client at {addr}")
 
+            # Aktualizacja statusu połączenia na "Połączono"
+            if addr[0] in self.device_widgets:
+                device_ui = self.device_widgets[addr[0]]["ui"]
+                device_ui.Client_status_label.setText("Połączono")
+
             # Wysłanie wiadomości testowej do klienta
             conn.send("Welcome! Connection established from server.".encode())
             print("Sent message to client: 'Welcome! Connection established from server.'")
@@ -241,6 +247,11 @@ class Network(QObject):
             self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.client_socket.connect((server_ip, self.server_port))
             print(f"Connected to server at {server_ip}")
+
+            # Aktualizacja statusu połączenia na "Połączono"
+            if server_ip in self.device_widgets:
+                device_ui = self.device_widgets[server_ip]["ui"]
+                device_ui.Client_status_label.setText("Połączono")
 
             # Odbieranie wiadomości testowej od serwera
             data = self.client_socket.recv(1024).decode()
