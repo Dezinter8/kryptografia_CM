@@ -5,6 +5,7 @@ from Ui.MainWindow import Ui_MainWindow
 from encryptions.vigener import Vigener
 from encryptions.transposition import Transposition
 from encryptions.des import Des
+from encryptions.aes import Aes
 from network import Network
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -15,6 +16,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.transposition = Transposition(self)
         self.des = Des(self)
         self.network = Network(self)
+        self.aes = Aes(self)
         
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
         self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
@@ -30,13 +32,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.transposition_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.transposition_decode_input_text, 0))
         self.Des_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_input_text, 0))
         self.Des_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Des_decode_input_text, 0))
+        self.Aes_input_file.clicked.connect(lambda: self.load_file_content(1, self.Aes_input_text, 0))
+        self.Aes_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Aes_decode_input_text, 0))
 
         self.Vigener_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Vigener_decode_file_path, self.vigener))
         self.Des_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Des_decode_file_path, self.des))
+        self.Aes_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Aes_decode_file_path, self.aes))
 
         # Obsługa przyciskow do ladowania dowolnych pliow (base64)
         self.Vigener_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Vigener_file_path, self.vigener))
         self.Des_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Des_file_path, self.des))
+        self.Aes_input_file_2.clicked.connect(lambda: self.load_all_files_as_base64(self.Aes_file_path, self.aes))
 
 
         # Obsługa przycisków do zapisywania zawartości do plików tekstowych
@@ -45,7 +51,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.transposition_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.transposition_output))
         self.transposition_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.transposition_decode_output))
         self.Des_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_output))
-        self.Des_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Des_decode_output))
+        self.Des_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Aes_decode_output))
+        self.Aes_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Aes_output))
+        self.Aes_decode_output_save.clicked.connect(lambda: self.save_content_into_file(1, self.Aes_decode_output))
 
 
 

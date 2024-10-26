@@ -782,9 +782,257 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.DES_page)
         self.AES_page = QWidget()
         self.AES_page.setObjectName(u"AES_page")
-        self.label_42 = QLabel(self.AES_page)
-        self.label_42.setObjectName(u"label_42")
-        self.label_42.setGeometry(QRect(130, 230, 49, 16))
+        self.gridLayout_8 = QGridLayout(self.AES_page)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.label_27 = QLabel(self.AES_page)
+        self.label_27.setObjectName(u"label_27")
+
+        self.gridLayout_8.addWidget(self.label_27, 1, 0, 1, 1)
+
+        self.label_28 = QLabel(self.AES_page)
+        self.label_28.setObjectName(u"label_28")
+        self.label_28.setFont(font)
+
+        self.gridLayout_8.addWidget(self.label_28, 0, 0, 1, 1)
+
+        self.aes_allFileMode_button = QPushButton(self.AES_page)
+        self.aes_allFileMode_button.setObjectName(u"aes_allFileMode_button")
+
+        self.gridLayout_8.addWidget(self.aes_allFileMode_button, 1, 2, 1, 1)
+
+        self.aes_normalMode_button = QPushButton(self.AES_page)
+        self.aes_normalMode_button.setObjectName(u"aes_normalMode_button")
+
+        self.gridLayout_8.addWidget(self.aes_normalMode_button, 1, 1, 1, 1)
+
+        self.stackedWidget_aes = QStackedWidget(self.AES_page)
+        self.stackedWidget_aes.setObjectName(u"stackedWidget_aes")
+        self.aes_normalMode_page = QWidget()
+        self.aes_normalMode_page.setObjectName(u"aes_normalMode_page")
+        self.gridLayout_7 = QGridLayout(self.aes_normalMode_page)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.Aes_input_key = QLineEdit(self.aes_normalMode_page)
+        self.Aes_input_key.setObjectName(u"Aes_input_key")
+
+        self.gridLayout_7.addWidget(self.Aes_input_key, 2, 1, 1, 2)
+
+        self.Aes_decode_input_key = QLineEdit(self.aes_normalMode_page)
+        self.Aes_decode_input_key.setObjectName(u"Aes_decode_input_key")
+
+        self.gridLayout_7.addWidget(self.Aes_decode_input_key, 7, 1, 1, 2)
+
+        self.label_49 = QLabel(self.aes_normalMode_page)
+        self.label_49.setObjectName(u"label_49")
+
+        self.gridLayout_7.addWidget(self.label_49, 6, 0, 1, 1)
+
+        self.Aes_decode_output = QTextEdit(self.aes_normalMode_page)
+        self.Aes_decode_output.setObjectName(u"Aes_decode_output")
+        self.Aes_decode_output.setMaximumSize(QSize(16777215, 70))
+        self.Aes_decode_output.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.Aes_decode_output, 9, 0, 1, 2)
+
+        self.Aes_decode_output_save = QPushButton(self.aes_normalMode_page)
+        self.Aes_decode_output_save.setObjectName(u"Aes_decode_output_save")
+
+        self.gridLayout_7.addWidget(self.Aes_decode_output_save, 9, 2, 1, 1)
+
+        self.label_50 = QLabel(self.aes_normalMode_page)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setFont(font)
+
+        self.gridLayout_7.addWidget(self.label_50, 0, 0, 1, 3)
+
+        self.Aes_output_save = QPushButton(self.aes_normalMode_page)
+        self.Aes_output_save.setObjectName(u"Aes_output_save")
+
+        self.gridLayout_7.addWidget(self.Aes_output_save, 4, 2, 1, 1)
+
+        self.Aes_output = QTextEdit(self.aes_normalMode_page)
+        self.Aes_output.setObjectName(u"Aes_output")
+        self.Aes_output.setMaximumSize(QSize(16777215, 70))
+        self.Aes_output.setReadOnly(True)
+
+        self.gridLayout_7.addWidget(self.Aes_output, 4, 0, 1, 2)
+
+        self.label_51 = QLabel(self.aes_normalMode_page)
+        self.label_51.setObjectName(u"label_51")
+
+        self.gridLayout_7.addWidget(self.label_51, 1, 0, 1, 1)
+
+        self.label_52 = QLabel(self.aes_normalMode_page)
+        self.label_52.setObjectName(u"label_52")
+
+        self.gridLayout_7.addWidget(self.label_52, 7, 0, 1, 1)
+
+        self.Aes_decode_input_file = QPushButton(self.aes_normalMode_page)
+        self.Aes_decode_input_file.setObjectName(u"Aes_decode_input_file")
+
+        self.gridLayout_7.addWidget(self.Aes_decode_input_file, 6, 2, 1, 1)
+
+        self.label_53 = QLabel(self.aes_normalMode_page)
+        self.label_53.setObjectName(u"label_53")
+
+        self.gridLayout_7.addWidget(self.label_53, 2, 0, 1, 1)
+
+        self.Aes_button = QPushButton(self.aes_normalMode_page)
+        self.Aes_button.setObjectName(u"Aes_button")
+
+        self.gridLayout_7.addWidget(self.Aes_button, 3, 0, 1, 3)
+
+        self.Aes_input_text = QLineEdit(self.aes_normalMode_page)
+        self.Aes_input_text.setObjectName(u"Aes_input_text")
+
+        self.gridLayout_7.addWidget(self.Aes_input_text, 1, 1, 1, 1)
+
+        self.Aes_decode_input_text = QLineEdit(self.aes_normalMode_page)
+        self.Aes_decode_input_text.setObjectName(u"Aes_decode_input_text")
+
+        self.gridLayout_7.addWidget(self.Aes_decode_input_text, 6, 1, 1, 1)
+
+        self.Aes_decode_button = QPushButton(self.aes_normalMode_page)
+        self.Aes_decode_button.setObjectName(u"Aes_decode_button")
+
+        self.gridLayout_7.addWidget(self.Aes_decode_button, 8, 0, 1, 3)
+
+        self.label_54 = QLabel(self.aes_normalMode_page)
+        self.label_54.setObjectName(u"label_54")
+        self.label_54.setFont(font)
+
+        self.gridLayout_7.addWidget(self.label_54, 5, 0, 1, 3)
+
+        self.Aes_input_file = QPushButton(self.aes_normalMode_page)
+        self.Aes_input_file.setObjectName(u"Aes_input_file")
+
+        self.gridLayout_7.addWidget(self.Aes_input_file, 1, 2, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(0, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_7.addItem(self.verticalSpacer_8, 10, 0, 1, 1)
+
+        self.stackedWidget_aes.addWidget(self.aes_normalMode_page)
+        self.aes_allFileMode_page = QWidget()
+        self.aes_allFileMode_page.setObjectName(u"aes_allFileMode_page")
+        self.gridLayout_13 = QGridLayout(self.aes_allFileMode_page)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.gridLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.Aes_input_file_2 = QPushButton(self.aes_allFileMode_page)
+        self.Aes_input_file_2.setObjectName(u"Aes_input_file_2")
+
+        self.gridLayout_13.addWidget(self.Aes_input_file_2, 1, 2, 1, 1)
+
+        self.label_61 = QLabel(self.aes_allFileMode_page)
+        self.label_61.setObjectName(u"label_61")
+
+        self.gridLayout_13.addWidget(self.label_61, 2, 0, 1, 1)
+
+        self.Aes_file_path = QLineEdit(self.aes_allFileMode_page)
+        self.Aes_file_path.setObjectName(u"Aes_file_path")
+        self.Aes_file_path.setReadOnly(True)
+
+        self.gridLayout_13.addWidget(self.Aes_file_path, 1, 1, 1, 1)
+
+        self.Aes_button_2 = QPushButton(self.aes_allFileMode_page)
+        self.Aes_button_2.setObjectName(u"Aes_button_2")
+
+        self.gridLayout_13.addWidget(self.Aes_button_2, 3, 0, 1, 3)
+
+        self.label_62 = QLabel(self.aes_allFileMode_page)
+        self.label_62.setObjectName(u"label_62")
+        self.label_62.setFont(font)
+
+        self.gridLayout_13.addWidget(self.label_62, 0, 0, 1, 3)
+
+        self.Aes_decode_file_path = QLineEdit(self.aes_allFileMode_page)
+        self.Aes_decode_file_path.setObjectName(u"Aes_decode_file_path")
+        self.Aes_decode_file_path.setReadOnly(True)
+
+        self.gridLayout_13.addWidget(self.Aes_decode_file_path, 5, 1, 1, 1)
+
+        self.Aes_decode_button_2 = QPushButton(self.aes_allFileMode_page)
+        self.Aes_decode_button_2.setObjectName(u"Aes_decode_button_2")
+
+        self.gridLayout_13.addWidget(self.Aes_decode_button_2, 7, 0, 1, 3)
+
+        self.Aes_decode_input_file_2 = QPushButton(self.aes_allFileMode_page)
+        self.Aes_decode_input_file_2.setObjectName(u"Aes_decode_input_file_2")
+
+        self.gridLayout_13.addWidget(self.Aes_decode_input_file_2, 5, 2, 1, 1)
+
+        self.label_63 = QLabel(self.aes_allFileMode_page)
+        self.label_63.setObjectName(u"label_63")
+
+        self.gridLayout_13.addWidget(self.label_63, 6, 0, 1, 1)
+
+        self.label_64 = QLabel(self.aes_allFileMode_page)
+        self.label_64.setObjectName(u"label_64")
+
+        self.gridLayout_13.addWidget(self.label_64, 5, 0, 1, 1)
+
+        self.label_65 = QLabel(self.aes_allFileMode_page)
+        self.label_65.setObjectName(u"label_65")
+
+        self.gridLayout_13.addWidget(self.label_65, 1, 0, 1, 1)
+
+        self.Aes_decode_input_key_2 = QLineEdit(self.aes_allFileMode_page)
+        self.Aes_decode_input_key_2.setObjectName(u"Aes_decode_input_key_2")
+
+        self.gridLayout_13.addWidget(self.Aes_decode_input_key_2, 6, 1, 1, 2)
+
+        self.Aes_input_key_2 = QLineEdit(self.aes_allFileMode_page)
+        self.Aes_input_key_2.setObjectName(u"Aes_input_key_2")
+
+        self.gridLayout_13.addWidget(self.Aes_input_key_2, 2, 1, 1, 2)
+
+        self.label_66 = QLabel(self.aes_allFileMode_page)
+        self.label_66.setObjectName(u"label_66")
+        self.label_66.setFont(font)
+
+        self.gridLayout_13.addWidget(self.label_66, 4, 0, 1, 3)
+
+        self.verticalSpacer_9 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_13.addItem(self.verticalSpacer_9, 8, 0, 1, 1)
+
+        self.stackedWidget_aes.addWidget(self.aes_allFileMode_page)
+
+        self.gridLayout_8.addWidget(self.stackedWidget_aes, 2, 0, 1, 4)
+
+        self.widget_4 = QWidget(self.AES_page)
+        self.widget_4.setObjectName(u"widget_4")
+        self.horizontalLayout_4 = QHBoxLayout(self.widget_4)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.aes_ecb_radioButton = QRadioButton(self.widget_4)
+        self.aes_ecb_radioButton.setObjectName(u"aes_ecb_radioButton")
+        self.aes_ecb_radioButton.setChecked(True)
+
+        self.horizontalLayout_4.addWidget(self.aes_ecb_radioButton)
+
+        self.aes_cbc_radioButton = QRadioButton(self.widget_4)
+        self.aes_cbc_radioButton.setObjectName(u"aes_cbc_radioButton")
+
+        self.horizontalLayout_4.addWidget(self.aes_cbc_radioButton)
+
+        self.aes_ofb_radioButton = QRadioButton(self.widget_4)
+        self.aes_ofb_radioButton.setObjectName(u"aes_ofb_radioButton")
+
+        self.horizontalLayout_4.addWidget(self.aes_ofb_radioButton)
+
+        self.aes_cfb_radioButton = QRadioButton(self.widget_4)
+        self.aes_cfb_radioButton.setObjectName(u"aes_cfb_radioButton")
+
+        self.horizontalLayout_4.addWidget(self.aes_cfb_radioButton)
+
+        self.aes_gcm_radioButton = QRadioButton(self.widget_4)
+        self.aes_gcm_radioButton.setObjectName(u"aes_gcm_radioButton")
+
+        self.horizontalLayout_4.addWidget(self.aes_gcm_radioButton)
+
+
+        self.gridLayout_8.addWidget(self.widget_4, 0, 1, 1, 2)
+
         self.stackedWidget.addWidget(self.AES_page)
         self.Network_page = QWidget()
         self.Network_page.setObjectName(u"Network_page")
@@ -983,7 +1231,37 @@ class Ui_MainWindow(object):
         self.label_57.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
         self.label_58.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
         self.label_55.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
-        self.label_42.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy aes:", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.aes_allFileMode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
+        self.aes_normalMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Tekst zaszyfrowany:", None))
+        self.Aes_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
+        self.Aes_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"Tekst jawny:", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.Aes_decode_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.Aes_button.setText(QCoreApplication.translate("MainWindow", u"Zakoduj", None))
+        self.Aes_decode_button.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj", None))
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
+        self.Aes_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.Aes_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj dowolny Plik", None))
+        self.label_61.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.Aes_button_2.setText(QCoreApplication.translate("MainWindow", u"Zakoduj i zapisz do pliku tekstowego", None))
+        self.label_62.setText(QCoreApplication.translate("MainWindow", u"Kodowanie:", None))
+        self.Aes_decode_button_2.setText(QCoreApplication.translate("MainWindow", u"Zdekoduj i zapisz do dowolnego pliku", None))
+        self.Aes_decode_input_file_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj z pliku tekstowego", None))
+        self.label_63.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.label_64.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_65.setText(QCoreApplication.translate("MainWindow", u"Za\u0142adowany plik:", None))
+        self.label_66.setText(QCoreApplication.translate("MainWindow", u"Dekodowanie:", None))
+        self.aes_ecb_radioButton.setText(QCoreApplication.translate("MainWindow", u"ECB", None))
+        self.aes_cbc_radioButton.setText(QCoreApplication.translate("MainWindow", u"CBC", None))
+        self.aes_ofb_radioButton.setText(QCoreApplication.translate("MainWindow", u"OFB", None))
+        self.aes_cfb_radioButton.setText(QCoreApplication.translate("MainWindow", u"CFB", None))
+        self.aes_gcm_radioButton.setText(QCoreApplication.translate("MainWindow", u"GCM", None))
         self.host_user_name.setText(QCoreApplication.translate("MainWindow", u"Urz\u0105dzenie 1", None))
         self.network_search_button.setText(QCoreApplication.translate("MainWindow", u"Wyszukaj urz\u0105dzenia", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Nazwa urz\u0105dzenia:", None))

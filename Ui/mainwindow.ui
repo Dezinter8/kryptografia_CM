@@ -1587,19 +1587,379 @@ li.checked::marker { content: &quot;\2612&quot;; }
           </layout>
          </widget>
          <widget class="QWidget" name="AES_page">
-          <widget class="QLabel" name="label_42">
-           <property name="geometry">
-            <rect>
-             <x>130</x>
-             <y>230</y>
-             <width>49</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>AES</string>
-           </property>
-          </widget>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_27">
+             <property name="text">
+              <string>Tryb pracy aes:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>AES</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="aes_allFileMode_button">
+             <property name="text">
+              <string>Wszystkie pliki</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="aes_normalMode_button">
+             <property name="text">
+              <string>Pliki tekstowe</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="4">
+            <widget class="QStackedWidget" name="stackedWidget_aes">
+             <widget class="QWidget" name="aes_normalMode_page">
+              <layout class="QGridLayout" name="gridLayout_7">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="2" column="1" colspan="2">
+                <widget class="QLineEdit" name="Aes_input_key"/>
+               </item>
+               <item row="7" column="1" colspan="2">
+                <widget class="QLineEdit" name="Aes_decode_input_key"/>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_49">
+                 <property name="text">
+                  <string>Tekst zaszyfrowany:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <widget class="QTextEdit" name="Aes_decode_output">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>70</height>
+                  </size>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="2">
+                <widget class="QPushButton" name="Aes_decode_output_save">
+                 <property name="text">
+                  <string>Zapisz</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <widget class="QLabel" name="label_50">
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Kodowanie:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QPushButton" name="Aes_output_save">
+                 <property name="text">
+                  <string>Zapisz</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="2">
+                <widget class="QTextEdit" name="Aes_output">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>70</height>
+                  </size>
+                 </property>
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_51">
+                 <property name="text">
+                  <string>Tekst jawny:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_52">
+                 <property name="text">
+                  <string>Klucz:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QPushButton" name="Aes_decode_input_file">
+                 <property name="text">
+                  <string>Załaduj plik</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_53">
+                 <property name="text">
+                  <string>Klucz:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="3">
+                <widget class="QPushButton" name="Aes_button">
+                 <property name="text">
+                  <string>Zakoduj</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="Aes_input_text"/>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLineEdit" name="Aes_decode_input_text"/>
+               </item>
+               <item row="8" column="0" colspan="3">
+                <widget class="QPushButton" name="Aes_decode_button">
+                 <property name="text">
+                  <string>Zdekoduj</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QLabel" name="label_54">
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Dekodowanie:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QPushButton" name="Aes_input_file">
+                 <property name="text">
+                  <string>Załaduj plik</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <spacer name="verticalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="aes_allFileMode_page">
+              <layout class="QGridLayout" name="gridLayout_13">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="1" column="2">
+                <widget class="QPushButton" name="Aes_input_file_2">
+                 <property name="text">
+                  <string>Załaduj dowolny Plik</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_61">
+                 <property name="text">
+                  <string>Klucz:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="Aes_file_path">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="3">
+                <widget class="QPushButton" name="Aes_button_2">
+                 <property name="text">
+                  <string>Zakoduj i zapisz do pliku tekstowego</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <widget class="QLabel" name="label_62">
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Kodowanie:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="Aes_decode_file_path">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0" colspan="3">
+                <widget class="QPushButton" name="Aes_decode_button_2">
+                 <property name="text">
+                  <string>Zdekoduj i zapisz do dowolnego pliku</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QPushButton" name="Aes_decode_input_file_2">
+                 <property name="text">
+                  <string>Załaduj z pliku tekstowego</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_63">
+                 <property name="text">
+                  <string>Klucz:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_64">
+                 <property name="text">
+                  <string>Załadowany plik:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_65">
+                 <property name="text">
+                  <string>Załadowany plik:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1" colspan="2">
+                <widget class="QLineEdit" name="Aes_decode_input_key_2"/>
+               </item>
+               <item row="2" column="1" colspan="2">
+                <widget class="QLineEdit" name="Aes_input_key_2"/>
+               </item>
+               <item row="4" column="0" colspan="3">
+                <widget class="QLabel" name="label_66">
+                 <property name="font">
+                  <font>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Dekodowanie:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <spacer name="verticalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item row="0" column="1" colspan="2">
+            <widget class="QWidget" name="widget_4" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QRadioButton" name="aes_ecb_radioButton">
+                <property name="text">
+                 <string>ECB</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="aes_cbc_radioButton">
+                <property name="text">
+                 <string>CBC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="aes_ofb_radioButton">
+                <property name="text">
+                 <string>OFB</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="aes_cfb_radioButton">
+                <property name="text">
+                 <string>CFB</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="aes_gcm_radioButton">
+                <property name="text">
+                 <string>GCM</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="Network_page">
           <layout class="QGridLayout" name="gridLayout_6">
