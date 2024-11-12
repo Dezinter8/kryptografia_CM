@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
-    QSpinBox, QStackedWidget, QTextEdit, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QComboBox, QFrame,
+    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
+    QMainWindow, QPushButton, QRadioButton, QSizePolicy,
+    QSpacerItem, QSpinBox, QStackedWidget, QTextEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -131,6 +131,16 @@ class Ui_MainWindow(object):
         self.aes_pushButton.setObjectName(u"aes_pushButton")
 
         self.verticalLayout.addWidget(self.aes_pushButton)
+
+        self.rsa_pushButton = QPushButton(self.widget)
+        self.rsa_pushButton.setObjectName(u"rsa_pushButton")
+
+        self.verticalLayout.addWidget(self.rsa_pushButton)
+
+        self.diffieHellman_pushButton = QPushButton(self.widget)
+        self.diffieHellman_pushButton.setObjectName(u"diffieHellman_pushButton")
+
+        self.verticalLayout.addWidget(self.diffieHellman_pushButton)
 
         self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -1102,6 +1112,439 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addWidget(self.label_25, 1, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.Network_page)
+        self.Rsa_page = QWidget()
+        self.Rsa_page.setObjectName(u"Rsa_page")
+        self.gridLayout_16 = QGridLayout(self.Rsa_page)
+        self.gridLayout_16.setObjectName(u"gridLayout_16")
+        self.rsa_normalMode_button = QPushButton(self.Rsa_page)
+        self.rsa_normalMode_button.setObjectName(u"rsa_normalMode_button")
+
+        self.gridLayout_16.addWidget(self.rsa_normalMode_button, 1, 1, 1, 1)
+
+        self.label_37 = QLabel(self.Rsa_page)
+        self.label_37.setObjectName(u"label_37")
+        font1 = QFont()
+        font1.setPointSize(10)
+        self.label_37.setFont(font1)
+
+        self.gridLayout_16.addWidget(self.label_37, 1, 0, 1, 1)
+
+        self.label_36 = QLabel(self.Rsa_page)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setFont(font)
+
+        self.gridLayout_16.addWidget(self.label_36, 0, 0, 1, 3)
+
+        self.rsa_allFileMode_button = QPushButton(self.Rsa_page)
+        self.rsa_allFileMode_button.setObjectName(u"rsa_allFileMode_button")
+
+        self.gridLayout_16.addWidget(self.rsa_allFileMode_button, 1, 2, 1, 1)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_38 = QLabel(self.Rsa_page)
+        self.label_38.setObjectName(u"label_38")
+        self.label_38.setFont(font1)
+
+        self.horizontalLayout_8.addWidget(self.label_38)
+
+        self.rsa_keySize = QComboBox(self.Rsa_page)
+        self.rsa_keySize.addItem("")
+        self.rsa_keySize.addItem("")
+        self.rsa_keySize.addItem("")
+        self.rsa_keySize.setObjectName(u"rsa_keySize")
+
+        self.horizontalLayout_8.addWidget(self.rsa_keySize)
+
+        self.rsa_generateKey_pushButton = QPushButton(self.Rsa_page)
+        self.rsa_generateKey_pushButton.setObjectName(u"rsa_generateKey_pushButton")
+
+        self.horizontalLayout_8.addWidget(self.rsa_generateKey_pushButton)
+
+
+        self.gridLayout_16.addLayout(self.horizontalLayout_8, 2, 0, 1, 3)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.label_71 = QLabel(self.Rsa_page)
+        self.label_71.setObjectName(u"label_71")
+        self.label_71.setFont(font1)
+
+        self.horizontalLayout_7.addWidget(self.label_71)
+
+        self.rsa_publicKey = QLineEdit(self.Rsa_page)
+        self.rsa_publicKey.setObjectName(u"rsa_publicKey")
+
+        self.horizontalLayout_7.addWidget(self.rsa_publicKey)
+
+        self.rsa_save_publicKey_pushButton = QPushButton(self.Rsa_page)
+        self.rsa_save_publicKey_pushButton.setObjectName(u"rsa_save_publicKey_pushButton")
+
+        self.horizontalLayout_7.addWidget(self.rsa_save_publicKey_pushButton)
+
+        self.rsa_load_publicKey_pushButton = QPushButton(self.Rsa_page)
+        self.rsa_load_publicKey_pushButton.setObjectName(u"rsa_load_publicKey_pushButton")
+
+        self.horizontalLayout_7.addWidget(self.rsa_load_publicKey_pushButton)
+
+
+        self.gridLayout_16.addLayout(self.horizontalLayout_7, 3, 0, 1, 3)
+
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_70 = QLabel(self.Rsa_page)
+        self.label_70.setObjectName(u"label_70")
+        self.label_70.setFont(font1)
+
+        self.horizontalLayout_6.addWidget(self.label_70)
+
+        self.rsa_privetKey = QLineEdit(self.Rsa_page)
+        self.rsa_privetKey.setObjectName(u"rsa_privetKey")
+
+        self.horizontalLayout_6.addWidget(self.rsa_privetKey)
+
+        self.rsa_save_privateKey_pushButton = QPushButton(self.Rsa_page)
+        self.rsa_save_privateKey_pushButton.setObjectName(u"rsa_save_privateKey_pushButton")
+
+        self.horizontalLayout_6.addWidget(self.rsa_save_privateKey_pushButton)
+
+        self.rsa_load_privateKey_pushButton = QPushButton(self.Rsa_page)
+        self.rsa_load_privateKey_pushButton.setObjectName(u"rsa_load_privateKey_pushButton")
+
+        self.horizontalLayout_6.addWidget(self.rsa_load_privateKey_pushButton)
+
+
+        self.gridLayout_16.addLayout(self.horizontalLayout_6, 4, 0, 1, 3)
+
+        self.stackedWidget_rsa = QStackedWidget(self.Rsa_page)
+        self.stackedWidget_rsa.setObjectName(u"stackedWidget_rsa")
+        self.rsa_normalMode_page = QWidget()
+        self.rsa_normalMode_page.setObjectName(u"rsa_normalMode_page")
+        self.verticalLayout_15 = QVBoxLayout(self.rsa_normalMode_page)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.label_39 = QLabel(self.rsa_normalMode_page)
+        self.label_39.setObjectName(u"label_39")
+        self.label_39.setFont(font1)
+
+        self.verticalLayout_13.addWidget(self.label_39)
+
+        self.rsa_plainText = QTextEdit(self.rsa_normalMode_page)
+        self.rsa_plainText.setObjectName(u"rsa_plainText")
+        self.rsa_plainText.setMinimumSize(QSize(0, 0))
+        self.rsa_plainText.setMaximumSize(QSize(16777215, 16777215))
+        self.rsa_plainText.setFont(font1)
+        self.rsa_plainText.setReadOnly(False)
+
+        self.verticalLayout_13.addWidget(self.rsa_plainText)
+
+        self.rsa_plainText_input_file = QPushButton(self.rsa_normalMode_page)
+        self.rsa_plainText_input_file.setObjectName(u"rsa_plainText_input_file")
+
+        self.verticalLayout_13.addWidget(self.rsa_plainText_input_file)
+
+        self.rsa_plainText_save = QPushButton(self.rsa_normalMode_page)
+        self.rsa_plainText_save.setObjectName(u"rsa_plainText_save")
+
+        self.verticalLayout_13.addWidget(self.rsa_plainText_save)
+
+        self.verticalLayout_13.setStretch(1, 1)
+
+        self.horizontalLayout_14.addLayout(self.verticalLayout_13)
+
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalSpacer_11 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_11)
+
+        self.rsa_cipher_button = QPushButton(self.rsa_normalMode_page)
+        self.rsa_cipher_button.setObjectName(u"rsa_cipher_button")
+
+        self.verticalLayout_3.addWidget(self.rsa_cipher_button)
+
+        self.rsa_decipher_button = QPushButton(self.rsa_normalMode_page)
+        self.rsa_decipher_button.setObjectName(u"rsa_decipher_button")
+
+        self.verticalLayout_3.addWidget(self.rsa_decipher_button)
+
+        self.verticalSpacer_13 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer_13)
+
+
+        self.horizontalLayout_14.addLayout(self.verticalLayout_3)
+
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.label_40 = QLabel(self.rsa_normalMode_page)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setFont(font1)
+
+        self.verticalLayout_14.addWidget(self.label_40)
+
+        self.rsa_cipherText = QTextEdit(self.rsa_normalMode_page)
+        self.rsa_cipherText.setObjectName(u"rsa_cipherText")
+        self.rsa_cipherText.setMaximumSize(QSize(16777215, 16777215))
+        self.rsa_cipherText.setFont(font1)
+        self.rsa_cipherText.setReadOnly(False)
+
+        self.verticalLayout_14.addWidget(self.rsa_cipherText)
+
+        self.rsa_cipherText_input_file = QPushButton(self.rsa_normalMode_page)
+        self.rsa_cipherText_input_file.setObjectName(u"rsa_cipherText_input_file")
+
+        self.verticalLayout_14.addWidget(self.rsa_cipherText_input_file)
+
+        self.rsa_cipherText_save = QPushButton(self.rsa_normalMode_page)
+        self.rsa_cipherText_save.setObjectName(u"rsa_cipherText_save")
+
+        self.verticalLayout_14.addWidget(self.rsa_cipherText_save)
+
+        self.verticalLayout_14.setStretch(1, 1)
+
+        self.horizontalLayout_14.addLayout(self.verticalLayout_14)
+
+
+        self.verticalLayout_15.addLayout(self.horizontalLayout_14)
+
+        self.verticalSpacer_14 = QSpacerItem(208, 150, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_15.addItem(self.verticalSpacer_14)
+
+        self.verticalLayout_15.setStretch(0, 1)
+        self.stackedWidget_rsa.addWidget(self.rsa_normalMode_page)
+        self.rsa_allFileMode_page = QWidget()
+        self.rsa_allFileMode_page.setObjectName(u"rsa_allFileMode_page")
+        self.verticalLayout_10 = QVBoxLayout(self.rsa_allFileMode_page)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.widget_5 = QWidget(self.rsa_allFileMode_page)
+        self.widget_5.setObjectName(u"widget_5")
+        self.horizontalLayout_13 = QHBoxLayout(self.widget_5)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_11 = QVBoxLayout()
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.label_67 = QLabel(self.widget_5)
+        self.label_67.setObjectName(u"label_67")
+        self.label_67.setFont(font1)
+
+        self.horizontalLayout_12.addWidget(self.label_67)
+
+        self.rsa_fileForCypher = QLineEdit(self.widget_5)
+        self.rsa_fileForCypher.setObjectName(u"rsa_fileForCypher")
+        self.rsa_fileForCypher.setReadOnly(True)
+
+        self.horizontalLayout_12.addWidget(self.rsa_fileForCypher)
+
+
+        self.verticalLayout_11.addLayout(self.horizontalLayout_12)
+
+        self.rsaCypher_input_file = QPushButton(self.widget_5)
+        self.rsaCypher_input_file.setObjectName(u"rsaCypher_input_file")
+
+        self.verticalLayout_11.addWidget(self.rsaCypher_input_file)
+
+        self.rsa_cipherFile_button = QPushButton(self.widget_5)
+        self.rsa_cipherFile_button.setObjectName(u"rsa_cipherFile_button")
+
+        self.verticalLayout_11.addWidget(self.rsa_cipherFile_button)
+
+
+        self.horizontalLayout_13.addLayout(self.verticalLayout_11)
+
+        self.verticalLayout_12 = QVBoxLayout()
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.label_42 = QLabel(self.widget_5)
+        self.label_42.setObjectName(u"label_42")
+
+        self.horizontalLayout_5.addWidget(self.label_42)
+
+        self.rsa_fileToDecypher = QLineEdit(self.widget_5)
+        self.rsa_fileToDecypher.setObjectName(u"rsa_fileToDecypher")
+        self.rsa_fileToDecypher.setReadOnly(True)
+
+        self.horizontalLayout_5.addWidget(self.rsa_fileToDecypher)
+
+
+        self.verticalLayout_12.addLayout(self.horizontalLayout_5)
+
+        self.rsaDecypher_input_file = QPushButton(self.widget_5)
+        self.rsaDecypher_input_file.setObjectName(u"rsaDecypher_input_file")
+
+        self.verticalLayout_12.addWidget(self.rsaDecypher_input_file)
+
+        self.rsa_decipherFile_button = QPushButton(self.widget_5)
+        self.rsa_decipherFile_button.setObjectName(u"rsa_decipherFile_button")
+
+        self.verticalLayout_12.addWidget(self.rsa_decipherFile_button)
+
+
+        self.horizontalLayout_13.addLayout(self.verticalLayout_12)
+
+
+        self.verticalLayout_10.addWidget(self.widget_5)
+
+        self.verticalSpacer_12 = QSpacerItem(298, 407, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_12)
+
+        self.stackedWidget_rsa.addWidget(self.rsa_allFileMode_page)
+
+        self.gridLayout_16.addWidget(self.stackedWidget_rsa, 5, 0, 1, 3)
+
+        self.stackedWidget.addWidget(self.Rsa_page)
+        self.DiffieHellman_page = QWidget()
+        self.DiffieHellman_page.setObjectName(u"DiffieHellman_page")
+        self.verticalLayout_18 = QVBoxLayout(self.DiffieHellman_page)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_17 = QVBoxLayout()
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.label_29 = QLabel(self.DiffieHellman_page)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setFont(font)
+
+        self.verticalLayout_17.addWidget(self.label_29)
+
+        self.textEdit_3 = QTextEdit(self.DiffieHellman_page)
+        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.textEdit_3.setMinimumSize(QSize(0, 0))
+        self.textEdit_3.setMaximumSize(QSize(16777215, 75))
+        self.textEdit_3.setFrameShape(QFrame.Shape.NoFrame)
+        self.textEdit_3.setLineWidth(0)
+        self.textEdit_3.setReadOnly(True)
+
+        self.verticalLayout_17.addWidget(self.textEdit_3)
+
+        self.horizontalLayout_15 = QHBoxLayout()
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.verticalLayout_9 = QVBoxLayout()
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.label_32 = QLabel(self.DiffieHellman_page)
+        self.label_32.setObjectName(u"label_32")
+        font2 = QFont()
+        font2.setPointSize(11)
+        font2.setBold(False)
+        self.label_32.setFont(font2)
+
+        self.horizontalLayout_10.addWidget(self.label_32)
+
+        self.g_input_lineEdit = QLineEdit(self.DiffieHellman_page)
+        self.g_input_lineEdit.setObjectName(u"g_input_lineEdit")
+
+        self.horizontalLayout_10.addWidget(self.g_input_lineEdit)
+
+
+        self.verticalLayout_9.addLayout(self.horizontalLayout_10)
+
+        self.label_30 = QLabel(self.DiffieHellman_page)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setFont(font2)
+        self.label_30.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_9.addWidget(self.label_30)
+
+        self.horizontalLayout_11 = QHBoxLayout()
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.label_34 = QLabel(self.DiffieHellman_page)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setFont(font2)
+
+        self.horizontalLayout_11.addWidget(self.label_34)
+
+        self.a_input_lineEdit = QLineEdit(self.DiffieHellman_page)
+        self.a_input_lineEdit.setObjectName(u"a_input_lineEdit")
+
+        self.horizontalLayout_11.addWidget(self.a_input_lineEdit)
+
+
+        self.verticalLayout_9.addLayout(self.horizontalLayout_11)
+
+
+        self.horizontalLayout_15.addLayout(self.verticalLayout_9)
+
+        self.verticalLayout_16 = QVBoxLayout()
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.label_33 = QLabel(self.DiffieHellman_page)
+        self.label_33.setObjectName(u"label_33")
+        self.label_33.setFont(font2)
+
+        self.horizontalLayout.addWidget(self.label_33)
+
+        self.p_input_lineEdit = QLineEdit(self.DiffieHellman_page)
+        self.p_input_lineEdit.setObjectName(u"p_input_lineEdit")
+
+        self.horizontalLayout.addWidget(self.p_input_lineEdit)
+
+
+        self.verticalLayout_16.addLayout(self.horizontalLayout)
+
+        self.label_31 = QLabel(self.DiffieHellman_page)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setFont(font2)
+        self.label_31.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_16.addWidget(self.label_31)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_35 = QLabel(self.DiffieHellman_page)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setFont(font2)
+
+        self.horizontalLayout_9.addWidget(self.label_35)
+
+        self.b_input_lineEdit = QLineEdit(self.DiffieHellman_page)
+        self.b_input_lineEdit.setObjectName(u"b_input_lineEdit")
+
+        self.horizontalLayout_9.addWidget(self.b_input_lineEdit)
+
+
+        self.verticalLayout_16.addLayout(self.horizontalLayout_9)
+
+
+        self.horizontalLayout_15.addLayout(self.verticalLayout_16)
+
+
+        self.verticalLayout_17.addLayout(self.horizontalLayout_15)
+
+        self.calculate_diffieHellman_pushButton = QPushButton(self.DiffieHellman_page)
+        self.calculate_diffieHellman_pushButton.setObjectName(u"calculate_diffieHellman_pushButton")
+        font3 = QFont()
+        font3.setPointSize(11)
+        self.calculate_diffieHellman_pushButton.setFont(font3)
+
+        self.verticalLayout_17.addWidget(self.calculate_diffieHellman_pushButton)
+
+        self.diffieHellman_output = QTextEdit(self.DiffieHellman_page)
+        self.diffieHellman_output.setObjectName(u"diffieHellman_output")
+        self.diffieHellman_output.setMinimumSize(QSize(0, 300))
+        self.diffieHellman_output.setFont(font3)
+        self.diffieHellman_output.setReadOnly(True)
+
+        self.verticalLayout_17.addWidget(self.diffieHellman_output)
+
+        self.verticalSpacer_10 = QSpacerItem(20, 50, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+
+        self.verticalLayout_17.addItem(self.verticalSpacer_10)
+
+
+        self.verticalLayout_18.addLayout(self.verticalLayout_17)
+
+        self.stackedWidget.addWidget(self.DiffieHellman_page)
 
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
@@ -1111,8 +1554,34 @@ class Ui_MainWindow(object):
         self.gridLayout.setColumnStretch(1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.podstawieniowy_pushButton, self.transpozycyjny_pushButton)
-        QWidget.setTabOrder(self.transpozycyjny_pushButton, self.textEdit)
-        QWidget.setTabOrder(self.textEdit, self.textEdit_2)
+        QWidget.setTabOrder(self.transpozycyjny_pushButton, self.des_pushButton)
+        QWidget.setTabOrder(self.des_pushButton, self.aes_pushButton)
+        QWidget.setTabOrder(self.aes_pushButton, self.rsa_pushButton)
+        QWidget.setTabOrder(self.rsa_pushButton, self.diffieHellman_pushButton)
+        QWidget.setTabOrder(self.diffieHellman_pushButton, self.textEdit)
+        QWidget.setTabOrder(self.textEdit, self.vigener_textMode_button)
+        QWidget.setTabOrder(self.vigener_textMode_button, self.vigener_allfilesmode_button)
+        QWidget.setTabOrder(self.vigener_allfilesmode_button, self.Vigener_input_text)
+        QWidget.setTabOrder(self.Vigener_input_text, self.Vigener_input_file)
+        QWidget.setTabOrder(self.Vigener_input_file, self.Vigener_input_key)
+        QWidget.setTabOrder(self.Vigener_input_key, self.Vigener_button)
+        QWidget.setTabOrder(self.Vigener_button, self.Vigener_output)
+        QWidget.setTabOrder(self.Vigener_output, self.Vigener_output_save)
+        QWidget.setTabOrder(self.Vigener_output_save, self.Vigener_decode_input_text)
+        QWidget.setTabOrder(self.Vigener_decode_input_text, self.Vigener_decode_input_file)
+        QWidget.setTabOrder(self.Vigener_decode_input_file, self.Vigener_decode_input_key)
+        QWidget.setTabOrder(self.Vigener_decode_input_key, self.Vigener_decode_button)
+        QWidget.setTabOrder(self.Vigener_decode_button, self.Vigener_decode_output)
+        QWidget.setTabOrder(self.Vigener_decode_output, self.Vigener_decode_output_save)
+        QWidget.setTabOrder(self.Vigener_decode_output_save, self.Vigener_file_path)
+        QWidget.setTabOrder(self.Vigener_file_path, self.Vigener_input_file_2)
+        QWidget.setTabOrder(self.Vigener_input_file_2, self.Vigener_input_key_2)
+        QWidget.setTabOrder(self.Vigener_input_key_2, self.Vigener_button_2)
+        QWidget.setTabOrder(self.Vigener_button_2, self.Vigener_decode_file_path)
+        QWidget.setTabOrder(self.Vigener_decode_file_path, self.Vigener_decode_input_file_2)
+        QWidget.setTabOrder(self.Vigener_decode_input_file_2, self.Vigener_decode_input_key_2)
+        QWidget.setTabOrder(self.Vigener_decode_input_key_2, self.Vigener_decode_button_2)
+        QWidget.setTabOrder(self.Vigener_decode_button_2, self.textEdit_2)
         QWidget.setTabOrder(self.textEdit_2, self.transposition_input_text)
         QWidget.setTabOrder(self.transposition_input_text, self.transposition_input_file)
         QWidget.setTabOrder(self.transposition_input_file, self.transposition_input_key)
@@ -1125,6 +1594,92 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.transposition_decode_input_key, self.transposition_decode_button)
         QWidget.setTabOrder(self.transposition_decode_button, self.transposition_decode_output)
         QWidget.setTabOrder(self.transposition_decode_output, self.transposition_decode_output_save)
+        QWidget.setTabOrder(self.transposition_decode_output_save, self.des_ecb_radioButton)
+        QWidget.setTabOrder(self.des_ecb_radioButton, self.des_cbc_radioButton)
+        QWidget.setTabOrder(self.des_cbc_radioButton, self.des_ofb_radioButton)
+        QWidget.setTabOrder(self.des_ofb_radioButton, self.des_cfb_radioButton)
+        QWidget.setTabOrder(self.des_cfb_radioButton, self.des_normalMode_button)
+        QWidget.setTabOrder(self.des_normalMode_button, self.des_allFileMode_button)
+        QWidget.setTabOrder(self.des_allFileMode_button, self.Des_input_text)
+        QWidget.setTabOrder(self.Des_input_text, self.Des_input_file)
+        QWidget.setTabOrder(self.Des_input_file, self.Des_input_key)
+        QWidget.setTabOrder(self.Des_input_key, self.Des_button)
+        QWidget.setTabOrder(self.Des_button, self.Des_output)
+        QWidget.setTabOrder(self.Des_output, self.Des_output_save)
+        QWidget.setTabOrder(self.Des_output_save, self.Des_decode_input_text)
+        QWidget.setTabOrder(self.Des_decode_input_text, self.Des_decode_input_file)
+        QWidget.setTabOrder(self.Des_decode_input_file, self.Des_decode_input_key)
+        QWidget.setTabOrder(self.Des_decode_input_key, self.Des_decode_button)
+        QWidget.setTabOrder(self.Des_decode_button, self.Des_decode_output)
+        QWidget.setTabOrder(self.Des_decode_output, self.Des_decode_output_save)
+        QWidget.setTabOrder(self.Des_decode_output_save, self.Des_file_path)
+        QWidget.setTabOrder(self.Des_file_path, self.Des_input_file_2)
+        QWidget.setTabOrder(self.Des_input_file_2, self.Des_input_key_2)
+        QWidget.setTabOrder(self.Des_input_key_2, self.Des_button_2)
+        QWidget.setTabOrder(self.Des_button_2, self.Des_decode_file_path)
+        QWidget.setTabOrder(self.Des_decode_file_path, self.Des_decode_input_file_2)
+        QWidget.setTabOrder(self.Des_decode_input_file_2, self.Des_decode_input_key_2)
+        QWidget.setTabOrder(self.Des_decode_input_key_2, self.Des_decode_button_2)
+        QWidget.setTabOrder(self.Des_decode_button_2, self.aes_ecb_radioButton)
+        QWidget.setTabOrder(self.aes_ecb_radioButton, self.aes_cbc_radioButton)
+        QWidget.setTabOrder(self.aes_cbc_radioButton, self.aes_ofb_radioButton)
+        QWidget.setTabOrder(self.aes_ofb_radioButton, self.aes_cfb_radioButton)
+        QWidget.setTabOrder(self.aes_cfb_radioButton, self.aes_gcm_radioButton)
+        QWidget.setTabOrder(self.aes_gcm_radioButton, self.aes_normalMode_button)
+        QWidget.setTabOrder(self.aes_normalMode_button, self.aes_allFileMode_button)
+        QWidget.setTabOrder(self.aes_allFileMode_button, self.Aes_input_text)
+        QWidget.setTabOrder(self.Aes_input_text, self.Aes_input_file)
+        QWidget.setTabOrder(self.Aes_input_file, self.Aes_input_key)
+        QWidget.setTabOrder(self.Aes_input_key, self.Aes_button)
+        QWidget.setTabOrder(self.Aes_button, self.Aes_output)
+        QWidget.setTabOrder(self.Aes_output, self.Aes_output_save)
+        QWidget.setTabOrder(self.Aes_output_save, self.Aes_decode_input_text)
+        QWidget.setTabOrder(self.Aes_decode_input_text, self.Aes_decode_input_file)
+        QWidget.setTabOrder(self.Aes_decode_input_file, self.Aes_decode_input_key)
+        QWidget.setTabOrder(self.Aes_decode_input_key, self.Aes_decode_button)
+        QWidget.setTabOrder(self.Aes_decode_button, self.Aes_decode_output)
+        QWidget.setTabOrder(self.Aes_decode_output, self.Aes_decode_output_save)
+        QWidget.setTabOrder(self.Aes_decode_output_save, self.Aes_file_path)
+        QWidget.setTabOrder(self.Aes_file_path, self.Aes_input_file_2)
+        QWidget.setTabOrder(self.Aes_input_file_2, self.Aes_input_key_2)
+        QWidget.setTabOrder(self.Aes_input_key_2, self.Aes_button_2)
+        QWidget.setTabOrder(self.Aes_button_2, self.Aes_decode_file_path)
+        QWidget.setTabOrder(self.Aes_decode_file_path, self.Aes_decode_input_file_2)
+        QWidget.setTabOrder(self.Aes_decode_input_file_2, self.Aes_decode_input_key_2)
+        QWidget.setTabOrder(self.Aes_decode_input_key_2, self.Aes_decode_button_2)
+        QWidget.setTabOrder(self.Aes_decode_button_2, self.rsa_normalMode_button)
+        QWidget.setTabOrder(self.rsa_normalMode_button, self.rsa_allFileMode_button)
+        QWidget.setTabOrder(self.rsa_allFileMode_button, self.rsa_keySize)
+        QWidget.setTabOrder(self.rsa_keySize, self.rsa_generateKey_pushButton)
+        QWidget.setTabOrder(self.rsa_generateKey_pushButton, self.rsa_publicKey)
+        QWidget.setTabOrder(self.rsa_publicKey, self.rsa_save_publicKey_pushButton)
+        QWidget.setTabOrder(self.rsa_save_publicKey_pushButton, self.rsa_load_publicKey_pushButton)
+        QWidget.setTabOrder(self.rsa_load_publicKey_pushButton, self.rsa_privetKey)
+        QWidget.setTabOrder(self.rsa_privetKey, self.rsa_save_privateKey_pushButton)
+        QWidget.setTabOrder(self.rsa_save_privateKey_pushButton, self.rsa_load_privateKey_pushButton)
+        QWidget.setTabOrder(self.rsa_load_privateKey_pushButton, self.rsa_plainText)
+        QWidget.setTabOrder(self.rsa_plainText, self.rsa_cipherText)
+        QWidget.setTabOrder(self.rsa_cipherText, self.rsa_cipher_button)
+        QWidget.setTabOrder(self.rsa_cipher_button, self.rsa_decipher_button)
+        QWidget.setTabOrder(self.rsa_decipher_button, self.rsa_plainText_input_file)
+        QWidget.setTabOrder(self.rsa_plainText_input_file, self.rsa_plainText_save)
+        QWidget.setTabOrder(self.rsa_plainText_save, self.rsa_cipherText_input_file)
+        QWidget.setTabOrder(self.rsa_cipherText_input_file, self.rsa_cipherText_save)
+        QWidget.setTabOrder(self.rsa_cipherText_save, self.textEdit_3)
+        QWidget.setTabOrder(self.textEdit_3, self.g_input_lineEdit)
+        QWidget.setTabOrder(self.g_input_lineEdit, self.p_input_lineEdit)
+        QWidget.setTabOrder(self.p_input_lineEdit, self.a_input_lineEdit)
+        QWidget.setTabOrder(self.a_input_lineEdit, self.b_input_lineEdit)
+        QWidget.setTabOrder(self.b_input_lineEdit, self.calculate_diffieHellman_pushButton)
+        QWidget.setTabOrder(self.calculate_diffieHellman_pushButton, self.diffieHellman_output)
+        QWidget.setTabOrder(self.diffieHellman_output, self.rsaCypher_input_file)
+        QWidget.setTabOrder(self.rsaCypher_input_file, self.rsa_fileToDecypher)
+        QWidget.setTabOrder(self.rsa_fileToDecypher, self.rsa_decipherFile_button)
+        QWidget.setTabOrder(self.rsa_decipherFile_button, self.siec_pushButton)
+        QWidget.setTabOrder(self.siec_pushButton, self.rsa_cipherFile_button)
+        QWidget.setTabOrder(self.rsa_cipherFile_button, self.network_search_button)
+        QWidget.setTabOrder(self.network_search_button, self.rsa_fileForCypher)
+        QWidget.setTabOrder(self.rsa_fileForCypher, self.rsaDecypher_input_file)
 
         self.retranslateUi(MainWindow)
 
@@ -1140,6 +1695,8 @@ class Ui_MainWindow(object):
         self.transpozycyjny_pushButton.setText(QCoreApplication.translate("MainWindow", u"Transpozycyjny", None))
         self.des_pushButton.setText(QCoreApplication.translate("MainWindow", u"DES", None))
         self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
+        self.rsa_pushButton.setText(QCoreApplication.translate("MainWindow", u"Rsa", None))
+        self.diffieHellman_pushButton.setText(QCoreApplication.translate("MainWindow", u"Diffie-Hellman", None))
         self.siec_pushButton.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
         self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
@@ -1267,5 +1824,51 @@ class Ui_MainWindow(object):
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"Nazwa urz\u0105dzenia:", None))
         self.host_user_ip.setText(QCoreApplication.translate("MainWindow", u"127.0.0.1", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Adres IP:", None))
+        self.rsa_normalMode_button.setText(QCoreApplication.translate("MainWindow", u"Pliki tekstowe", None))
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Tryb pracy rsa:", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"RSA", None))
+        self.rsa_allFileMode_button.setText(QCoreApplication.translate("MainWindow", u"Wszystkie pliki", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Rozmiar Klucza (bity):", None))
+        self.rsa_keySize.setItemText(0, QCoreApplication.translate("MainWindow", u"1024", None))
+        self.rsa_keySize.setItemText(1, QCoreApplication.translate("MainWindow", u"2048", None))
+        self.rsa_keySize.setItemText(2, QCoreApplication.translate("MainWindow", u"4096", None))
+
+        self.rsa_generateKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Generuj klucze", None))
+        self.label_71.setText(QCoreApplication.translate("MainWindow", u"Klucz Publiczny:", None))
+        self.rsa_save_publicKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.rsa_load_publicKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Wczytaj", None))
+        self.label_70.setText(QCoreApplication.translate("MainWindow", u"Klucz Prywatny:", None))
+        self.rsa_save_privateKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.rsa_load_privateKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Wczytaj", None))
+        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Tekst Jawny:", None))
+        self.rsa_plainText_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj zawarto\u015b\u0107 pliku", None))
+        self.rsa_plainText_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz do pliku", None))
+        self.rsa_cipher_button.setText(QCoreApplication.translate("MainWindow", u"Zaszyfruj ->", None))
+        self.rsa_decipher_button.setText(QCoreApplication.translate("MainWindow", u"<- Zdeszyfruj", None))
+        self.label_40.setText(QCoreApplication.translate("MainWindow", u"Tekst Zaszyfrowany:", None))
+        self.rsa_cipherText_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj zawarto\u015b\u0107 pliku", None))
+        self.rsa_cipherText_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz do pliku", None))
+        self.label_67.setText(QCoreApplication.translate("MainWindow", u"Plik:", None))
+        self.rsaCypher_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.rsa_cipherFile_button.setText(QCoreApplication.translate("MainWindow", u"Zaszyfruj", None))
+        self.label_42.setText(QCoreApplication.translate("MainWindow", u"Plik:", None))
+        self.rsaDecypher_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj z pliku", None))
+        self.rsa_decipherFile_button.setText(QCoreApplication.translate("MainWindow", u"Zdeszyfruj", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Diffie\u2013Hellman", None))
+        self.textEdit_3.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Protoko\u0142 Diffie-Hellmana umo\u017cliwia dw\u00f3m stronom bezpieczn\u0105 wymian\u0119 klucza kryptograficznego przez niezabezpieczony kana\u0142 komunikacyjny. Klucz ten mo\u017ce nast\u0119pnie by\u0107 u\u017cyty do szyfrowania dalszej komunikacji.</span></p></body></html>", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"g:", None))
+        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Alicja", None))
+        self.label_34.setText(QCoreApplication.translate("MainWindow", u"a:", None))
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"p:", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"Bob", None))
+        self.label_35.setText(QCoreApplication.translate("MainWindow", u"b:", None))
+        self.calculate_diffieHellman_pushButton.setText(QCoreApplication.translate("MainWindow", u"Oblicz Klucz", None))
     # retranslateUi
 

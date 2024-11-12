@@ -546,6 +546,20 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="rsa_pushButton">
+         <property name="text">
+          <string>Rsa</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="diffieHellman_pushButton">
+         <property name="text">
+          <string>Diffie-Hellman</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
@@ -2061,6 +2075,691 @@ li.checked::marker { content: &quot;\2612&quot;; }
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="Rsa_page">
+          <layout class="QGridLayout" name="gridLayout_16">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="rsa_normalMode_button">
+             <property name="text">
+              <string>Pliki tekstowe</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_37">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Tryb pracy rsa:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QLabel" name="label_36">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>RSA</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="rsa_allFileMode_button">
+             <property name="text">
+              <string>Wszystkie pliki</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_38">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Rozmiar Klucza (bity):</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="rsa_keySize">
+               <item>
+                <property name="text">
+                 <string>1024</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2048</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4096</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rsa_generateKey_pushButton">
+               <property name="text">
+                <string>Generuj klucze</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="0" colspan="3">
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="label_71">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Klucz Publiczny:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="rsa_publicKey"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rsa_save_publicKey_pushButton">
+               <property name="text">
+                <string>Zapisz</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rsa_load_publicKey_pushButton">
+               <property name="text">
+                <string>Wczytaj</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QLabel" name="label_70">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Klucz Prywatny:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="rsa_privetKey"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rsa_save_privateKey_pushButton">
+               <property name="text">
+                <string>Zapisz</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rsa_load_privateKey_pushButton">
+               <property name="text">
+                <string>Wczytaj</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="5" column="0" colspan="3">
+            <widget class="QStackedWidget" name="stackedWidget_rsa">
+             <widget class="QWidget" name="rsa_normalMode_page">
+              <layout class="QVBoxLayout" name="verticalLayout_15" stretch="1,0">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0,1,0,0">
+                   <item>
+                    <widget class="QLabel" name="label_39">
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Tekst Jawny:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="rsa_plainText">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                      </font>
+                     </property>
+                     <property name="readOnly">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_plainText_input_file">
+                     <property name="text">
+                      <string>Załaduj zawartość pliku</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_plainText_save">
+                     <property name="text">
+                      <string>Zapisz do pliku</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <item>
+                    <spacer name="verticalSpacer_11">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_cipher_button">
+                     <property name="text">
+                      <string>Zaszyfruj -&gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_decipher_button">
+                     <property name="text">
+                      <string>&lt;- Zdeszyfruj</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="verticalSpacer_13">
+                     <property name="orientation">
+                      <enum>Qt::Orientation::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_14" stretch="0,1,0,0">
+                   <item>
+                    <widget class="QLabel" name="label_40">
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Tekst Zaszyfrowany:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="rsa_cipherText">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                      </font>
+                     </property>
+                     <property name="readOnly">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_cipherText_input_file">
+                     <property name="text">
+                      <string>Załaduj zawartość pliku</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="rsa_cipherText_save">
+                     <property name="text">
+                      <string>Zapisz do pliku</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_14">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Policy::Expanding</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>208</width>
+                   <height>150</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="rsa_allFileMode_page">
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="widget_5" native="true">
+                 <layout class="QHBoxLayout" name="horizontalLayout_13">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_11">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_12">
+                      <item>
+                       <widget class="QLabel" name="label_67">
+                        <property name="font">
+                         <font>
+                          <pointsize>10</pointsize>
+                         </font>
+                        </property>
+                        <property name="text">
+                         <string>Plik:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="rsa_fileForCypher">
+                        <property name="readOnly">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="rsaCypher_input_file">
+                      <property name="text">
+                       <string>Załaduj plik</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="rsa_cipherFile_button">
+                      <property name="text">
+                       <string>Zaszyfruj</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_5">
+                      <item>
+                       <widget class="QLabel" name="label_42">
+                        <property name="text">
+                         <string>Plik:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLineEdit" name="rsa_fileToDecypher">
+                        <property name="readOnly">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="rsaDecypher_input_file">
+                      <property name="text">
+                       <string>Załaduj z pliku</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="rsa_decipherFile_button">
+                      <property name="text">
+                       <string>Zdeszyfruj</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>298</width>
+                   <height>407</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="DiffieHellman_page">
+          <layout class="QVBoxLayout" name="verticalLayout_18">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_17">
+             <item>
+              <widget class="QLabel" name="label_29">
+               <property name="font">
+                <font>
+                 <pointsize>16</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Diffie–Hellman</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="textEdit_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::NoFrame</enum>
+               </property>
+               <property name="lineWidth">
+                <number>0</number>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Protokoł Diffie-Hellmana umożliwia dwóm stronom bezpieczną wymianę klucza kryptograficznego przez niezabezpieczony kanał komunikacyjny. Klucz ten może następnie być użyty do szyfrowania dalszej komunikacji.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_15">
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_10">
+                   <item>
+                    <widget class="QLabel" name="label_32">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>g:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="g_input_lineEdit"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_30">
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Alicja</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QLabel" name="label_34">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>a:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="a_input_lineEdit"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_16">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QLabel" name="label_33">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>p:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="p_input_lineEdit"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_31">
+                   <property name="font">
+                    <font>
+                     <pointsize>11</pointsize>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Bob</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignmentFlag::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item>
+                    <widget class="QLabel" name="label_35">
+                     <property name="font">
+                      <font>
+                       <pointsize>11</pointsize>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>b:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="b_input_lineEdit"/>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPushButton" name="calculate_diffieHellman_pushButton">
+               <property name="font">
+                <font>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Oblicz Klucz</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="diffieHellman_output">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>300</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Policy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -2072,7 +2771,33 @@ li.checked::marker { content: &quot;\2612&quot;; }
  <tabstops>
   <tabstop>podstawieniowy_pushButton</tabstop>
   <tabstop>transpozycyjny_pushButton</tabstop>
+  <tabstop>des_pushButton</tabstop>
+  <tabstop>aes_pushButton</tabstop>
+  <tabstop>rsa_pushButton</tabstop>
+  <tabstop>diffieHellman_pushButton</tabstop>
   <tabstop>textEdit</tabstop>
+  <tabstop>vigener_textMode_button</tabstop>
+  <tabstop>vigener_allfilesmode_button</tabstop>
+  <tabstop>Vigener_input_text</tabstop>
+  <tabstop>Vigener_input_file</tabstop>
+  <tabstop>Vigener_input_key</tabstop>
+  <tabstop>Vigener_button</tabstop>
+  <tabstop>Vigener_output</tabstop>
+  <tabstop>Vigener_output_save</tabstop>
+  <tabstop>Vigener_decode_input_text</tabstop>
+  <tabstop>Vigener_decode_input_file</tabstop>
+  <tabstop>Vigener_decode_input_key</tabstop>
+  <tabstop>Vigener_decode_button</tabstop>
+  <tabstop>Vigener_decode_output</tabstop>
+  <tabstop>Vigener_decode_output_save</tabstop>
+  <tabstop>Vigener_file_path</tabstop>
+  <tabstop>Vigener_input_file_2</tabstop>
+  <tabstop>Vigener_input_key_2</tabstop>
+  <tabstop>Vigener_button_2</tabstop>
+  <tabstop>Vigener_decode_file_path</tabstop>
+  <tabstop>Vigener_decode_input_file_2</tabstop>
+  <tabstop>Vigener_decode_input_key_2</tabstop>
+  <tabstop>Vigener_decode_button_2</tabstop>
   <tabstop>textEdit_2</tabstop>
   <tabstop>transposition_input_text</tabstop>
   <tabstop>transposition_input_file</tabstop>
@@ -2086,6 +2811,92 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>transposition_decode_button</tabstop>
   <tabstop>transposition_decode_output</tabstop>
   <tabstop>transposition_decode_output_save</tabstop>
+  <tabstop>des_ecb_radioButton</tabstop>
+  <tabstop>des_cbc_radioButton</tabstop>
+  <tabstop>des_ofb_radioButton</tabstop>
+  <tabstop>des_cfb_radioButton</tabstop>
+  <tabstop>des_normalMode_button</tabstop>
+  <tabstop>des_allFileMode_button</tabstop>
+  <tabstop>Des_input_text</tabstop>
+  <tabstop>Des_input_file</tabstop>
+  <tabstop>Des_input_key</tabstop>
+  <tabstop>Des_button</tabstop>
+  <tabstop>Des_output</tabstop>
+  <tabstop>Des_output_save</tabstop>
+  <tabstop>Des_decode_input_text</tabstop>
+  <tabstop>Des_decode_input_file</tabstop>
+  <tabstop>Des_decode_input_key</tabstop>
+  <tabstop>Des_decode_button</tabstop>
+  <tabstop>Des_decode_output</tabstop>
+  <tabstop>Des_decode_output_save</tabstop>
+  <tabstop>Des_file_path</tabstop>
+  <tabstop>Des_input_file_2</tabstop>
+  <tabstop>Des_input_key_2</tabstop>
+  <tabstop>Des_button_2</tabstop>
+  <tabstop>Des_decode_file_path</tabstop>
+  <tabstop>Des_decode_input_file_2</tabstop>
+  <tabstop>Des_decode_input_key_2</tabstop>
+  <tabstop>Des_decode_button_2</tabstop>
+  <tabstop>aes_ecb_radioButton</tabstop>
+  <tabstop>aes_cbc_radioButton</tabstop>
+  <tabstop>aes_ofb_radioButton</tabstop>
+  <tabstop>aes_cfb_radioButton</tabstop>
+  <tabstop>aes_gcm_radioButton</tabstop>
+  <tabstop>aes_normalMode_button</tabstop>
+  <tabstop>aes_allFileMode_button</tabstop>
+  <tabstop>Aes_input_text</tabstop>
+  <tabstop>Aes_input_file</tabstop>
+  <tabstop>Aes_input_key</tabstop>
+  <tabstop>Aes_button</tabstop>
+  <tabstop>Aes_output</tabstop>
+  <tabstop>Aes_output_save</tabstop>
+  <tabstop>Aes_decode_input_text</tabstop>
+  <tabstop>Aes_decode_input_file</tabstop>
+  <tabstop>Aes_decode_input_key</tabstop>
+  <tabstop>Aes_decode_button</tabstop>
+  <tabstop>Aes_decode_output</tabstop>
+  <tabstop>Aes_decode_output_save</tabstop>
+  <tabstop>Aes_file_path</tabstop>
+  <tabstop>Aes_input_file_2</tabstop>
+  <tabstop>Aes_input_key_2</tabstop>
+  <tabstop>Aes_button_2</tabstop>
+  <tabstop>Aes_decode_file_path</tabstop>
+  <tabstop>Aes_decode_input_file_2</tabstop>
+  <tabstop>Aes_decode_input_key_2</tabstop>
+  <tabstop>Aes_decode_button_2</tabstop>
+  <tabstop>rsa_normalMode_button</tabstop>
+  <tabstop>rsa_allFileMode_button</tabstop>
+  <tabstop>rsa_keySize</tabstop>
+  <tabstop>rsa_generateKey_pushButton</tabstop>
+  <tabstop>rsa_publicKey</tabstop>
+  <tabstop>rsa_save_publicKey_pushButton</tabstop>
+  <tabstop>rsa_load_publicKey_pushButton</tabstop>
+  <tabstop>rsa_privetKey</tabstop>
+  <tabstop>rsa_save_privateKey_pushButton</tabstop>
+  <tabstop>rsa_load_privateKey_pushButton</tabstop>
+  <tabstop>rsa_plainText</tabstop>
+  <tabstop>rsa_cipherText</tabstop>
+  <tabstop>rsa_cipher_button</tabstop>
+  <tabstop>rsa_decipher_button</tabstop>
+  <tabstop>rsa_plainText_input_file</tabstop>
+  <tabstop>rsa_plainText_save</tabstop>
+  <tabstop>rsa_cipherText_input_file</tabstop>
+  <tabstop>rsa_cipherText_save</tabstop>
+  <tabstop>textEdit_3</tabstop>
+  <tabstop>g_input_lineEdit</tabstop>
+  <tabstop>p_input_lineEdit</tabstop>
+  <tabstop>a_input_lineEdit</tabstop>
+  <tabstop>b_input_lineEdit</tabstop>
+  <tabstop>calculate_diffieHellman_pushButton</tabstop>
+  <tabstop>diffieHellman_output</tabstop>
+  <tabstop>rsaCypher_input_file</tabstop>
+  <tabstop>rsa_fileToDecypher</tabstop>
+  <tabstop>rsa_decipherFile_button</tabstop>
+  <tabstop>siec_pushButton</tabstop>
+  <tabstop>rsa_cipherFile_button</tabstop>
+  <tabstop>network_search_button</tabstop>
+  <tabstop>rsa_fileForCypher</tabstop>
+  <tabstop>rsaDecypher_input_file</tabstop>
  </tabstops>
  <resources/>
  <connections/>

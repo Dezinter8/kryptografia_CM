@@ -124,7 +124,7 @@ class Vigener:
         if mode == 1:
             self.main_window.Vigener_output.setPlainText(zaszyfrowany_tekst)
         elif mode == 2:
-            self.main_window.save_content_into_file(2, zaszyfrowany_tekst)
+            self.main_window.save_content_to_file(2, zaszyfrowany_tekst)
 
 
     def decrypt(self, mode, zaszyfrowany_tekst, klucz):

@@ -85,7 +85,7 @@ class Des:
             if mode == 1:
                 self.main_window.Des_output.setPlainText(encrypted_hex)     # Wyświetlenie wyniku w polu tekstowym
             elif mode == 2:
-                self.main_window.save_content_into_file(2, encrypted_hex)   # Zapisanie wynikow do pliku
+                self.main_window.save_content_to_file(2, encrypted_hex)   # Zapisanie wynikow do pliku
         
         except Exception as e:
             QMessageBox.critical(self.main_window, "Błąd", f"Wystąpił błąd podczas szyfrowania: {str(e)}")
