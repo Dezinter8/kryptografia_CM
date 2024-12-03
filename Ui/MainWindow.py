@@ -142,6 +142,33 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.diffieHellman_pushButton)
 
+        self.widget_6 = QWidget(self.widget)
+        self.widget_6.setObjectName(u"widget_6")
+        self.verticalLayout_20 = QVBoxLayout(self.widget_6)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.label_41 = QLabel(self.widget_6)
+        self.label_41.setObjectName(u"label_41")
+
+        self.verticalLayout_20.addWidget(self.label_41)
+
+        self.generateSignature_pushButton = QPushButton(self.widget_6)
+        self.generateSignature_pushButton.setObjectName(u"generateSignature_pushButton")
+
+        self.verticalLayout_20.addWidget(self.generateSignature_pushButton)
+
+        self.signDocumen_pushButton = QPushButton(self.widget_6)
+        self.signDocumen_pushButton.setObjectName(u"signDocumen_pushButton")
+
+        self.verticalLayout_20.addWidget(self.signDocumen_pushButton)
+
+        self.verifySignature_pushButton = QPushButton(self.widget_6)
+        self.verifySignature_pushButton.setObjectName(u"verifySignature_pushButton")
+
+        self.verticalLayout_20.addWidget(self.verifySignature_pushButton)
+
+
+        self.verticalLayout.addWidget(self.widget_6)
+
         self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
@@ -1545,6 +1572,211 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.addLayout(self.verticalLayout_17)
 
         self.stackedWidget.addWidget(self.DiffieHellman_page)
+        self.generateSignature_page = QWidget()
+        self.generateSignature_page.setObjectName(u"generateSignature_page")
+        self.verticalLayout_21 = QVBoxLayout(self.generateSignature_page)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.label_68 = QLabel(self.generateSignature_page)
+        self.label_68.setObjectName(u"label_68")
+        self.label_68.setFont(font3)
+
+        self.verticalLayout_21.addWidget(self.label_68)
+
+        self.nameInput_lineEdit = QLineEdit(self.generateSignature_page)
+        self.nameInput_lineEdit.setObjectName(u"nameInput_lineEdit")
+
+        self.verticalLayout_21.addWidget(self.nameInput_lineEdit)
+
+        self.organizationalUnitInput_lineEdit = QLineEdit(self.generateSignature_page)
+        self.organizationalUnitInput_lineEdit.setObjectName(u"organizationalUnitInput_lineEdit")
+
+        self.verticalLayout_21.addWidget(self.organizationalUnitInput_lineEdit)
+
+        self.organizationNameInput_lineEdit = QLineEdit(self.generateSignature_page)
+        self.organizationNameInput_lineEdit.setObjectName(u"organizationNameInput_lineEdit")
+
+        self.verticalLayout_21.addWidget(self.organizationNameInput_lineEdit)
+
+        self.emailInput_lineEdit = QLineEdit(self.generateSignature_page)
+        self.emailInput_lineEdit.setObjectName(u"emailInput_lineEdit")
+
+        self.verticalLayout_21.addWidget(self.emailInput_lineEdit)
+
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.label_75 = QLabel(self.generateSignature_page)
+        self.label_75.setObjectName(u"label_75")
+        self.label_75.setMinimumSize(QSize(100, 0))
+
+        self.horizontalLayout_16.addWidget(self.label_75)
+
+        self.countryInput_combobox = QComboBox(self.generateSignature_page)
+        self.countryInput_combobox.addItem("")
+        self.countryInput_combobox.addItem("")
+        self.countryInput_combobox.addItem("")
+        self.countryInput_combobox.setObjectName(u"countryInput_combobox")
+
+        self.horizontalLayout_16.addWidget(self.countryInput_combobox)
+
+        self.horizontalLayout_16.setStretch(1, 1)
+
+        self.verticalLayout_21.addLayout(self.horizontalLayout_16)
+
+        self.horizontalLayout_17 = QHBoxLayout()
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.label_76 = QLabel(self.generateSignature_page)
+        self.label_76.setObjectName(u"label_76")
+        self.label_76.setMinimumSize(QSize(100, 0))
+
+        self.horizontalLayout_17.addWidget(self.label_76)
+
+        self.keyAlgoInput_comboBox = QComboBox(self.generateSignature_page)
+        self.keyAlgoInput_comboBox.addItem("")
+        self.keyAlgoInput_comboBox.addItem("")
+        self.keyAlgoInput_comboBox.addItem("")
+        self.keyAlgoInput_comboBox.setObjectName(u"keyAlgoInput_comboBox")
+
+        self.horizontalLayout_17.addWidget(self.keyAlgoInput_comboBox)
+
+        self.horizontalLayout_17.setStretch(1, 1)
+
+        self.verticalLayout_21.addLayout(self.horizontalLayout_17)
+
+        self.generateCert_pushButton = QPushButton(self.generateSignature_page)
+        self.generateCert_pushButton.setObjectName(u"generateCert_pushButton")
+
+        self.verticalLayout_21.addWidget(self.generateCert_pushButton)
+
+        self.verticalSpacer_15 = QSpacerItem(20, 421, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_21.addItem(self.verticalSpacer_15)
+
+        self.stackedWidget.addWidget(self.generateSignature_page)
+        self.signDocumen_page = QWidget()
+        self.signDocumen_page.setObjectName(u"signDocumen_page")
+        self.verticalLayout_22 = QVBoxLayout(self.signDocumen_page)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.label_69 = QLabel(self.signDocumen_page)
+        self.label_69.setObjectName(u"label_69")
+        self.label_69.setFont(font3)
+
+        self.verticalLayout_22.addWidget(self.label_69)
+
+        self.horizontalLayout_18 = QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.pdfPath_lineEdit = QLineEdit(self.signDocumen_page)
+        self.pdfPath_lineEdit.setObjectName(u"pdfPath_lineEdit")
+        self.pdfPath_lineEdit.setReadOnly(True)
+
+        self.horizontalLayout_18.addWidget(self.pdfPath_lineEdit)
+
+        self.loadPdf_pushButton = QPushButton(self.signDocumen_page)
+        self.loadPdf_pushButton.setObjectName(u"loadPdf_pushButton")
+
+        self.horizontalLayout_18.addWidget(self.loadPdf_pushButton)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_18)
+
+        self.horizontalLayout_19 = QHBoxLayout()
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.privateKeyPath_lineEdit = QLineEdit(self.signDocumen_page)
+        self.privateKeyPath_lineEdit.setObjectName(u"privateKeyPath_lineEdit")
+        self.privateKeyPath_lineEdit.setReadOnly(True)
+
+        self.horizontalLayout_19.addWidget(self.privateKeyPath_lineEdit)
+
+        self.loadPrivateKey_pushButton = QPushButton(self.signDocumen_page)
+        self.loadPrivateKey_pushButton.setObjectName(u"loadPrivateKey_pushButton")
+
+        self.horizontalLayout_19.addWidget(self.loadPrivateKey_pushButton)
+
+
+        self.verticalLayout_22.addLayout(self.horizontalLayout_19)
+
+        self.signDocument_pushButton = QPushButton(self.signDocumen_page)
+        self.signDocument_pushButton.setObjectName(u"signDocument_pushButton")
+
+        self.verticalLayout_22.addWidget(self.signDocument_pushButton)
+
+        self.verticalSpacer_16 = QSpacerItem(20, 541, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_22.addItem(self.verticalSpacer_16)
+
+        self.stackedWidget.addWidget(self.signDocumen_page)
+        self.verifySignature_page = QWidget()
+        self.verifySignature_page.setObjectName(u"verifySignature_page")
+        self.verticalLayout_23 = QVBoxLayout(self.verifySignature_page)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.label_72 = QLabel(self.verifySignature_page)
+        self.label_72.setObjectName(u"label_72")
+        self.label_72.setFont(font3)
+
+        self.verticalLayout_23.addWidget(self.label_72)
+
+        self.horizontalLayout_20 = QHBoxLayout()
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.pdfPath_lineEdit_2 = QLineEdit(self.verifySignature_page)
+        self.pdfPath_lineEdit_2.setObjectName(u"pdfPath_lineEdit_2")
+        self.pdfPath_lineEdit_2.setReadOnly(True)
+
+        self.horizontalLayout_20.addWidget(self.pdfPath_lineEdit_2)
+
+        self.loadPdf_pushButton_2 = QPushButton(self.verifySignature_page)
+        self.loadPdf_pushButton_2.setObjectName(u"loadPdf_pushButton_2")
+
+        self.horizontalLayout_20.addWidget(self.loadPdf_pushButton_2)
+
+
+        self.verticalLayout_23.addLayout(self.horizontalLayout_20)
+
+        self.horizontalLayout_21 = QHBoxLayout()
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.csrPath_lineEdit = QLineEdit(self.verifySignature_page)
+        self.csrPath_lineEdit.setObjectName(u"csrPath_lineEdit")
+        self.csrPath_lineEdit.setReadOnly(True)
+
+        self.horizontalLayout_21.addWidget(self.csrPath_lineEdit)
+
+        self.loadCsr_pushButton = QPushButton(self.verifySignature_page)
+        self.loadCsr_pushButton.setObjectName(u"loadCsr_pushButton")
+
+        self.horizontalLayout_21.addWidget(self.loadCsr_pushButton)
+
+
+        self.verticalLayout_23.addLayout(self.horizontalLayout_21)
+
+        self.horizontalLayout_22 = QHBoxLayout()
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.pemPath_lineEdit = QLineEdit(self.verifySignature_page)
+        self.pemPath_lineEdit.setObjectName(u"pemPath_lineEdit")
+        self.pemPath_lineEdit.setReadOnly(True)
+
+        self.horizontalLayout_22.addWidget(self.pemPath_lineEdit)
+
+        self.loadPem_pushButton = QPushButton(self.verifySignature_page)
+        self.loadPem_pushButton.setObjectName(u"loadPem_pushButton")
+
+        self.horizontalLayout_22.addWidget(self.loadPem_pushButton)
+
+
+        self.verticalLayout_23.addLayout(self.horizontalLayout_22)
+
+        self.verify_pushButton = QPushButton(self.verifySignature_page)
+        self.verify_pushButton.setObjectName(u"verify_pushButton")
+
+        self.verticalLayout_23.addWidget(self.verify_pushButton)
+
+        self.verifyOutput_textEdit = QTextEdit(self.verifySignature_page)
+        self.verifyOutput_textEdit.setObjectName(u"verifyOutput_textEdit")
+
+        self.verticalLayout_23.addWidget(self.verifyOutput_textEdit)
+
+        self.verticalSpacer_17 = QSpacerItem(20, 250, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_23.addItem(self.verticalSpacer_17)
+
+        self.stackedWidget.addWidget(self.verifySignature_page)
 
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
@@ -1697,6 +1929,10 @@ class Ui_MainWindow(object):
         self.aes_pushButton.setText(QCoreApplication.translate("MainWindow", u"AES", None))
         self.rsa_pushButton.setText(QCoreApplication.translate("MainWindow", u"Rsa", None))
         self.diffieHellman_pushButton.setText(QCoreApplication.translate("MainWindow", u"Diffie-Hellman", None))
+        self.label_41.setText(QCoreApplication.translate("MainWindow", u"Podpisy cyfrowe", None))
+        self.generateSignature_pushButton.setText(QCoreApplication.translate("MainWindow", u"Generowanie", None))
+        self.signDocumen_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podpisywanie", None))
+        self.verifySignature_pushButton.setText(QCoreApplication.translate("MainWindow", u"Weryfikacja", None))
         self.siec_pushButton.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
         self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
@@ -1870,5 +2106,35 @@ class Ui_MainWindow(object):
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"Bob", None))
         self.label_35.setText(QCoreApplication.translate("MainWindow", u"b:", None))
         self.calculate_diffieHellman_pushButton.setText(QCoreApplication.translate("MainWindow", u"Oblicz Klucz", None))
+        self.label_68.setText(QCoreApplication.translate("MainWindow", u"Wygeneruj Certyfikat wraz z kluczami", None))
+        self.nameInput_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Imi\u0119 i Nazwisko", None))
+        self.organizationalUnitInput_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Jednostka organizacyjna", None))
+        self.organizationNameInput_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Nazwa organizacji", None))
+        self.emailInput_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.label_75.setText(QCoreApplication.translate("MainWindow", u"Kraj:", None))
+        self.countryInput_combobox.setItemText(0, QCoreApplication.translate("MainWindow", u"PL", None))
+        self.countryInput_combobox.setItemText(1, QCoreApplication.translate("MainWindow", u"US", None))
+        self.countryInput_combobox.setItemText(2, QCoreApplication.translate("MainWindow", u"GB", None))
+
+        self.label_76.setText(QCoreApplication.translate("MainWindow", u"Klucz RSA:", None))
+        self.keyAlgoInput_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"1024", None))
+        self.keyAlgoInput_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"2048", None))
+        self.keyAlgoInput_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"4096", None))
+
+        self.generateCert_pushButton.setText(QCoreApplication.translate("MainWindow", u"Wygeneruj klucz prywatny, klucz publiczny oraz certyfikat", None))
+        self.label_69.setText(QCoreApplication.translate("MainWindow", u"Podpisywanie dokumentu PDF", None))
+        self.pdfPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik PDF", None))
+        self.loadPdf_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.privateKeyPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz klucz prywatny", None))
+        self.loadPrivateKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.signDocument_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podpisz dokument", None))
+        self.label_72.setText(QCoreApplication.translate("MainWindow", u"Analiza podpisu cyfrowego", None))
+        self.pdfPath_lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik PDF", None))
+        self.loadPdf_pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.csrPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik podpisu (csr)", None))
+        self.loadCsr_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.pemPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz klucz publiczny (pem)", None))
+        self.loadPem_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.verify_pushButton.setText(QCoreApplication.translate("MainWindow", u"Zferyfikuj", None))
     # retranslateUi
 

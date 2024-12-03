@@ -560,6 +560,40 @@
         </widget>
        </item>
        <item>
+        <widget class="QWidget" name="widget_6" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_20">
+          <item>
+           <widget class="QLabel" name="label_41">
+            <property name="text">
+             <string>Podpisy cyfrowe</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="generateSignature_pushButton">
+            <property name="text">
+             <string>Generowanie</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="signDocumen_pushButton">
+            <property name="text">
+             <string>Podpisywanie</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="verifySignature_pushButton">
+            <property name="text">
+             <string>Weryfikacja</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
@@ -2757,6 +2791,322 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </spacer>
              </item>
             </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="generateSignature_page">
+          <layout class="QVBoxLayout" name="verticalLayout_21">
+           <item>
+            <widget class="QLabel" name="label_68">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Wygeneruj Certyfikat wraz z kluczami</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="nameInput_lineEdit">
+             <property name="placeholderText">
+              <string>Imię i Nazwisko</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="organizationalUnitInput_lineEdit">
+             <property name="placeholderText">
+              <string>Jednostka organizacyjna</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="organizationNameInput_lineEdit">
+             <property name="placeholderText">
+              <string>Nazwa organizacji</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="emailInput_lineEdit">
+             <property name="placeholderText">
+              <string>Email</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="0,1">
+             <item>
+              <widget class="QLabel" name="label_75">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Kraj:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="countryInput_combobox">
+               <item>
+                <property name="text">
+                 <string>PL</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>US</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>GB</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0,1">
+             <item>
+              <widget class="QLabel" name="label_76">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Klucz RSA:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="keyAlgoInput_comboBox">
+               <item>
+                <property name="text">
+                 <string>1024</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>2048</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4096</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="generateCert_pushButton">
+             <property name="text">
+              <string>Wygeneruj klucz prywatny, klucz publiczny oraz certyfikat</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>421</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="signDocumen_page">
+          <layout class="QVBoxLayout" name="verticalLayout_22">
+           <item>
+            <widget class="QLabel" name="label_69">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Podpisywanie dokumentu PDF</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_18">
+             <item>
+              <widget class="QLineEdit" name="pdfPath_lineEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Wybierz plik PDF</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadPdf_pushButton">
+               <property name="text">
+                <string>Załaduj plik</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <item>
+              <widget class="QLineEdit" name="privateKeyPath_lineEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Wybierz klucz prywatny</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadPrivateKey_pushButton">
+               <property name="text">
+                <string>Załaduj plik</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="signDocument_pushButton">
+             <property name="text">
+              <string>Podpisz dokument</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>541</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="verifySignature_page">
+          <layout class="QVBoxLayout" name="verticalLayout_23">
+           <item>
+            <widget class="QLabel" name="label_72">
+             <property name="font">
+              <font>
+               <pointsize>11</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Analiza podpisu cyfrowego</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <item>
+              <widget class="QLineEdit" name="pdfPath_lineEdit_2">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Wybierz plik PDF</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadPdf_pushButton_2">
+               <property name="text">
+                <string>Załaduj plik</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_21">
+             <item>
+              <widget class="QLineEdit" name="csrPath_lineEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Wybierz plik podpisu (csr)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadCsr_pushButton">
+               <property name="text">
+                <string>Załaduj plik</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_22">
+             <item>
+              <widget class="QLineEdit" name="pemPath_lineEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>Wybierz klucz publiczny (pem)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="loadPem_pushButton">
+               <property name="text">
+                <string>Załaduj plik</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="verify_pushButton">
+             <property name="text">
+              <string>Zferyfikuj</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="verifyOutput_textEdit"/>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>250</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>

@@ -8,6 +8,9 @@ from encryptions.des import Des
 from encryptions.aes import Aes
 from encryptions.diffieHellman import DiffieHellman
 from encryptions.rsa import Rsa
+from encryptions.signatures.generateSignatureWithKeys import generateSignaruteWithKeys
+from encryptions.signatures.signDocument import signDocument
+from encryptions.signatures.verify import verifySignature
 from network import Network
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -21,6 +24,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.aes = Aes(self)
         self.diffieHellman = DiffieHellman(self)
         self.rsa = Rsa(self)
+        self.generateSignaruteWithKeys = generateSignaruteWithKeys(self)
+        self.signDocument = signDocument(self)
+        self.verifySignature = verifySignature(self)
 
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
         self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
@@ -29,6 +35,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.siec_pushButton.clicked.connect(lambda: self.switch_main_page(4))
         self.rsa_pushButton.clicked.connect(lambda: self.switch_main_page(5))
         self.diffieHellman_pushButton.clicked.connect(lambda: self.switch_main_page(6))
+        self.generateSignature_pushButton.clicked.connect(lambda: self.switch_main_page(7))
+        self.signDocumen_pushButton.clicked.connect(lambda: self.switch_main_page(8))
+        self.verifySignature_pushButton.clicked.connect(lambda: self.switch_main_page(9))
 
 
         # Obsługa przycisków do ładowania zawartości plików
