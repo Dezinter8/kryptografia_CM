@@ -1732,32 +1732,32 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21 = QHBoxLayout()
         self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.csrPath_lineEdit = QLineEdit(self.verifySignature_page)
-        self.csrPath_lineEdit.setObjectName(u"csrPath_lineEdit")
-        self.csrPath_lineEdit.setReadOnly(True)
+        self.signaturePath_lineEdit = QLineEdit(self.verifySignature_page)
+        self.signaturePath_lineEdit.setObjectName(u"signaturePath_lineEdit")
+        self.signaturePath_lineEdit.setReadOnly(True)
 
-        self.horizontalLayout_21.addWidget(self.csrPath_lineEdit)
+        self.horizontalLayout_21.addWidget(self.signaturePath_lineEdit)
 
-        self.loadCsr_pushButton = QPushButton(self.verifySignature_page)
-        self.loadCsr_pushButton.setObjectName(u"loadCsr_pushButton")
+        self.loadSig_pushButton = QPushButton(self.verifySignature_page)
+        self.loadSig_pushButton.setObjectName(u"loadSig_pushButton")
 
-        self.horizontalLayout_21.addWidget(self.loadCsr_pushButton)
+        self.horizontalLayout_21.addWidget(self.loadSig_pushButton)
 
 
         self.verticalLayout_23.addLayout(self.horizontalLayout_21)
 
         self.horizontalLayout_22 = QHBoxLayout()
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.pemPath_lineEdit = QLineEdit(self.verifySignature_page)
-        self.pemPath_lineEdit.setObjectName(u"pemPath_lineEdit")
-        self.pemPath_lineEdit.setReadOnly(True)
+        self.certificatePath_lineEdit = QLineEdit(self.verifySignature_page)
+        self.certificatePath_lineEdit.setObjectName(u"certificatePath_lineEdit")
+        self.certificatePath_lineEdit.setReadOnly(True)
 
-        self.horizontalLayout_22.addWidget(self.pemPath_lineEdit)
+        self.horizontalLayout_22.addWidget(self.certificatePath_lineEdit)
 
-        self.loadPem_pushButton = QPushButton(self.verifySignature_page)
-        self.loadPem_pushButton.setObjectName(u"loadPem_pushButton")
+        self.loadCsr_pushButton = QPushButton(self.verifySignature_page)
+        self.loadCsr_pushButton.setObjectName(u"loadCsr_pushButton")
 
-        self.horizontalLayout_22.addWidget(self.loadPem_pushButton)
+        self.horizontalLayout_22.addWidget(self.loadCsr_pushButton)
 
 
         self.verticalLayout_23.addLayout(self.horizontalLayout_22)
@@ -1769,10 +1769,11 @@ class Ui_MainWindow(object):
 
         self.verifyOutput_textEdit = QTextEdit(self.verifySignature_page)
         self.verifyOutput_textEdit.setObjectName(u"verifyOutput_textEdit")
+        self.verifyOutput_textEdit.setMinimumSize(QSize(0, 450))
 
         self.verticalLayout_23.addWidget(self.verifyOutput_textEdit)
 
-        self.verticalSpacer_17 = QSpacerItem(20, 250, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer_17 = QSpacerItem(20, 50, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_23.addItem(self.verticalSpacer_17)
 
@@ -1915,7 +1916,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(9)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2131,10 +2132,10 @@ class Ui_MainWindow(object):
         self.label_72.setText(QCoreApplication.translate("MainWindow", u"Analiza podpisu cyfrowego", None))
         self.pdfPath_lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik PDF", None))
         self.loadPdf_pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
-        self.csrPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik podpisu (csr)", None))
+        self.signaturePath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz plik podpisu (sig)", None))
+        self.loadSig_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
+        self.certificatePath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz pliku certyfikatu (crt)", None))
         self.loadCsr_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
-        self.pemPath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz klucz publiczny (pem)", None))
-        self.loadPem_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
         self.verify_pushButton.setText(QCoreApplication.translate("MainWindow", u"Zferyfikuj", None))
     # retranslateUi
 
