@@ -53,11 +53,6 @@ class signDocument:
         try:
             with open(pdf_file_path, 'rb') as input_pdf:
                 reader = PyPDF2.PdfReader(input_pdf)
-                writer = PyPDF2.PdfWriter()
-
-                # Kopiowanie stron z pliku PDF
-                for page in reader.pages:
-                    writer.add_page(page)
 
                 # Tworzenie podpisu (obliczanie skrótu dokumentu)
                 pdf_hash = hashes.Hash(hashes.SHA256(), backend=default_backend())
@@ -70,20 +65,20 @@ class signDocument:
                     hashes.SHA256()
                 )
 
-                # Zapisanie podpisanego pliku PDF
-                signed_pdf_path, _ = QFileDialog.getSaveFileName(self.main_window, "Zapisz podpisany PDF", "", "PDF Files (*.pdf)")
-                if signed_pdf_path:
-                    with open(signed_pdf_path, 'wb') as output_pdf:
-                        writer.write(output_pdf)
-
-                    # Zapisanie podpisu w osobnym pliku
-                    signature_file_path = signed_pdf_path.replace(".pdf", "_signature.sig")
+                # Zapisanie podpisu w pliku
+                signature_file_path, _ = QFileDialog.getSaveFileName(
+                    self.main_window,
+                    "Zapisz podpis",
+                    "",
+                    "Signature Files (*.sig)"
+                )
+                if signature_file_path:
                     with open(signature_file_path, 'wb') as sig_file:
                         sig_file.write(signature)
 
-                    print("Dokument został podpisany i zapisany.")
+                    print("Podpis został wygenerowany i zapisany.")
         except Exception as e:
-            QMessageBox.warning(self.main_window, "Błąd", "Nie udało się podpisać dokumentu: {str(e)}")
+            QMessageBox.warning(self.main_window, "Błąd", f"Nie udało się podpisać dokumentu: {str(e)}")
 
 
 

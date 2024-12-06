@@ -10,6 +10,7 @@ from cryptography.x509.oid import NameOID
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from datetime import datetime, timedelta
+from encryptions.signatures.GenerateCert import certificates
 
 
 class generateSignaruteWithKeys:
@@ -34,7 +35,29 @@ class generateSignaruteWithKeys:
             QMessageBox.warning(self.main_window, "Błąd", "Wszystkie pola muszą być wypełnione!")
             return
 
-        # Generate RSA private key
+        # Wczytanie Root CA
+        root_private_key = serialization.load_pem_private_key(
+            certificates.ROOT_CA_PRIVATE_KEY.encode('utf-8'),
+            password=None,
+            backend=default_backend()
+        )
+        root_certificate = x509.load_pem_x509_certificate(
+            certificates.ROOT_CA_CERT.encode('utf-8'),
+            backend=default_backend()
+        )
+
+        # Wczytanie Intermediate CA
+        intermediate_private_key = serialization.load_pem_private_key(
+            certificates.INTERMEDIATE_CA_PRIVATE_KEY.encode('utf-8'),
+            password=None,
+            backend=default_backend()
+        )
+        intermediate_certificate = x509.load_pem_x509_certificate(
+            certificates.INTERMEDIATE_CA_CERT.encode('utf-8'),
+            backend=default_backend()
+        )
+
+        # Generowanie klucza prywatnego dla końcowego certyfikatu
         private_key = rsa.generate_private_key(
             public_exponent=65537,
             key_size=key_algo,
@@ -53,16 +76,33 @@ class generateSignaruteWithKeys:
             x509.NameAttribute(x509.NameOID.COUNTRY_NAME, country)
         ])
 
+        # Issuer to Intermediate CA
+        issuer = intermediate_certificate.subject
 
         # Czas ważności certyfikatu
         not_valid_before = datetime.utcnow()
         not_valid_after = not_valid_before + timedelta(days=365)
 
-        # Budowanie certyfikatu
-        certificate = x509.CertificateBuilder().subject_name(subject).issuer_name(subject).public_key(public_key).serial_number(x509.random_serial_number()).not_valid_before(not_valid_before).not_valid_after(not_valid_after).add_extension(x509.SubjectAlternativeName([x509.RFC822Name(email)]), critical=False).sign(private_key, hashes.SHA256(), default_backend())
+        # Budowanie końcowego certyfikatu
+        certificate = x509.CertificateBuilder(
+        ).subject_name(subject
+        ).issuer_name(issuer
+        ).public_key(public_key
+        ).serial_number(x509.random_serial_number()
+        ).not_valid_before(not_valid_before
+        ).not_valid_after(not_valid_after
+        ).add_extension(
+            x509.SubjectAlternativeName([x509.RFC822Name(email)]),
+            critical=False
+        ).add_extension(
+            x509.BasicConstraints(ca=False, path_length=None),
+            critical=True
+        ).sign(intermediate_private_key, hashes.SHA256(), default_backend())
 
 
-        # Zapisywanie klucza prywatnego
+        # Zapisanie kluczy i certyfikatów
+
+        # Ścieżki do zapisania końcowego klucza i certyfikatu
         private_key_path, _ = QFileDialog.getSaveFileName(self.main_window, "Zapisz klucz prywatny", "", "Private Key Files (*.pem)")
         if private_key_path:
             with open(private_key_path, "wb") as key_file:
@@ -72,7 +112,6 @@ class generateSignaruteWithKeys:
                     encryption_algorithm=serialization.NoEncryption()
                 ))
 
-        # Zapisywanie klucza publicznego
         public_key_path, _ = QFileDialog.getSaveFileName(self.main_window, "Zapisz klucz publiczny", "", "Public Key Files (*.pem)")
         if public_key_path:
             with open(public_key_path, "wb") as pub_key_file:
@@ -81,10 +120,12 @@ class generateSignaruteWithKeys:
                     format=serialization.PublicFormat.SubjectPublicKeyInfo
                 ))
 
-        # Zapisywanie certyfikatu
         cert_path, _ = QFileDialog.getSaveFileName(self.main_window, "Zapisz certyfikat", "", "Certificate Files (*.crt)")
         if cert_path:
             with open(cert_path, "wb") as cert_file:
+                # Zapisanie certyfikatu wraz z łańcuchem (Intermediate + Root)
                 cert_file.write(certificate.public_bytes(serialization.Encoding.PEM))
+                cert_file.write(intermediate_certificate.public_bytes(serialization.Encoding.PEM))
+                cert_file.write(root_certificate.public_bytes(serialization.Encoding.PEM))
 
-        print("Certyfikat i klucze zostały wygenerowane i zapisane.")
+        print("Certyfikat z łańcuchem certyfikacji oraz klucze zostały wygenerowane i zapisane.")
