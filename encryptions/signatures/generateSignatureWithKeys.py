@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 from encryptions.signatures.GenerateCert import certificates
 
 
-class generateSignaruteWithKeys:
+class generateSignatureWithKeys:
     def __init__(self, main_window):
         self.main_window = main_window
 

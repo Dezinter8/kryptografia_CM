@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -169,9 +169,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.widget_6)
 
+        self.hmac_pushButton = QPushButton(self.widget)
+        self.hmac_pushButton.setObjectName(u"hmac_pushButton")
+
+        self.verticalLayout.addWidget(self.hmac_pushButton)
+
         self.verticalSpacer = QSpacerItem(20, 403, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.dataStream_pushButton = QPushButton(self.widget)
+        self.dataStream_pushButton.setObjectName(u"dataStream_pushButton")
+
+        self.verticalLayout.addWidget(self.dataStream_pushButton)
 
         self.siec_pushButton = QPushButton(self.widget)
         self.siec_pushButton.setObjectName(u"siec_pushButton")
@@ -1778,6 +1788,275 @@ class Ui_MainWindow(object):
         self.verticalLayout_23.addItem(self.verticalSpacer_17)
 
         self.stackedWidget.addWidget(self.verifySignature_page)
+        self.HMac_page = QWidget()
+        self.HMac_page.setObjectName(u"HMac_page")
+        self.verticalLayout_24 = QVBoxLayout(self.HMac_page)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.label_77 = QLabel(self.HMac_page)
+        self.label_77.setObjectName(u"label_77")
+        self.label_77.setFont(font)
+
+        self.verticalLayout_24.addWidget(self.label_77)
+
+        self.label_74 = QLabel(self.HMac_page)
+        self.label_74.setObjectName(u"label_74")
+        font4 = QFont()
+        font4.setPointSize(14)
+        self.label_74.setFont(font4)
+
+        self.verticalLayout_24.addWidget(self.label_74)
+
+        self.horizontalLayout_23 = QHBoxLayout()
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.label_78 = QLabel(self.HMac_page)
+        self.label_78.setObjectName(u"label_78")
+
+        self.horizontalLayout_23.addWidget(self.label_78)
+
+        self.messageInput_lineEdit = QLineEdit(self.HMac_page)
+        self.messageInput_lineEdit.setObjectName(u"messageInput_lineEdit")
+
+        self.horizontalLayout_23.addWidget(self.messageInput_lineEdit)
+
+        self.messageInput_input_file = QPushButton(self.HMac_page)
+        self.messageInput_input_file.setObjectName(u"messageInput_input_file")
+
+        self.horizontalLayout_23.addWidget(self.messageInput_input_file)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_23)
+
+        self.horizontalLayout_24 = QHBoxLayout()
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.label_80 = QLabel(self.HMac_page)
+        self.label_80.setObjectName(u"label_80")
+
+        self.horizontalLayout_24.addWidget(self.label_80)
+
+        self.keyInput_lineEdit = QLineEdit(self.HMac_page)
+        self.keyInput_lineEdit.setObjectName(u"keyInput_lineEdit")
+
+        self.horizontalLayout_24.addWidget(self.keyInput_lineEdit)
+
+        self.generateKey_pushButton = QPushButton(self.HMac_page)
+        self.generateKey_pushButton.setObjectName(u"generateKey_pushButton")
+
+        self.horizontalLayout_24.addWidget(self.generateKey_pushButton)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_24)
+
+        self.horizontalLayout_25 = QHBoxLayout()
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.label_82 = QLabel(self.HMac_page)
+        self.label_82.setObjectName(u"label_82")
+
+        self.horizontalLayout_25.addWidget(self.label_82)
+
+        self.hmacAlgorithm_comboBox = QComboBox(self.HMac_page)
+        self.hmacAlgorithm_comboBox.addItem("")
+        self.hmacAlgorithm_comboBox.addItem("")
+        self.hmacAlgorithm_comboBox.addItem("")
+        self.hmacAlgorithm_comboBox.setObjectName(u"hmacAlgorithm_comboBox")
+
+        self.horizontalLayout_25.addWidget(self.hmacAlgorithm_comboBox)
+
+        self.horizontalLayout_25.setStretch(1, 1)
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_25)
+
+        self.computeHmac_pushButton = QPushButton(self.HMac_page)
+        self.computeHmac_pushButton.setObjectName(u"computeHmac_pushButton")
+
+        self.verticalLayout_24.addWidget(self.computeHmac_pushButton)
+
+        self.horizontalLayout_26 = QHBoxLayout()
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.computedHmac_output = QTextEdit(self.HMac_page)
+        self.computedHmac_output.setObjectName(u"computedHmac_output")
+        self.computedHmac_output.setMaximumSize(QSize(16777215, 70))
+        self.computedHmac_output.setReadOnly(True)
+
+        self.horizontalLayout_26.addWidget(self.computedHmac_output)
+
+        self.computedHmac_output_save = QPushButton(self.HMac_page)
+        self.computedHmac_output_save.setObjectName(u"computedHmac_output_save")
+
+        self.horizontalLayout_26.addWidget(self.computedHmac_output_save)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_26)
+
+        self.label_73 = QLabel(self.HMac_page)
+        self.label_73.setObjectName(u"label_73")
+        self.label_73.setFont(font4)
+
+        self.verticalLayout_24.addWidget(self.label_73)
+
+        self.horizontalLayout_27 = QHBoxLayout()
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.label_81 = QLabel(self.HMac_page)
+        self.label_81.setObjectName(u"label_81")
+
+        self.horizontalLayout_27.addWidget(self.label_81)
+
+        self.verifyMessageInput_lineEdit = QLineEdit(self.HMac_page)
+        self.verifyMessageInput_lineEdit.setObjectName(u"verifyMessageInput_lineEdit")
+
+        self.horizontalLayout_27.addWidget(self.verifyMessageInput_lineEdit)
+
+        self.verifyMessageInput_input_file = QPushButton(self.HMac_page)
+        self.verifyMessageInput_input_file.setObjectName(u"verifyMessageInput_input_file")
+
+        self.horizontalLayout_27.addWidget(self.verifyMessageInput_input_file)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_27)
+
+        self.horizontalLayout_28 = QHBoxLayout()
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.label_79 = QLabel(self.HMac_page)
+        self.label_79.setObjectName(u"label_79")
+
+        self.horizontalLayout_28.addWidget(self.label_79)
+
+        self.verifyKeyInput_lineEdit = QLineEdit(self.HMac_page)
+        self.verifyKeyInput_lineEdit.setObjectName(u"verifyKeyInput_lineEdit")
+
+        self.horizontalLayout_28.addWidget(self.verifyKeyInput_lineEdit)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_28)
+
+        self.horizontalLayout_29 = QHBoxLayout()
+        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
+        self.label_83 = QLabel(self.HMac_page)
+        self.label_83.setObjectName(u"label_83")
+
+        self.horizontalLayout_29.addWidget(self.label_83)
+
+        self.verifyHmacInput_lineEdit = QLineEdit(self.HMac_page)
+        self.verifyHmacInput_lineEdit.setObjectName(u"verifyHmacInput_lineEdit")
+
+        self.horizontalLayout_29.addWidget(self.verifyHmacInput_lineEdit)
+
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_29)
+
+        self.horizontalLayout_30 = QHBoxLayout()
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.label_84 = QLabel(self.HMac_page)
+        self.label_84.setObjectName(u"label_84")
+
+        self.horizontalLayout_30.addWidget(self.label_84)
+
+        self.verifyHmacAlgorithm_comboBox = QComboBox(self.HMac_page)
+        self.verifyHmacAlgorithm_comboBox.addItem("")
+        self.verifyHmacAlgorithm_comboBox.addItem("")
+        self.verifyHmacAlgorithm_comboBox.addItem("")
+        self.verifyHmacAlgorithm_comboBox.setObjectName(u"verifyHmacAlgorithm_comboBox")
+
+        self.horizontalLayout_30.addWidget(self.verifyHmacAlgorithm_comboBox)
+
+        self.horizontalLayout_30.setStretch(1, 1)
+
+        self.verticalLayout_24.addLayout(self.horizontalLayout_30)
+
+        self.verifyHmac_pushButton = QPushButton(self.HMac_page)
+        self.verifyHmac_pushButton.setObjectName(u"verifyHmac_pushButton")
+
+        self.verticalLayout_24.addWidget(self.verifyHmac_pushButton)
+
+        self.verifyHmacOutput_textEdit = QTextEdit(self.HMac_page)
+        self.verifyHmacOutput_textEdit.setObjectName(u"verifyHmacOutput_textEdit")
+        self.verifyHmacOutput_textEdit.setMaximumSize(QSize(16777215, 70))
+        self.verifyHmacOutput_textEdit.setReadOnly(True)
+
+        self.verticalLayout_24.addWidget(self.verifyHmacOutput_textEdit)
+
+        self.verticalSpacer_18 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_24.addItem(self.verticalSpacer_18)
+
+        self.stackedWidget.addWidget(self.HMac_page)
+        self.dataStream_page = QWidget()
+        self.dataStream_page.setObjectName(u"dataStream_page")
+        self.verticalLayout_19 = QVBoxLayout(self.dataStream_page)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.label_86 = QLabel(self.dataStream_page)
+        self.label_86.setObjectName(u"label_86")
+        self.label_86.setFont(font)
+
+        self.verticalLayout_19.addWidget(self.label_86)
+
+        self.label_85 = QLabel(self.dataStream_page)
+        self.label_85.setObjectName(u"label_85")
+        self.label_85.setFont(font4)
+
+        self.verticalLayout_19.addWidget(self.label_85)
+
+        self.horizontalLayout_32 = QHBoxLayout()
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.label_87 = QLabel(self.dataStream_page)
+        self.label_87.setObjectName(u"label_87")
+
+        self.horizontalLayout_32.addWidget(self.label_87)
+
+        self.inputA = QLineEdit(self.dataStream_page)
+        self.inputA.setObjectName(u"inputA")
+
+        self.horizontalLayout_32.addWidget(self.inputA)
+
+        self.sendButtonA = QPushButton(self.dataStream_page)
+        self.sendButtonA.setObjectName(u"sendButtonA")
+
+        self.horizontalLayout_32.addWidget(self.sendButtonA)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_32)
+
+        self.label_88 = QLabel(self.dataStream_page)
+        self.label_88.setObjectName(u"label_88")
+        self.label_88.setFont(font4)
+
+        self.verticalLayout_19.addWidget(self.label_88)
+
+        self.horizontalLayout_34 = QHBoxLayout()
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.label_90 = QLabel(self.dataStream_page)
+        self.label_90.setObjectName(u"label_90")
+
+        self.horizontalLayout_34.addWidget(self.label_90)
+
+        self.inputB = QLineEdit(self.dataStream_page)
+        self.inputB.setObjectName(u"inputB")
+
+        self.horizontalLayout_34.addWidget(self.inputB)
+
+        self.sendButtonB = QPushButton(self.dataStream_page)
+        self.sendButtonB.setObjectName(u"sendButtonB")
+
+        self.horizontalLayout_34.addWidget(self.sendButtonB)
+
+
+        self.verticalLayout_19.addLayout(self.horizontalLayout_34)
+
+        self.label_91 = QLabel(self.dataStream_page)
+        self.label_91.setObjectName(u"label_91")
+        self.label_91.setFont(font4)
+
+        self.verticalLayout_19.addWidget(self.label_91)
+
+        self.messagesTextEdit = QTextEdit(self.dataStream_page)
+        self.messagesTextEdit.setObjectName(u"messagesTextEdit")
+
+        self.verticalLayout_19.addWidget(self.messagesTextEdit)
+
+        self.verticalSpacer_19 = QSpacerItem(20, 229, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_19.addItem(self.verticalSpacer_19)
+
+        self.stackedWidget.addWidget(self.dataStream_page)
 
         self.verticalLayout_2.addWidget(self.stackedWidget)
 
@@ -1916,7 +2195,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(9)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1934,6 +2213,8 @@ class Ui_MainWindow(object):
         self.generateSignature_pushButton.setText(QCoreApplication.translate("MainWindow", u"Generowanie", None))
         self.signDocumen_pushButton.setText(QCoreApplication.translate("MainWindow", u"Podpisywanie", None))
         self.verifySignature_pushButton.setText(QCoreApplication.translate("MainWindow", u"Weryfikacja", None))
+        self.hmac_pushButton.setText(QCoreApplication.translate("MainWindow", u"HMac", None))
+        self.dataStream_pushButton.setText(QCoreApplication.translate("MainWindow", u"Strumieniowanie", None))
         self.siec_pushButton.setText(QCoreApplication.translate("MainWindow", u"Sie\u0107", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Chru\u015blicki Micha\u0142", None))
         self.Vigener_decode_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
@@ -2137,5 +2418,37 @@ class Ui_MainWindow(object):
         self.certificatePath_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Wybierz pliku certyfikatu (crt)", None))
         self.loadCsr_pushButton.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj plik", None))
         self.verify_pushButton.setText(QCoreApplication.translate("MainWindow", u"Zferyfikuj", None))
+        self.label_77.setText(QCoreApplication.translate("MainWindow", u"Algorytm HMAC:", None))
+        self.label_74.setText(QCoreApplication.translate("MainWindow", u"Generowanie HMAC:", None))
+        self.label_78.setText(QCoreApplication.translate("MainWindow", u"Wiadomo\u015b\u0107:", None))
+        self.messageInput_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
+        self.label_80.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.generateKey_pushButton.setText(QCoreApplication.translate("MainWindow", u"Generuj losowy klucz", None))
+        self.label_82.setText(QCoreApplication.translate("MainWindow", u"Algorytm HMAC:", None))
+        self.hmacAlgorithm_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"HMAC-SHA1", None))
+        self.hmacAlgorithm_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"HMAC-SHA256", None))
+        self.hmacAlgorithm_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"HMAC-SHA512", None))
+
+        self.computeHmac_pushButton.setText(QCoreApplication.translate("MainWindow", u"Generuj HMAC", None))
+        self.computedHmac_output_save.setText(QCoreApplication.translate("MainWindow", u"Zapisz", None))
+        self.label_73.setText(QCoreApplication.translate("MainWindow", u"Weryfikacja HMAC:", None))
+        self.label_81.setText(QCoreApplication.translate("MainWindow", u"Wiadomo\u015b\u0107:", None))
+        self.verifyMessageInput_input_file.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj Plik", None))
+        self.label_79.setText(QCoreApplication.translate("MainWindow", u"Klucz:", None))
+        self.label_83.setText(QCoreApplication.translate("MainWindow", u"HMAC do weryfikacji:", None))
+        self.label_84.setText(QCoreApplication.translate("MainWindow", u"Algorytm HMAC:", None))
+        self.verifyHmacAlgorithm_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"HMAC-SHA1", None))
+        self.verifyHmacAlgorithm_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"HMAC-SHA256", None))
+        self.verifyHmacAlgorithm_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"HMAC-SHA512", None))
+
+        self.verifyHmac_pushButton.setText(QCoreApplication.translate("MainWindow", u"Weryfikuj HMac", None))
+        self.label_86.setText(QCoreApplication.translate("MainWindow", u"Strumieniowanie przy pomocy Aes:", None))
+        self.label_85.setText(QCoreApplication.translate("MainWindow", u"U\u017cytkownik A:", None))
+        self.label_87.setText(QCoreApplication.translate("MainWindow", u"Wiadomo\u015b\u0107:", None))
+        self.sendButtonA.setText(QCoreApplication.translate("MainWindow", u"Wy\u015blij", None))
+        self.label_88.setText(QCoreApplication.translate("MainWindow", u"U\u017cytkownik B:", None))
+        self.label_90.setText(QCoreApplication.translate("MainWindow", u"Wiadomo\u015b\u0107:", None))
+        self.sendButtonB.setText(QCoreApplication.translate("MainWindow", u"Wy\u015blij", None))
+        self.label_91.setText(QCoreApplication.translate("MainWindow", u"Wiadomo\u015bci:", None))
     # retranslateUi
 

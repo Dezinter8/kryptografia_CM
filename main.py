@@ -2,31 +2,27 @@ import sys
 import base64
 from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QFileDialog
 from Ui.MainWindow import Ui_MainWindow
-from encryptions.vigener import Vigener
-from encryptions.transposition import Transposition
-from encryptions.des import Des
-from encryptions.aes import Aes
-from encryptions.diffieHellman import DiffieHellman
-from encryptions.rsa import Rsa
-from encryptions.signatures.generateSignatureWithKeys import generateSignaruteWithKeys
-from encryptions.signatures.signDocument import signDocument
-from encryptions.signatures.verify import verifySignature
+from encryptions import vigener, transposition, diffieHellman, des, aes, rsa, hmac
+from encryptions.signatures import generateSignatureWithKeys, signDocument, verify
 from network import Network
+from dataStream import DataStream
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.vigener = Vigener(self)
-        self.transposition = Transposition(self)
-        self.des = Des(self)
+        self.vigener = vigener.Vigener(self)
+        self.transposition = transposition.Transposition(self)
+        self.des = des.Des(self)
         self.network = Network(self)
-        self.aes = Aes(self)
-        self.diffieHellman = DiffieHellman(self)
-        self.rsa = Rsa(self)
-        self.generateSignaruteWithKeys = generateSignaruteWithKeys(self)
-        self.signDocument = signDocument(self)
-        self.verifySignature = verifySignature(self)
+        self.aes = aes.Aes(self)
+        self.diffieHellman = diffieHellman.DiffieHellman(self)
+        self.rsa = rsa.Rsa(self)
+        self.generateSignaruteWithKeys = generateSignatureWithKeys.generateSignatureWithKeys(self)
+        self.signDocument = signDocument.signDocument(self)
+        self.verifySignature = verify.verifySignature(self)
+        self.hmac = hmac.Hmac(self)
+        self.dataStream = DataStream(self)
 
         self.podstawieniowy_pushButton.clicked.connect(lambda: self.switch_main_page(0))
         self.transpozycyjny_pushButton.clicked.connect(lambda: self.switch_main_page(1))
@@ -38,6 +34,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.generateSignature_pushButton.clicked.connect(lambda: self.switch_main_page(7))
         self.signDocumen_pushButton.clicked.connect(lambda: self.switch_main_page(8))
         self.verifySignature_pushButton.clicked.connect(lambda: self.switch_main_page(9))
+        self.hmac_pushButton.clicked.connect(lambda: self.switch_main_page(10))
+        self.dataStream_pushButton.clicked.connect(lambda: self.switch_main_page(11))
 
 
         # Obsługa przycisków do ładowania zawartości plików
@@ -51,6 +49,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.Aes_decode_input_file.clicked.connect(lambda: self.load_file_content(1, self.Aes_decode_input_text, 0))
         self.rsa_plainText_input_file.clicked.connect(lambda: self.load_file_content(1, self.rsa_plainText, 0))
         self.rsa_cipherText_input_file.clicked.connect(lambda: self.load_file_content(1, self.rsa_cipherText, 0))
+        self.messageInput_input_file.clicked.connect(lambda: self.load_file_content(1, self.messageInput_lineEdit, 0))
+        self.verifyMessageInput_input_file.clicked.connect(lambda: self.load_file_content(1, self.verifyMessageInput_lineEdit, 0))
 
         self.Vigener_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Vigener_decode_file_path, self.vigener))
         self.Des_decode_input_file_2.clicked.connect(lambda: self.load_file_content(2, self.Des_decode_file_path, self.des))
@@ -75,6 +75,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.Aes_decode_output_save.clicked.connect(lambda: self.save_content_to_file(1, self.Aes_decode_output))
         self.rsa_plainText_save.clicked.connect(lambda: self.save_content_to_file(1, self.rsa_plainText))
         self.rsa_cipherText_save.clicked.connect(lambda: self.save_content_to_file(1, self.rsa_cipherText))
+        self.computedHmac_output_save.clicked.connect(lambda: self.save_content_to_file(1, self.computedHmac_output))
 
 
 
