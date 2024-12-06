@@ -166,6 +166,4 @@ help
 *.autosave
 
 *.pem
-!private_key.pem
-!public_key.pem
 

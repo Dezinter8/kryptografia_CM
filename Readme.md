@@ -49,3 +49,9 @@ pyside6-uic .\Ui\networkDevicesForm.ui -o .\Ui\networkDevicesForm.py
 
 pyside6-rcc .\Ui\resources.qrc -o .\Ui\resources_rc.py
 ```
+
+# Building exe
+
+```
+pyinstaller --name Kryptografia_CM --onefile --windowed main.py
+```
